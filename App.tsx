@@ -2,8 +2,11 @@
 import { ThemeProvider, useTheme } from 'styled-components';
 import { useFonts, Poppins_400Regular, Poppins_700Bold  } from '@expo-google-fonts/poppins';
 import theme from './src/theme'
-import { Groups } from '@screens/Groups'
-import { ActivityIndicator , StatusBar} from 'react-native';
+
+import { ActivityIndicator , StatusBar, } from 'react-native';
+import { Loading } from '@components/Loading';
+//    {fontsLoaded ? <Routes /> : <Loading /> }
+import { Routes } from './src/routes';
 
 export default function App() {
   const [fontsLoaded] = useFonts({ Poppins_400Regular,Poppins_700Bold });
@@ -14,7 +17,8 @@ export default function App() {
       barStyle = "dark-content"
       backgroundColor={"transparent"}
       translucent/>
-    {fontsLoaded? <Groups/>: <ActivityIndicator/>}
+
+    {fontsLoaded? <Routes/>: <ActivityIndicator/>}
     </ThemeProvider>
   );
 }
