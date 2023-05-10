@@ -14,7 +14,6 @@ export const ContainerBody = styled.View`
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin-bottom: 17px;
 `;
 
 export const Carousel = styled.ScrollView`
@@ -56,6 +55,10 @@ export const imgPerfil = styled.Image`
 
 `;
 
+export const imgDetail = styled.Image`
+  position: absolute;
+`;
+
 export const Text = styled.Text`
   color: ${({ theme }) => theme.COLORS.WHITE};
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
@@ -87,7 +90,7 @@ export const btnBody = styled.TouchableOpacity`
   width: 90%;
   height: 15%;
   border-radius: 10px;
-  margin-top: 5%;
+  margin: 3%;
   display: flex;
   flex-direction: row;
 `;

@@ -1,13 +1,17 @@
 
 import * as S from './styles';
 import { NavBar } from '@components/NavBar';
+import { BtnHelp } from '@components/BtnHelp';
 import FotoPerfil from '@assets/FotoPerfil.png'
+import Detalhe1 from '@assets/Detail1.png'
 import { SimpleLineIcons, Octicons, AntDesign } from '@expo/vector-icons'
 export function Perfil() {
 
   return (
 
     <S.Container>
+      {/* Falta apresentar na tela */}
+      {/*   <S.imgDetail source={Detalhe1} />ntar na tela */}
 
       {/* Header */}
       <S.Header>
@@ -84,7 +88,7 @@ export function Perfil() {
           </S.textBody>
         </S.btnBody>
 
-
+        <BtnHelp />
       </S.ContainerBody>
 
       <NavBar />
