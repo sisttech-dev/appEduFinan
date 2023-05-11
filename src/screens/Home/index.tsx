@@ -5,6 +5,7 @@ import Header from '@assets/Header.jpg'
 import Home01 from '@assets/Home01.png'
 import Home02 from '@assets/Home02.png'
 import Home03 from '@assets/Home03.png'
+import { ScrollView, Center } from 'native-base'
 
 
 export function Home() {
@@ -24,20 +25,19 @@ export function Home() {
       </S.Header>
 
       {/* Carrosel */}
-      <S.Container>
-        <S.Text>
-          Atividades e Curiosidades
-        </S.Text>
 
-        <S.Carousel>
 
-        <S.imgHome source={Home01} />
-        <S.imgHome source={Home02} />
-        <S.imgHome source={Home03} />
+      <Center>
+        <ScrollView w={"300"} h={"500"}>
 
-        </S.Carousel>
+          <S.imgHome source={Home01} />
+          <S.imgHome source={Home02} />
+          <S.imgHome source={Home03} />
 
-      </S.Container>
+        </ScrollView>
+      </Center>
+
+
 
       <NavBar />
     </S.Container>

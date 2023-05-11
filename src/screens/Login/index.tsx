@@ -5,9 +5,7 @@ import logoImg from '@assets/LogoSis.png'
 import pigImg from '@assets/loginPig.jpg'
 import { useState } from 'react';
 
-export function Login() {
-    const [isLoading, setIsLoading] = useState(true);
-   
+export function Login() {  
 
     return (
         //Login

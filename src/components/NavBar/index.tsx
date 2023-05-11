@@ -1,6 +1,5 @@
 import {} from 'react-native'
 import * as S from './style'
-import React from 'react'
 import { Ionicons, FontAwesome } from '@expo/vector-icons'
 
 export function NavBar() {

@@ -1,9 +1,9 @@
-import { Container, LoadIndicator } from './styles';
+import { Spinner, Center } from 'native-base'
 
 export function Loading() {
   return (
-    <Container>
-      <LoadIndicator />
-    </Container>
+    <Center flex ={1} bg="COLORS.RED">
+   <Spinner color={"#fff"}/>
+    </Center>
   );
 }

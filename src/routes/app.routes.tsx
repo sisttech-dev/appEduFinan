@@ -5,35 +5,47 @@ import { Home } from '@screens/Home';
 import { Perfil } from '@screens/Perfil';
 import { Conquistas } from '@screens/Conquistas';
 import { Personalizar } from '@screens/Personalizar';
+import { rodaDaVida } from '@screens/RodaDaVida';
+import { Secoes } from '@screens/Secoes';
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
-export function AppRoutes(){
+export function AppRoutes() {
 
-  return(
+  return (
     <Navigator screenOptions={{ headerShown: false }}>
 
 
-  
-      <Screen 
-        name="personalizar"
-        component={Personalizar}
-      />
-      <Screen 
-        name="perfil"
-        component={Perfil}
-      />
 
-      <Screen 
-        name="conquistas"
-        component={Conquistas}
-      />
-      
-      <Screen 
+      <Screen
         name="home"
         component={Home}
       />
-      <Screen 
+      <Screen
+        name="secoes"
+        component={Secoes}
+      />
+      
+      <Screen
+        name="rodaDaVida"
+        component={rodaDaVida}
+      />
+      <Screen
+        name="conquistas"
+        component={Conquistas}
+      />
+
+      <Screen
+        name="perfil"
+        component={Perfil}
+      />
+      <Screen
+        name="personalizar"
+        component={Personalizar}
+      />
+
+
+      <Screen
         name="login"
         component={Login}
       />

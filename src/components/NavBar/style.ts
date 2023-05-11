@@ -4,13 +4,13 @@ import styled from 'styled-components/native';
 
 
 export const Container = styled.View`
-  flex-direction: row;
   background-color: ${({ theme }) => theme.COLORS.WHITE};
+  flex-direction: row;
   width: 100%;
   height: 60px;
-  align-items: center;
   justify-content: space-between;
-
+  position: absolute;
+  bottom: 0px;
 `;
 
 export const ContainerInside = styled(TouchableOpacity) `
