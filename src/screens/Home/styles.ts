@@ -9,21 +9,20 @@ export const Container = styled.View`
 
 export const Header = styled.View`
   align-items: center;
+  justify-content: space-evenly;
   flex-direction: row;
+  display: flex;
   width: 100%;
-  height: 250px;
+  height: 170px;
   background-color: ${({ theme }) => theme.COLORS.RED};
-  position: fixed;
-  
+
 `;
 
 export const Img = styled.Image`
-  align-items: center;
-  justify-content: center;
-  width: 50%;
-  height: 50%;
-
+width: 50%;
+height: 170px;
 `;
+
 export const imgHome = styled.Image`
   width: 250px;
   height: 220px;
@@ -45,9 +44,9 @@ export const Text = styled.Text`
 export const TextHeader = styled.Text`
   color: ${({ theme }) => theme.COLORS.WHITE};
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  font-size: ${({ theme }) => theme.FONT_SIZE.XL};
-  margin: 1%;
-  display: inline-block;
+  font-size: ${({ theme }) => theme.FONT_SIZE.XXL};
+  width: 50%;
+  text-align:center;
   
   
 `;

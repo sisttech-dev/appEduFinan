@@ -6,7 +6,7 @@ import Home01 from '@assets/Home01.png'
 import Home02 from '@assets/Home02.png'
 import Home03 from '@assets/Home03.png'
 import { ScrollView, Center } from 'native-base'
-
+import {Alert, FlatList} from 'react-native'
 
 export function Home() {
 
@@ -18,7 +18,7 @@ export function Home() {
       <S.Header>
         <S.TextHeader>
           Vamos
-          Aprender
+          Aprender!
         </S.TextHeader>
 
         <S.Img source={Header} />
@@ -27,15 +27,20 @@ export function Home() {
       {/* Carrosel */}
 
 
-      <Center>
-        <ScrollView w={"300"} h={"500"}>
-
-          <S.imgHome source={Home01} />
-          <S.imgHome source={Home02} />
-          <S.imgHome source={Home03} />
-
-        </ScrollView>
-      </Center>
+      <FlatList
+        data={[
+          { image: Home01, key: 0 },
+          { image: Home02, key: 1 },
+          { image: Home03, key: 2 }
+        ]}
+        renderItem={({ item, index }) => (
+          <S.imgHome source={item.image} key={item.key} />
+        )}
+        horizontal={true}
+        onEndReached={() => {
+          
+        }}
+      />
 
 
 

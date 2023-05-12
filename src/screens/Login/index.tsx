@@ -5,7 +5,12 @@ import logoImg from '@assets/LogoSis.png'
 import pigImg from '@assets/loginPig.jpg'
 import { useState } from 'react';
 
-export function Login() {  
+export function Login(props) {  
+    const navigation = useNavigation();
+
+    function handleHome(){
+      navigation.navigate('home');
+    }
 
     return (
         //Login
@@ -30,7 +35,8 @@ export function Login() {
                     Me cadastrar
                 </S.TextSub>
                 <Button
-                    title='Entrar'                 
+                    title='Entrar'
+                    onPress={handleHome}                 
                 />
             </S.Container>
 

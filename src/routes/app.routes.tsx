@@ -18,6 +18,10 @@ export function AppRoutes() {
 
 
       <Screen
+        name="login"
+        component={Login}
+      />
+      <Screen
         name="home"
         component={Home}
       />
@@ -25,7 +29,6 @@ export function AppRoutes() {
         name="secoes"
         component={Secoes}
       />
-      
       <Screen
         name="rodaDaVida"
         component={rodaDaVida}
@@ -45,10 +48,6 @@ export function AppRoutes() {
       />
 
 
-      <Screen
-        name="login"
-        component={Login}
-      />
 
     </Navigator>
   );
