@@ -7,6 +7,7 @@ import { Conquistas } from '@screens/Conquistas';
 import { Personalizar } from '@screens/Personalizar';
 import { rodaDaVida } from '@screens/RodaDaVida';
 import { Secoes } from '@screens/Secoes';
+import { mapaMental } from '@screens/MapaMental';
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
@@ -16,14 +17,18 @@ export function AppRoutes() {
     <Navigator screenOptions={{ headerShown: false }}>
 
 
-
       <Screen
-        name="login"
-        component={Login}
+        name="mapaMental"
+        component={mapaMental}
       />
       <Screen
         name="home"
         component={Home}
+      />
+
+      <Screen
+        name="login"
+        component={Login}
       />
       <Screen
         name="secoes"
@@ -37,7 +42,6 @@ export function AppRoutes() {
         name="conquistas"
         component={Conquistas}
       />
-
       <Screen
         name="perfil"
         component={Perfil}

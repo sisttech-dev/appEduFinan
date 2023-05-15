@@ -35,8 +35,9 @@ export function rodaDaVida() {
                     theme={VictoryTheme.material}
                     standalone={false}
                 />
-
             </S.RodaVida>
+
+            <S.Btn/>
 
 
 

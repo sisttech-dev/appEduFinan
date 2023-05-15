@@ -24,10 +24,11 @@ export const Header = styled.View`
 `;
 
 export const Img = styled.Image`
-  align-items: center;
-  justify-content: center;
-  width: 50%;
-  height: 100%;
+background-color: ${({ theme }) => theme.COLORS.RED};
+flex: 1;
+align-items: center;
+justify-content: center;
+  
 `;
 
 export const Text = styled.Text`
@@ -43,7 +44,7 @@ export const TextHeader = styled.Text`
   font-size: ${({ theme }) => theme.FONT_SIZE.XL};
 `;
 
-export const ButtonHome = styled.TouchableOpacity`
+export const Btn = styled.TouchableOpacity`
 background-color: ${({ theme }) => theme.COLORS.BLACK};
   align-items: center;
   justify-content: center;
