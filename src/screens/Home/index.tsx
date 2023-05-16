@@ -2,19 +2,21 @@
 import * as S from './styles';
 import { NavBar } from '@components/NavBar';
 import Header from '@assets/Header.jpg'
-import Home01 from '@assets/Home01.png'
-import Home02 from '@assets/Home02.png'
-import Home03 from '@assets/Home03.png'
+import Home01 from '@assets/HomeLivro.png'
+import Home02 from '@assets/RodaVidaPig.png'
+import Home03 from '@assets/MMental.png'
 import { Alert, FlatList, TouchableOpacity } from 'react-native'
 import { Title } from './../../components/Button/styles';
 import { useNavigation } from '@react-navigation/native'
 
 export function Home(props) {
 
-  function handlePress(){
-    const navigation = useNavigation();
-    navigation.navigate('rodaDaVida');
-  }
+  const navigation = useNavigation();
+
+  const handlePress = (item) => {
+    navigation.navigate('Item', { item });
+  };
+
   return (
 
     <S.Container>
@@ -32,7 +34,8 @@ export function Home(props) {
 
       {/* Body */}
       <S.Body>
-    <S.Text>Atividades e curiosidades</S.Text>
+        <S.Text>Atividades e curiosidades</S.Text>
+
         <S.FlatList
           data={[
             { image: Home01, key: 0 },
@@ -40,17 +43,16 @@ export function Home(props) {
             { image: Home03, key: 2 }
           ]}
           renderItem={({ item, index }) => (
-            <TouchableOpacity onPress={handlePress}>
-            <S.imgBody source={item.image} key={item.key} />
-            </TouchableOpacity>
+            <S.btnHome onPress={()=> handlePress(item)}>
+              <S.imgBody source={item.image} key={item.key} />
+            </S.btnHome>
           )}
           horizontal={true}
-          
+
         />
       </S.Body>
 
-      <NavBar />
+     <NavBar/>
     </S.Container>
   )
 }
-   

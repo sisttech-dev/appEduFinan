@@ -10,7 +10,7 @@ import { useNavigation } from '@react-navigation/native'
 import { SimpleLineIcons, Ionicons } from '@expo/vector-icons'
 import { BtnHelp } from '@components/BtnHelp';
 
-export function mapaMental(props) {
+export function MapaMental(props) {
 
   const navigation = useNavigation();
 

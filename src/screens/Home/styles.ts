@@ -28,8 +28,8 @@ export const Img = styled.Image`
 `;
 
 export const imgBody = styled.Image`
-  width: 250px;
-  height: 220px;
+  width: 190px;
+  height: 225px;
   margin:5px;
 `;
 
@@ -52,5 +52,15 @@ export const Text = styled.Text`
 
 export const FlatList = styled.FlatList`
   background-color: ${({ theme }) => theme.COLORS.WHITE};
+`;
+
+export const btnHome = styled.TouchableOpacity`
+  background-color: ${({ theme }) => theme.COLORS.RED};
+  justify-content: center;
+  align-items: center;
+  width: 260px;
+  height: 260px;
+  margin: 10px;
+  border-radius: 50px;
 `;
 

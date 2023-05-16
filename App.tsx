@@ -7,13 +7,15 @@ import { ActivityIndicator, StatusBar, } from 'react-native';
 import { Loading } from '@components/Loading';
 //    {fontsLoaded ? <Routes /> : <Loading /> }
 import { Routes } from './src/routes';
-import { NativeBaseProvider } from 'native-base';
+
+import Navigation from './src/Navigation';
 
 export default function App() {
   const [fontsLoaded] = useFonts({ Poppins_400Regular, Poppins_700Bold });
 
   return (
-    <NativeBaseProvider>
+    
+      
       <ThemeProvider theme={THEME}>
         <StatusBar
           barStyle="dark-content"
@@ -22,7 +24,7 @@ export default function App() {
 
         {fontsLoaded ? <Routes /> : <ActivityIndicator />}
       </ThemeProvider>
-    </NativeBaseProvider>
+    
   );
 }
 

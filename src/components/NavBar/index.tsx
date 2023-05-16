@@ -1,8 +1,9 @@
 import {} from 'react-native'
 import * as S from './style'
 import { Ionicons, FontAwesome } from '@expo/vector-icons'
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation, NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Routes } from 'src/routes';
 const Tab = createBottomTabNavigator();
 
 export function NavBar(props) {

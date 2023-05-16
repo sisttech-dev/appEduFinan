@@ -5,9 +5,10 @@ import { Home } from '@screens/Home';
 import { Perfil } from '@screens/Perfil';
 import { Conquistas } from '@screens/Conquistas';
 import { Personalizar } from '@screens/Personalizar';
-import { rodaDaVida } from '@screens/RodaDaVida';
+import { RodaDaVida } from '@screens/RodaDaVida';
 import { Secoes } from '@screens/Secoes';
-import { mapaMental } from '@screens/MapaMental';
+import { MapaMental } from '@screens/MapaMental';
+import { Wallet } from '@screens/Wallet';
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
@@ -18,8 +19,16 @@ export function AppRoutes() {
 
 
       <Screen
+        name="login"
+        component={Login}
+      />
+      <Screen
+        name="wallet"
+        component={Wallet}
+      />
+      <Screen
         name="mapaMental"
-        component={mapaMental}
+        component={MapaMental}
       />
       <Screen
         name="home"
@@ -27,16 +36,12 @@ export function AppRoutes() {
       />
 
       <Screen
-        name="login"
-        component={Login}
-      />
-      <Screen
         name="secoes"
         component={Secoes}
       />
       <Screen
         name="rodaDaVida"
-        component={rodaDaVida}
+        component={RodaDaVida}
       />
       <Screen
         name="conquistas"

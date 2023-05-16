@@ -4,7 +4,7 @@ import { NavBar } from '@components/NavBar';
 import { VictoryPolarAxis, VictoryTheme } from 'victory-native'
 
 
-export function rodaDaVida() {
+export function RodaDaVida() {
 
     return (
 
