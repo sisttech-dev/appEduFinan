@@ -10,6 +10,11 @@ export declare global {
         rodaDaVida: undefined;
         secoes: undefined;
         wallet: undefined;
+        relacionamento: undefined;
+        pessoal: undefined;
+        profissional: undefined;
+        qDeVida: undefined;
+        emocoes: undefined;
       }
     }
   }

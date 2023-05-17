@@ -6,14 +6,16 @@ export const Container = styled.View`
   align-items: center;
   justify-content: center;
 `;
+
 export const ContainerBody = styled.View`
   flex: 1;
   background-color: ${({ theme }) => theme.COLORS.WHITE};
   align-items: center;
-  justify-content: center;
+  justify-content: baseline;
   width: 100%;
   display: flex;
   flex-direction: column;
+  margin-top: 10%;
 `;
 
 export const Carousel = styled.ScrollView`
@@ -72,7 +74,7 @@ export const Text = styled.Text`
 
 export const textBody = styled.Text`
   color: ${({ theme }) => theme.COLORS.WHITE};
-  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
+  font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
   font-size: ${({ theme }) => theme.FONT_SIZE.XL};
   justify-content: center;
   align-content: center;
@@ -80,6 +82,7 @@ export const textBody = styled.Text`
   position: relative;
   margin:10px;
 `;
+
 export const btnBody = styled.TouchableOpacity`
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
   font-size: ${({ theme }) => theme.FONT_SIZE.LG};
@@ -88,11 +91,12 @@ export const btnBody = styled.TouchableOpacity`
   align-items: center;
   position: relative;
   width: 90%;
-  height: 15%;
+  height: 13%;
   border-radius: 10px;
-  margin: 3%;
+  margin: 3.5%;
   display: flex;
   flex-direction: row;
+  
 `;
 
 export const secTextHeader = styled.Text`

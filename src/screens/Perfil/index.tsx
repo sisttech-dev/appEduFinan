@@ -5,7 +5,25 @@ import { BtnHelp } from '@components/BtnHelp';
 import FotoPerfil from '@assets/FotoPerfil.png'
 import Detalhe1 from '@assets/Detail1.png'
 import { SimpleLineIcons, Octicons, AntDesign } from '@expo/vector-icons'
+import { useNavigation } from '@react-navigation/native';
+
+
 export function Perfil() {
+
+  const navigation = useNavigation();
+
+  function handleWallet() {
+    navigation.navigate('wallet');
+  }
+  function handleConquista() {
+    navigation.navigate('conquistas');
+  }
+  function handlePerso() {
+    navigation.navigate('personalizar');
+  }
+  function handleRoda(){
+    navigation.navigate('rodaDaVida');
+  }
 
   return (
 
@@ -26,14 +44,14 @@ export function Perfil() {
         </S.secTextHeader>
 
 
-        <S.BtnWallet>
+        <S.BtnWallet onPress={handleWallet}>
           <S.Text>
             R$ 50,00
           </S.Text>
         </S.BtnWallet>
       </S.Header>
 
-      <S.BtnWheel>
+      <S.BtnWheel onPress={handleRoda}>
         <S.Text>
           Roda da vida
         </S.Text>
@@ -42,11 +60,11 @@ export function Perfil() {
       {/* botoes */}
       <S.ContainerBody>
 
-        <S.btnBody>
+        <S.btnBody onPress={handleConquista}>
           <SimpleLineIcons
             name='trophy'
             color={"#ffff"}
-            size={50}
+            size={40}
           />
           <S.textBody>
           </S.textBody>
@@ -55,7 +73,7 @@ export function Perfil() {
           </S.textBody>
         </S.btnBody>
 
-        <S.btnBody>
+        <S.btnBody  onPress={handlePerso}>
           <Octicons
             name='paintbrush'
             color={"#ffff"}
