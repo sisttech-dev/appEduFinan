@@ -23,8 +23,8 @@ export const Header = styled.View`
 
 export const Text = styled.Text`
   color: ${({ theme }) => theme.COLORS.BLACK};
-  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  font-size: ${({ theme }) => theme.FONT_SIZE.LG};
+  font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
+  font-size: ${({ theme }) => theme.FONT_SIZE.MD};
   text-align: center;
 `;
 
@@ -37,6 +37,7 @@ export const TextHeader = styled.Text`
 export const Items = styled.View`
   flex: 1;
   width: 100%;
+  position: relative;
   align-items: center;
   justify-content: center;
 `;
@@ -56,8 +57,8 @@ export const Profissional = styled.TouchableOpacity`
 `;
 export const Pessoal = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.COLORS.RED};
-  width: 100px;
-  height: 100px;
+  width: 160px;
+  height: 160px;
   border-radius: 80px;
   position: absolute;
   align-items: center;
@@ -70,8 +71,8 @@ export const Pessoal = styled.TouchableOpacity`
 
 export const QDeVida = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.COLORS.RED};
-  width: 100px;
-  height: 100px;
+  width: 110px;
+  height: 110px;
   border-radius: 80px;
   position: absolute;
   top: 50px;
@@ -82,8 +83,8 @@ export const QDeVida = styled.TouchableOpacity`
 
 export const Relacionamento = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.COLORS.RED};
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   border-radius: 80px;
   position: absolute;
   top: 50px;

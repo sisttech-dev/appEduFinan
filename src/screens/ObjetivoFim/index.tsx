@@ -1,8 +1,10 @@
 
+import { ScrollView } from 'react-native';
 import * as S from './styles';
-import emocoes from '@assets/Emocoes.png'
+import imgObjFim from '@assets/imgObjFim.png'
+import  React  from 'react';
 
-export function Emocoes() {
+export function ObjetivoFim() {
 
     return (
 
@@ -10,14 +12,21 @@ export function Emocoes() {
 
             {/* Header */}
             <S.Header>
+                <S.Img source={imgObjFim} />
+
                 <S.TextHeader>
-                    Como estão suas emoções antes de realizar a tarefa?
+                   objetivo concluído
                 </S.TextHeader>
-                <S.Img source={emocoes} />
+                
             </S.Header>
 
+
             {/* Emoçoes */}
-            <S.Emocao>
+            <S.Emocao centerContent={false}>
+            <S.TextEmocoes>
+                descreva seus sentimentos após a conclusão do objetivo
+            </S.TextEmocoes>
+                <S.Botoes>
                 <S.btnBody>
                     <S.btnAdd>
                         <S.Text>
@@ -113,14 +122,14 @@ export function Emocoes() {
                         </S.Text>
                     </S.btnAdd>
                 </S.btnBody>
-
+                </S.Botoes>
             </S.Emocao>
-            
             <S.btnProx>
                 <S.Text>
-                    Proximo
+                    Continuar
                 </S.Text>
             </S.btnProx>
+
 
         </S.Container>
     )

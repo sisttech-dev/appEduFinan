@@ -14,6 +14,8 @@ import { QDeVida } from '@screens/QDeVida';
 import { Pessoal } from '@screens/Pessoal';
 import { Relacionamento } from '@screens/Relacionamento';
 import { Emocoes } from '@screens/Emocoes';
+import { MeCuidar } from '@screens/MeCuidar';
+import { ObjetivoFim } from '@screens/ObjetivoFim';
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
@@ -22,6 +24,14 @@ export function AppRoutes() {
   return (
     <Navigator screenOptions={{ headerShown: false }}>
 
+      <Screen
+        name="objetivoFim"
+        component={ObjetivoFim}
+      />
+      <Screen
+        name="meCuidar"
+        component={MeCuidar}
+      />
       <Screen
         name="login"
         component={Login}

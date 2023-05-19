@@ -5,7 +5,9 @@ import { Center } from 'native-base';
 
 export const Container = styled.View`
   flex: 1;
-  background-color: ${({ theme }) => theme.COLORS.WHITE};
+  background-color: ${({ theme }) => theme.COLORS.RED};
+  justify-content: baseline;
+  align-items: center;
 `;
 
 export const btnBody = styled.View`
@@ -14,20 +16,13 @@ export const btnBody = styled.View`
   right: 0;
 `;
 
-  export const Items = styled.View`
+export const Items = styled.View`
     flex: 1;
     width: 100%;
     align-items: center;
     justify-content: center;
 `;
 
-export const Header = styled.View`
-  background-color: ${({ theme }) => theme.COLORS.RED};
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100px;
-`;
 
 export const Text = styled.Text`
   color: ${({ theme }) => theme.COLORS.BLACK};
@@ -40,6 +35,8 @@ export const TextHeader = styled.Text`
   color: ${({ theme }) => theme.COLORS.WHITE};
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
   font-size: ${({ theme }) => theme.FONT_SIZE.XL};
+  margin: 10%;
+
 `;
 
 export const btnAdd = styled.TouchableOpacity`

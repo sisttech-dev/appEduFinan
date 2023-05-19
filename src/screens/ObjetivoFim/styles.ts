@@ -5,40 +5,59 @@ import { Center } from 'native-base';
 
 export const Container = styled.View`
   flex: 1;
-  background-color: ${({ theme }) => theme.COLORS.WHITE};
+  background-color: ${({ theme }) => theme.COLORS.RED};
   align-items: center;
 `;
 
 export const btnBody = styled.View`
-  position:relative;
+position:relative;
+align-items: center;
+justify-content: center;
+width: 30%;
+height: 30%;
+margin:5px;
 `;
 
-export const Emocao = styled.View`
+export const Emocao = styled.ScrollView`
+background-color: ${({ theme }) => theme.COLORS.WHITE};
+width: 100%;
+height: 5%;
+display: flex;
+position: relative;
+border-top-right-radius: 100px;
+border-top-left-radius: 100px;
+padding-top:15px;
 
-    width: 100%;
-    height: 50%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top:55%
+`;
+
+export const Botoes = styled.View`
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+height: 50%;
+width: 90%;
+margin-left: 4%;
+
 `;
 
 export const Header = styled.View`
   background-color: ${({ theme }) => theme.COLORS.RED};
-  align-items: center;
-  justify-content: center;
   width: 100%;
-  height: 200px;
+  display: flex;
+  position: relative;
+  flex: 1;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction:row;
 `;
 
 
 export const Img = styled.Image`
-  width: 220px;
-  height: 220px;
-  margin-top: 70%;
+  position: relative;
+  width: 30%;
+  height: 175px;
 `;
 
 export const TextHeader = styled.Text`
@@ -46,9 +65,8 @@ export const TextHeader = styled.Text`
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
   font-size: ${({ theme }) => theme.FONT_SIZE.XL};
   text-align: center;
-  position: absolute;
-  top: 25%;
-  width: 90%;
+  position: relative;
+  width: 50%;
 `;
 
 export const Text = styled.Text`
@@ -58,10 +76,19 @@ export const Text = styled.Text`
   text-align: center;
   margin: 10px;
 `;
+export const TextEmocoes = styled.Text`
+  color: ${({ theme }) => theme.COLORS.BLACK};
+  font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
+  font-size: ${({ theme }) => theme.FONT_SIZE.SM};
+  text-align: center;
+  margin: 10px;
+  width: 80%;
+  padding-left: 15%;
+`;
 
 export const btnAdd = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.COLORS.BLACK};
-  width: 100px;
+  width: 100%;
   height: 35px;
   border-radius: 10px;
   align-items: center;
@@ -72,12 +99,9 @@ export const btnAdd = styled.TouchableOpacity`
 
 export const btnProx = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.COLORS.RED};
-  width: 150px;
+  width: 100%;
   height: 35px;
   border-radius: 2px;
-  align-items: center;
-  justify-content: center;
-  margin: 10px;
   position: absolute;
   bottom: 0%;
 

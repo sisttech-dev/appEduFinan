@@ -15,6 +15,8 @@ export declare global {
         profissional: undefined;
         qDeVida: undefined;
         emocoes: undefined;
+        meCuidar: undefined;
+        objetivoFim: undefined;
       }
     }
   }

@@ -5,31 +5,32 @@ import { Ionicons } from '@expo/vector-icons'
 
 
 export function Relacionamento() {
-    
+
     const navigation = useNavigation();
 
     function handleBtnAdd() {
-      navigation.navigate('emocoes');
+        navigation.navigate('emocoes');
     }
+
     return (
 
         <S.Container>
 
             {/* Header */}
-            <S.Header>
+      
                 <S.TextHeader>
                     Relacionamento
                 </S.TextHeader>
-            </S.Header>
+         
 
-                {/* Atividades que o aluno adiciona */}
+            {/* Atividades que o aluno adiciona */}
 
             <S.btnBody>
                 <S.btnAdd onPress={handleBtnAdd}>
                     <Ionicons
                         name='add'
                         color={"#ffff"}
-                        size={35}                  
+                        size={35}
                     />
                 </S.btnAdd>
             </S.btnBody>
