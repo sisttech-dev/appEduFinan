@@ -9,6 +9,25 @@ export const Container = styled.View`
   align-items: center;
 `;
 
+export const Header = styled.View`
+background-color: ${({ theme }) => theme.COLORS.RED};
+width: 100%;
+height: 45%;
+display: flex;
+position: relative;
+justify-content: space-around;
+align-items:center;
+flex-direction:row;
+`;
+
+export const Infos = styled.View`
+background-color: ${({ theme }) => theme.COLORS.RED};
+position: relative;
+justify-content: center;
+align-items: center;
+
+`;
+
 export const btnBody = styled.View`
 position:relative;
 align-items: center;
@@ -24,8 +43,8 @@ width: 100%;
 height: 5%;
 display: flex;
 position: relative;
-border-top-right-radius: 100px;
-border-top-left-radius: 100px;
+border-top-right-radius: 80px;
+border-top-left-radius: 80px;
 padding-top:15px;
 
 `;
@@ -39,34 +58,45 @@ align-items: center;
 height: 50%;
 width: 90%;
 margin-left: 4%;
-
 `;
-
-export const Header = styled.View`
-  background-color: ${({ theme }) => theme.COLORS.RED};
-  width: 100%;
-  display: flex;
-  position: relative;
-  flex: 1;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction:row;
-`;
-
 
 export const Img = styled.Image`
   position: relative;
-  width: 30%;
-  height: 175px;
+  width: 40%;
+  height: 230px;
+  margin-top: 18%;
 `;
 
 export const TextHeader = styled.Text`
   color: ${({ theme }) => theme.COLORS.WHITE};
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  font-size: ${({ theme }) => theme.FONT_SIZE.XL};
-  text-align: center;
+  font-size: ${({ theme }) => theme.FONT_SIZE.MD};
+  text-align: left;
   position: relative;
-  width: 50%;
+  width: 100%;
+  margin: 10px;
+`;
+
+export const TextRecompensa = styled.Text`
+  background-color: ${({ theme }) => theme.COLORS.WHITE};
+  color: ${({ theme }) => theme.COLORS.BLACK};
+  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
+  font-size: ${({ theme }) => theme.FONT_SIZE.MD};
+  text-align: left;
+  position: relative;
+  width: 100%;
+  margin: 10px;
+  
+`;
+
+export const TituloHeader = styled.Text`
+  color: ${({ theme }) => theme.COLORS.WHITE};
+  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
+  font-size: ${({ theme }) => theme.FONT_SIZE.LG};
+  text-align: left;
+  position: relative;
+  width: 100%;
+  margin: 5px;
 `;
 
 export const Text = styled.Text`
@@ -76,14 +106,16 @@ export const Text = styled.Text`
   text-align: center;
   margin: 10px;
 `;
+
 export const TextEmocoes = styled.Text`
   color: ${({ theme }) => theme.COLORS.BLACK};
-  font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
+  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
   font-size: ${({ theme }) => theme.FONT_SIZE.SM};
   text-align: center;
+  justify-content: center;
   margin: 10px;
-  width: 80%;
-  padding-left: 15%;
+  width: 95%;
+  
 `;
 
 export const btnAdd = styled.TouchableOpacity`
@@ -100,9 +132,7 @@ export const btnAdd = styled.TouchableOpacity`
 export const btnProx = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.COLORS.RED};
   width: 100%;
-  height: 35px;
-  border-radius: 2px;
+  height: 40px;
   position: absolute;
   bottom: 0%;
-
 `;

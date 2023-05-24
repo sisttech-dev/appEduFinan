@@ -17,6 +17,8 @@ export declare global {
         emocoes: undefined;
         meCuidar: undefined;
         objetivoFim: undefined;
+        metas: undefined;
+        objetivoDefinido: undefined;
       }
     }
   }

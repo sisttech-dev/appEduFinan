@@ -16,6 +16,8 @@ import { Relacionamento } from '@screens/Relacionamento';
 import { Emocoes } from '@screens/Emocoes';
 import { MeCuidar } from '@screens/MeCuidar';
 import { ObjetivoFim } from '@screens/ObjetivoFim';
+import { Metas } from '@screens/Metas';
+import { ObjetivoDefinido } from '@screens/ObjetivoDefinido';
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
@@ -23,6 +25,20 @@ export function AppRoutes() {
 
   return (
     <Navigator screenOptions={{ headerShown: false }}>
+
+      <Screen
+        name="objetivoDefinido"
+        component={ObjetivoDefinido}
+      />
+      <Screen
+        name="emocoes"
+        component={Emocoes}
+      />
+      <Screen
+        name="metas"
+        component={Metas}
+      />
+      
 
       <Screen
         name="objetivoFim"
@@ -35,10 +51,6 @@ export function AppRoutes() {
       <Screen
         name="login"
         component={Login}
-      />
-      <Screen
-        name="emocoes"
-        component={Emocoes}
       />
       <Screen
         name="profissional"

@@ -1,8 +1,14 @@
 
+import { useNavigation } from '@react-navigation/native';
 import * as S from './styles';
 import emocoes from '@assets/Emocoes.png'
 
 export function Emocoes() {
+    const navigation = useNavigation();
+
+    function handleBtnProx() {
+        navigation.navigate('metas');
+    }
 
     return (
 
@@ -115,8 +121,8 @@ export function Emocoes() {
                 </S.btnBody>
 
             </S.Emocao>
-            
-            <S.btnProx>
+
+            <S.btnProx onPress={handleBtnProx}>
                 <S.Text>
                     Proximo
                 </S.Text>
