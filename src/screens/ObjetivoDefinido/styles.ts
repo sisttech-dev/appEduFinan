@@ -12,7 +12,7 @@ export const Header = styled.View`
   width: 100%;
   height: 45%;
   position: relative;
-  justify-content: space-around;
+  justify-content: baseline;
   align-items:center;
 
 `;
@@ -53,10 +53,10 @@ export const Emocao = styled.View`
 `;
 
 export const Img = styled.Image`
-  position: relative;
-  width: 40%;
-  height: 230px;
-  margin-top: 18%;
+  position: absolute;
+  width: 68%;
+  height: 260px;
+  top: -180px;
 `;
 
 export const TituloHeader = styled.Text`
@@ -66,22 +66,30 @@ export const TituloHeader = styled.Text`
   text-align: center;
   position: relative;
   width: 100%;
-  margin-top: 55px;
+  margin-top: 50px;
 `;
 
 export const Text = styled.Text`
   color: ${({ theme }) => theme.COLORS.BLACK};
-  font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
-  font-size: ${({ theme }) => theme.FONT_SIZE.SM};
+  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
+  font-size: ${({ theme }) => theme.FONT_SIZE.MD};
   text-align: left;
   margin: 10px;
 `;
 
+export const btnText = styled.Text`
+  color: ${({ theme }) => theme.COLORS.WHITE};
+  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
+  font-size: ${({ theme }) => theme.FONT_SIZE.LG};
+  text-align: center;
+  justify-content: center;
+  margin: 10px;
+`;
 
 export const btnProx = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.COLORS.RED};
   width: 100%;
-  height: 40px;
+  height: 65px;
   position: absolute;
   bottom: 0%;
 `;

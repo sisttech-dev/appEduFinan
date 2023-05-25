@@ -17,7 +17,7 @@ export function Emocoes() {
             {/* Header */}
             <S.Header>
                 <S.TextHeader>
-                    Como estão suas emoções antes de realizar a tarefa?
+                    Como estão suas emoções antes de começar o objetivo?
                 </S.TextHeader>
                 <S.Img source={emocoes} />
             </S.Header>
@@ -123,9 +123,9 @@ export function Emocoes() {
             </S.Emocao>
 
             <S.btnProx onPress={handleBtnProx}>
-                <S.Text>
+                <S.proxText>
                     Proximo
-                </S.Text>
+                </S.proxText>
             </S.btnProx>
 
         </S.Container>

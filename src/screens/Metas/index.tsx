@@ -1,9 +1,8 @@
 
 import { useNavigation } from '@react-navigation/native';
 import * as S from './styles';
-import { Ionicons } from '@expo/vector-icons'
 import React from 'react';
-
+import DetalhesObj from '@assets/DetalhesObj.png'
 
 export function Metas() {
 
@@ -26,12 +25,13 @@ export function Metas() {
 
             {/* Body */}
             <S.Objetivo>
-
+            <S.Img source={DetalhesObj} />
                 <S.Input placeholder='Objetivo: ' />
                 <S.Input placeholder='Valor: ' keyboardType='numeric' />
                 <S.Input placeholder='Prazo : ' keyboardType='numbers-and-punctuation' />
                 {/* um CheckBox aqui, validando se o objetivo não envolve dinheiro */}
             </S.Objetivo>
+                <S.Text>Objetivo não envolve dinheiro</S.Text>
 
             {/* btn Continuar */}
             <S.btnBody>

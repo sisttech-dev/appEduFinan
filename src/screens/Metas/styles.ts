@@ -40,7 +40,7 @@ export const Text = styled.Text`
 export const TextHeader = styled.Text`
   color: ${({ theme }) => theme.COLORS.WHITE};
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  font-size: ${({ theme }) => theme.FONT_SIZE.XL};
+  font-size: ${({ theme }) => theme.FONT_SIZE.XXL};
   margin: 10%;
 
 `;
@@ -67,4 +67,11 @@ export const Input = styled.TextInput`
  border: 1px solid #fff;
  border-bottom-color: #000;
  margin-bottom: 5px;
+`;
+
+export const Img = styled.Image`
+  position: absolute;
+  width: 101%;
+  height: 378px;
+top: -50px;
 `;

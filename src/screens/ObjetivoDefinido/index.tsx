@@ -1,7 +1,8 @@
 
 import { ScrollView } from 'react-native';
 import * as S from './styles';
-import imgObjFim from '@assets/imgObjFim.png'
+import objDefinido from '@assets/objDefinido.png'
+
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { Objetivo } from './../Metas/styles';
@@ -24,12 +25,13 @@ export function ObjetivoDefinido() {
                 <S.TituloHeader>
                     Objetivo Definido!
                 </S.TituloHeader>
-                <S.Img source={imgObjFim} />
             </S.Header>
 
 
             {/* Nomes definidos antes, em metas */}
             <S.Emocao >
+                <S.Img source={objDefinido} />
+                
 
                 <S.Objetivo>
                     <S.objetivoBody>
@@ -54,9 +56,9 @@ export function ObjetivoDefinido() {
             </S.Emocao>
 
             <S.btnProx onPress={handleProx}>
-                <S.Text>
+                <S.btnText>
                     Continuar
-                </S.Text>
+                </S.btnText>
             </S.btnProx>
 
         </S.Container>

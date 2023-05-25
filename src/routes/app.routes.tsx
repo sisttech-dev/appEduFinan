@@ -18,6 +18,12 @@ import { MeCuidar } from '@screens/MeCuidar';
 import { ObjetivoFim } from '@screens/ObjetivoFim';
 import { Metas } from '@screens/Metas';
 import { ObjetivoDefinido } from '@screens/ObjetivoDefinido';
+import { RAmoroso } from '@screens/RAmoroso';
+import { Familia } from '@screens/Familia';
+import { VidaSocial } from '@screens/VidaSocial';
+import { Intelectual } from '@screens/Intelectual';
+import { ConSocial } from '@screens/ConSocial';
+
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
@@ -25,6 +31,68 @@ export function AppRoutes() {
 
   return (
     <Navigator screenOptions={{ headerShown: false }}>
+
+      <Screen
+        name="secoes"
+        component={Secoes}
+      />
+
+      <Screen
+        name="profissional"
+        component={Profissional}
+      />
+      <Screen
+        name="social"
+        component={ConSocial}
+      />
+      <Screen
+        name="financeiro"
+        component={Profissional}
+      />
+      <Screen
+        name="realizacao"
+        component={Profissional}
+      />
+
+      <Screen
+        name="pessoal"
+        component={Pessoal}
+      />
+      <Screen
+        name="intelectual"
+        component={Intelectual}
+      />
+      <Screen
+        name="saude"
+        component={Relacionamento}
+      />
+      <Screen
+        name="emocional"
+        component={Relacionamento}
+      />
+
+      <Screen
+        name="qDeVida"
+        component={QDeVida}
+      />
+
+      <Screen
+        name="relacionamento"
+        component={Relacionamento}
+      />
+      <Screen
+        name="rAmoroso"
+        component={RAmoroso}
+      />
+      <Screen
+        name="familia"
+        component={Familia}
+      />
+      <Screen
+        name="vidaSocial"
+        component={VidaSocial}
+      />
+
 
       <Screen
         name="objetivoDefinido"
@@ -35,11 +103,13 @@ export function AppRoutes() {
         component={Emocoes}
       />
       <Screen
+        name="login"
+        component={Login}
+      />
+      <Screen
         name="metas"
         component={Metas}
       />
-      
-
       <Screen
         name="objetivoFim"
         component={ObjetivoFim}
@@ -48,30 +118,7 @@ export function AppRoutes() {
         name="meCuidar"
         component={MeCuidar}
       />
-      <Screen
-        name="login"
-        component={Login}
-      />
-      <Screen
-        name="profissional"
-        component={Profissional}
-      />
-      <Screen
-        name="relacionamento"
-        component={Relacionamento}
-      />
-      <Screen
-        name="pessoal"
-        component={Pessoal}
-      />
-      <Screen
-        name="qDeVida"
-        component={QDeVida}
-      />
-      <Screen
-        name="secoes"
-        component={Secoes}
-      />
+
       <Screen
         name="perfil"
         component={Perfil}

@@ -5,7 +5,7 @@ import { Center } from 'native-base';
 
 export const Container = styled.View`
   flex: 1;
-  background-color: ${({ theme }) => theme.COLORS.RED};
+  background-color: ${({ theme }) => theme.COLORS.WHITE};
   justify-content: baseline;
   align-items: center;
 `;
@@ -32,10 +32,11 @@ export const Text = styled.Text`
 `;
 
 export const TextHeader = styled.Text`
-  color: ${({ theme }) => theme.COLORS.WHITE};
+  color: ${({ theme }) => theme.COLORS.BLACK};
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
   font-size: ${({ theme }) => theme.FONT_SIZE.XL};
   margin: 10%;
+  text-align: center;
 
 `;
 
@@ -48,7 +49,6 @@ export const btnAdd = styled.TouchableOpacity`
   justify-content: center;
   margin: 40px;
 `;
-
 export const VidaSocial = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.COLORS.WHITE};
   width: 100px;

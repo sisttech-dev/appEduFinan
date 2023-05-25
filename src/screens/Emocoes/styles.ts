@@ -47,14 +47,22 @@ export const TextHeader = styled.Text`
   font-size: ${({ theme }) => theme.FONT_SIZE.XL};
   text-align: center;
   position: absolute;
-  top: 25%;
-  width: 90%;
+  top: 20%;
+  width: 100%;
 `;
 
 export const Text = styled.Text`
   color: ${({ theme }) => theme.COLORS.WHITE};
   font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
   font-size: ${({ theme }) => theme.FONT_SIZE.SM};
+  text-align: center;
+  margin: 10px;
+`;
+
+export const proxText = styled.Text`
+  color: ${({ theme }) => theme.COLORS.WHITE};
+  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
+  font-size: ${({ theme }) => theme.FONT_SIZE.LG};
   text-align: center;
   margin: 10px;
 `;
@@ -72,12 +80,11 @@ export const btnAdd = styled.TouchableOpacity`
 
 export const btnProx = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.COLORS.RED};
-  width: 150px;
-  height: 35px;
+  width: 100%;
+  height: 65px;
   border-radius: 2px;
   align-items: center;
   justify-content: center;
-  margin: 10px;
   position: absolute;
   bottom: 0%;
 

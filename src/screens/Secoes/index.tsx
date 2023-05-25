@@ -2,9 +2,6 @@
 import { useNavigation } from '@react-navigation/native';
 import * as S from './styles';
 
-import { Ionicons, FontAwesome } from '@expo/vector-icons'
-import FloatingComponent from './FloatingComponent';
-
 export function Secoes() {
     const navigation = useNavigation();
 
