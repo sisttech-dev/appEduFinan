@@ -17,23 +17,22 @@ export function Metas() {
         <S.Container>
 
             {/* Header */}
-
             <S.TextHeader>
                 Metas
             </S.TextHeader>
 
-
-            {/* Body */}
+            {/* Criaçao do objetivo */}
             <S.Objetivo>
-            <S.Img source={DetalhesObj} />
+                <S.Img source={DetalhesObj} />
                 <S.Input placeholder='Objetivo: ' />
                 <S.Input placeholder='Valor: ' keyboardType='numeric' />
-                <S.Input placeholder='Prazo : ' keyboardType='numbers-and-punctuation' />
-                {/* um CheckBox aqui, validando se o objetivo não envolve dinheiro */}
+                <S.Input placeholder='Prazo : ' keyboardType='numbers-and-punctuation' />  
             </S.Objetivo>
-                <S.Text>Objetivo não envolve dinheiro</S.Text>
 
-            {/* btn Continuar */}
+                {/* um CheckBox aqui, validando se o objetivo não envolve dinheiro */}
+            <S.Text>Objetivo não envolve dinheiro</S.Text>
+
+            {/* btn concluir criaçao do objetivo */}
             <S.btnBody>
                 <S.btnAdd onPress={handleDefinir}>
                     <S.Text>Definir objetivo</S.Text>

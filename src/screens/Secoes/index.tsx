@@ -6,16 +6,16 @@ export function Secoes() {
     const navigation = useNavigation();
 
     function handleRelacionamento() {
-      navigation.navigate('relacionamento');
+        navigation.navigate('relacionamento');
     }
     function handlPessoal() {
-      navigation.navigate('pessoal');
+        navigation.navigate('pessoal');
     }
     function handleProfissional() {
-      navigation.navigate('profissional');
+        navigation.navigate('profissional');
     }
     function handleQDeVida() {
-      navigation.navigate('qDeVida');
+        navigation.navigate('qDeVida');
     }
 
     return (
@@ -29,8 +29,8 @@ export function Secoes() {
                 </S.TextHeader>
             </S.Header>
 
+                {/* Seções da roda da vida */}
             <S.Items>
-                {/* Seções */}
 
                 <S.Profissional onPress={handleProfissional}>
                     <S.Text>
@@ -55,9 +55,7 @@ export function Secoes() {
                         Relacionamento
                     </S.Text>
                 </S.Relacionamento>
-
             </S.Items>
-
         </S.Container>
     )
 }

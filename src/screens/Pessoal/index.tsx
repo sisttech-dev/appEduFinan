@@ -21,13 +21,12 @@ export function Pessoal() {
         <S.Container>
 
             {/* Header */}
-
             <S.TextHeader>
                 Pessoal
             </S.TextHeader>
 
+                {/* Seções da roda da vida */}
             <S.Items>
-                {/* Seções */}
 
                 <S.Saude onPress={handleVidaSocial}>
                     <S.Text>
@@ -37,7 +36,7 @@ export function Pessoal() {
 
                 <S.Intelectual onPress={handleIntelectual}>
                     <S.Text>
-                       Intelectual
+                        Intelectual
                     </S.Text>
                 </S.Intelectual>
 
@@ -47,9 +46,7 @@ export function Pessoal() {
                     </S.Text>
                 </S.Emocional>
 
-            </S.Items>
-            {/* Atividades que o aluno adiciona */}
-
+            </S.Items> 
         </S.Container>
     )
 }

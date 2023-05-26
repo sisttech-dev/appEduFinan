@@ -43,7 +43,7 @@ export function Home(props) {
             { image: Home03, key: 2 }
           ]}
           renderItem={({ item, index }) => (
-            <S.btnHome onPress={()=> handlePress(item)}>
+            <S.btnHome onPress={() => handlePress(item)}>
               <S.imgBody source={item.image} key={item.key} />
             </S.btnHome>
           )}
@@ -52,7 +52,7 @@ export function Home(props) {
         />
       </S.Body>
 
-     <NavBar/>
+      <NavBar />
     </S.Container>
   )
 }

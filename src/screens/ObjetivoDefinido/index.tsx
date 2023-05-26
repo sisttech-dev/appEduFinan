@@ -28,10 +28,10 @@ export function ObjetivoDefinido() {
             </S.Header>
 
 
-            {/* Nomes definidos antes, em metas */}
+            {/* Nomes do objetivo definido antes, em metas */}
             <S.Emocao >
                 <S.Img source={objDefinido} />
-                
+
 
                 <S.Objetivo>
                     <S.objetivoBody>
@@ -52,7 +52,7 @@ export function ObjetivoDefinido() {
                         </S.Text>
                     </S.objetivoBody>
                 </S.Objetivo>
-                
+
             </S.Emocao>
 
             <S.btnProx onPress={handleProx}>

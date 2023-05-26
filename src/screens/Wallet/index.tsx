@@ -25,7 +25,7 @@ export function Wallet() {
             </S.Header>
 
 
-            {/* botoes */}
+            {/* valor atual da carteira */}
             <S.ContainerBody>
 
                 <S.BtnWallet>
@@ -50,27 +50,27 @@ export function Wallet() {
 
                     <S.Secao>
                         <S.TextSecao>
-                            Relações
+                            Relacionamento
                         </S.TextSecao>
                     </S.Secao>
+
                     <S.Secao>
                         <S.TextSecao>
                             Profissional
                         </S.TextSecao>
                     </S.Secao>
+
                     <S.Secao>
                         <S.TextSecao>
                             Pessoal
                         </S.TextSecao>
                     </S.Secao>
-
-
                 </S.Secoes>
 
                 <S.TextSecoes>
                     grafico
                 </S.TextSecoes>
-
+                {/* valor dos objetivos atuais da roda da vida */}
 
                 <S.BtnWallet>
                     <S.Text>

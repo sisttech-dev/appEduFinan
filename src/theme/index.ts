@@ -3,9 +3,8 @@ export default {
       WHITE: '#FFFFFF',
       BLACK: '#000000',
   
-      GREEN_700: '#00875F',
-      GREEN_500: '#00B37E',
-  
+      BLUE: '#0097DC',
+      GREEN: '#B3D236',
       RED: '#FF4673',
       RED_DARK: '#AA2834',
   

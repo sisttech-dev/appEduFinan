@@ -1,33 +1,51 @@
 
+import { useNavigation } from '@react-navigation/native';
 import * as S from './styles';
-import { Ionicons } from '@expo/vector-icons'
 
 
 export function QDeVida() {
+    const navigation = useNavigation();
 
+    function handleFamilia() {
+        navigation.navigate('familia');
+    }
+    function handleVidaSocial() {
+        navigation.navigate('vidaSocial');
+    }
+    function handleIntelectual() {
+        navigation.navigate('intelectual');
+    }
     return (
 
         <S.Container>
 
             {/* Header */}
-            <S.Header>
-                <S.TextHeader>
-                    QDeVida
-                </S.TextHeader>
-            </S.Header>
+            <S.TextHeader>
+                Qualidade de Vida
+            </S.TextHeader>
 
-                {/* Atividades que o aluno adiciona */}
+                {/* Seções da roda da vida */}
+            <S.Items>
 
-            <S.btnBody>
-                <S.btnAdd >
-                    <Ionicons
-                        name='add'
-                        color={"#ffff"}
-                        size={35}                  
-                    />
-                </S.btnAdd>
-            </S.btnBody>
+                <S.Hobbies onPress={handleVidaSocial}>
+                    <S.Text>
+                        Hobbies
+                    </S.Text>
+                </S.Hobbies>
 
+                <S.Felicidade onPress={handleIntelectual}>
+                    <S.Text>
+                        Felicidade 
+                    </S.Text>
+                </S.Felicidade>
+
+                <S.Espiritualidade onPress={handleFamilia}>
+                    <S.Text>
+                        Espiritualidade
+                    </S.Text>
+                </S.Espiritualidade>
+
+            </S.Items> 
         </S.Container>
     )
 }

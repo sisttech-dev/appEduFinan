@@ -31,10 +31,18 @@ export function AppRoutes() {
 
   return (
     <Navigator screenOptions={{ headerShown: false }}>
-
       <Screen
         name="secoes"
         component={Secoes}
+      />
+
+      <Screen
+        name="qDeVida"
+        component={QDeVida}
+      />
+      <Screen
+        name="login"
+        component={Login}
       />
 
       <Screen
@@ -71,10 +79,6 @@ export function AppRoutes() {
         component={Relacionamento}
       />
 
-      <Screen
-        name="qDeVida"
-        component={QDeVida}
-      />
 
       <Screen
         name="relacionamento"
@@ -101,10 +105,6 @@ export function AppRoutes() {
       <Screen
         name="emocoes"
         component={Emocoes}
-      />
-      <Screen
-        name="login"
-        component={Login}
       />
       <Screen
         name="metas"

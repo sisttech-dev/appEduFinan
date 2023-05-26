@@ -24,6 +24,12 @@ export function RodaDaVida() {
                 </S.TextHeader>
             </S.Header>
 
+            <S.Btn onPress={handleMeCuidar} >
+                <S.Text>
+                    Editar Roda da vida
+                </S.Text>
+            </S.Btn>
+
             {/* Roda da vida */}
             <S.RodaVida onPress={handleSec} >
                 <VictoryChart polar

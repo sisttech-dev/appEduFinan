@@ -44,7 +44,7 @@ export function ObjetivoFim() {
             </S.Header>
 
 
-            {/* Emoçoes */}
+            {/* Emoçoes antes de começar o objetivo */}
             <S.Emocao centerContent={false}>
                 <S.TextEmocoes>
                     Dos sentimentos abaixo, você se identifica com algum após a conclusão do objetivo?
