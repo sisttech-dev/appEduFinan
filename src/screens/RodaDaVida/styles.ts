@@ -1,22 +1,16 @@
 import styled from "styled-components/native";
-import { TouchableOpacity } from "react-native";
 
-
-export const Container = styled.View`
+export const Container = styled.SafeAreaView`
   flex: 1;
   background-color: ${({ theme }) => theme.COLORS.WHITE};
-  justify-content: center;
   align-items: center;
 `;
 
 export const Header = styled.View`
   background-color: ${({ theme }) => theme.COLORS.RED};
-  top: 0;
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 90px;
-  position: absolute;
 `;
 
 export const RodaVida = styled.TouchableOpacity`
@@ -24,14 +18,14 @@ export const RodaVida = styled.TouchableOpacity`
   height: 50%;
   align-items: center;
   justify-content: center;
+  margin: 30px;
 `;
 
 export const Img = styled.Image`
-background-color: ${({ theme }) => theme.COLORS.RED};
-flex: 1;
-align-items: center;
-justify-content: center;
-  
+  background-color: ${({ theme }) => theme.COLORS.RED};
+  flex: 1;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const Text = styled.Text`
@@ -44,7 +38,7 @@ export const Text = styled.Text`
 export const TextHeader = styled.Text`
   color: ${({ theme }) => theme.COLORS.WHITE};
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  font-size: ${({ theme }) => theme.FONT_SIZE.XL};
+  font-size: ${({ theme }) => theme.FONT_SIZE.XXL};
 `;
 
 export const Btn = styled.TouchableOpacity`
@@ -54,10 +48,6 @@ export const Btn = styled.TouchableOpacity`
   justify-content: center;
   width: 50%;
   height: 5%;
-  justify-content: center;
-  align-items: center;
   border-radius: 50px;
- 
-
-
+  margin: 30px;
 `;

@@ -2,7 +2,7 @@ import styled from "styled-components/native";
 import { TouchableOpacity } from "react-native";
 
 
-export const Container = styled.View`
+export const Container = styled.SafeAreaView`
   flex: 1;
 `;
 
@@ -41,13 +41,14 @@ export const TextHeader = styled.Text`
   text-align:left;
   padding-left: 5%;
 `;
+
 export const Text = styled.Text`
   color: ${({ theme }) => theme.COLORS.BLACK};
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
   font-size: ${({ theme }) => theme.FONT_SIZE.XL};
   text-align: center;
-  margin-top: 10%;
-  margin-bottom: 15%;
+  margin-top: 5%;
+  margin-bottom: 10%;
 `;
 
 export const FlatList = styled.FlatList`

@@ -33,12 +33,6 @@ export function Conquistas() {
                 </S.BtnWallet>
             </S.Header>
 
-            <S.BtnWheel>
-                <S.Text>
-                    Roda da vida
-                </S.Text>
-            </S.BtnWheel>  
-
             {/* Back */}
         <S.BtnBack>
         <Ionicons

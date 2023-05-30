@@ -6,7 +6,7 @@ import { Center } from 'native-base';
 export const Container = styled.View`
   flex: 1;
   background-color: ${({ theme }) => theme.COLORS.WHITE};
-  justify-content: baseline;
+
   align-items: center;
 `;
 

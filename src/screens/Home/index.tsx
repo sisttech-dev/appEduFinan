@@ -1,25 +1,30 @@
-
 import * as S from './styles';
-import { NavBar } from '@components/NavBar';
+import React from 'react';
 import Header from '@assets/Header.jpg'
 import Home01 from '@assets/HomeLivro.png'
 import Home02 from '@assets/RodaVidaPig.png'
 import Home03 from '@assets/MMental.png'
-import { Alert, FlatList, TouchableOpacity } from 'react-native'
-import { Title } from './../../components/Button/styles';
+import { MapaMental } from '@screens/MapaMental';
 import { useNavigation } from '@react-navigation/native'
+import { mapaMental } from '@assets/mapaMental.png';
+import { StatusBar } from 'react-native';
 
 export function Home(props) {
 
   const navigation = useNavigation();
 
   const handlePress = (item) => {
-    navigation.navigate('Item', { item });
+    navigation.navigate(item.path, { item });
   };
 
   return (
 
     <S.Container>
+      <StatusBar
+          barStyle="dark-content"
+          backgroundColor="transparent"
+          translucent
+          />
 
       {/* Header */}
       <S.Header>
@@ -38,21 +43,20 @@ export function Home(props) {
 
         <S.FlatList
           data={[
-            { image: Home01, key: 0 },
-            { image: Home02, key: 1 },
-            { image: Home03, key: 2 }
+            { image: Home01, path:'mapaMental', key: 0 },
+            { image: Home02, path:'rodaDaVida', key: 1 },
+            { image: Home03, path:'mapaMental', key: 2 }
           ]}
-          renderItem={({ item, index }) => (
+          renderItem={({ item }) => (
             <S.btnHome onPress={() => handlePress(item)}>
               <S.imgBody source={item.image} key={item.key} />
             </S.btnHome>
           )}
           horizontal={true}
-
         />
       </S.Body>
 
-      <NavBar />
+      
     </S.Container>
   )
 }

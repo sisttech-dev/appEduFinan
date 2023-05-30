@@ -1,5 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Login } from '@screens/Login';
 import { Home } from '@screens/Home';
 import { Perfil } from '@screens/Perfil';
@@ -23,133 +24,187 @@ import { Familia } from '@screens/Familia';
 import { VidaSocial } from '@screens/VidaSocial';
 import { Intelectual } from '@screens/Intelectual';
 import { ConSocial } from '@screens/ConSocial';
+import { Ionicons, FontAwesome } from '@expo/vector-icons'
 
 
-const { Navigator, Screen } = createNativeStackNavigator();
+const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator()
+
+export function HomeStack() {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false,
+     }}>
+      <Stack.Screen
+        name="home"
+        component={Home}
+      />
+      <Stack.Screen
+        name="mapaMental"
+        component={MapaMental}
+      />
+
+    </Stack.Navigator>
+  );
+}
+
+function PerfilStack() {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen
+        name="perfil"
+        component={Perfil}
+      />
+      <Stack.Screen
+        name="wallet"
+        component={Wallet}
+        options={{ navigationBarHidden: true }}
+      />
+      <Stack.Screen
+        name="conquistas"
+        component={Conquistas}
+      />
+      <Stack.Screen
+        name="personalizar"
+        component={Personalizar}
+      />
+    </Stack.Navigator>
+  )
+}
+
+function RodaStack() {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen
+        name="rodaDaVida"
+        component={RodaDaVida}
+      />
+      <Stack.Screen
+        name="secoes"
+        component={Secoes}
+      />
+      <Stack.Screen
+        name="qDeVida"
+        component={QDeVida}
+      />
+      <Stack.Screen
+        name="profissional"
+        component={Profissional}
+      />
+      <Stack.Screen
+        name="social"
+        component={ConSocial}
+      />
+      <Stack.Screen
+        name="financeiro"
+        component={Profissional}
+      />
+      <Stack.Screen
+        name="realizacao"
+        component={Profissional}
+      />
+      <Stack.Screen
+        name="pessoal"
+        component={Pessoal}
+      />
+      <Stack.Screen
+        name="intelectual"
+        component={Intelectual}
+      />
+      <Stack.Screen
+        name="saude"
+        component={Relacionamento}
+      />
+      <Stack.Screen
+        name="emocional"
+        component={Relacionamento}
+      />
+      <Stack.Screen
+        name="relacionamento"
+        component={Relacionamento}
+      />
+      <Stack.Screen
+        name="rAmoroso"
+        component={RAmoroso}
+      />
+      <Stack.Screen
+        name="familia"
+        component={Familia}
+      />
+      <Stack.Screen
+        name="vidaSocial"
+        component={VidaSocial}
+      />
+      <Stack.Screen
+        name="objetivoDefinido"
+        component={ObjetivoDefinido}
+      />
+      <Stack.Screen
+        name="emocoes"
+        component={Emocoes}
+      />
+      <Stack.Screen
+        name="metas"
+        component={Metas}
+      />
+      <Stack.Screen
+        name="objetivoFim"
+        component={ObjetivoFim}
+      />
+      <Stack.Screen
+        name="meCuidar"
+        component={MeCuidar}
+      />
+      <Stack.Screen
+        name="login"
+        component={Login}
+      />
+    </Stack.Navigator>
+  )
+}
 
 export function AppRoutes() {
 
   return (
-    <Navigator screenOptions={{ headerShown: false }}>
-      <Screen
-        name="secoes"
-        component={Secoes}
+    <Tab.Navigator
+      screenOptions={{
+        tabBarActiveTintColor:'#fff',
+        tabBarInactiveTintColor:'#fff',
+        tabBarShowLabel:false,
+        headerShown: false,
+        tabBarStyle: {
+          backgroundColor: '#FF4673',
+        }
+      }}>
+      <Tab.Screen name="home" component={HomeStack}
+        options={{
+          tabBarIcon: ({ color, size, focused }) => {
+            if (focused) {
+              return <Ionicons name="home-sharp" color={color} size={35} />
+            }
+            return <Ionicons name="home-outline" color={color} size={size} />
+          }
+        }}
       />
-
-      <Screen
-        name="qDeVida"
-        component={QDeVida}
+      <Tab.Screen name="rodaDaVida" component={RodaStack}
+        options={{
+          tabBarIcon: ({ color, size, focused }) => {
+            if (focused) {
+              return <Ionicons name="pie-chart-sharp" color={color} size={35} />
+            }
+            return <Ionicons name="pie-chart-outline" color={color} size={size} />
+          }
+        }}
       />
-      <Screen
-        name="login"
-        component={Login}
+      <Tab.Screen name="perfil" component={PerfilStack}
+        options={{
+          tabBarIcon: ({ color, size, focused }) => {
+            if (focused) {
+              return <FontAwesome name="user" color={color} size={35} />
+            }
+            return <FontAwesome name="user-o" color={color} size={size} />
+          }
+        }}
       />
-
-      <Screen
-        name="profissional"
-        component={Profissional}
-      />
-      <Screen
-        name="social"
-        component={ConSocial}
-      />
-      <Screen
-        name="financeiro"
-        component={Profissional}
-      />
-      <Screen
-        name="realizacao"
-        component={Profissional}
-      />
-
-      <Screen
-        name="pessoal"
-        component={Pessoal}
-      />
-      <Screen
-        name="intelectual"
-        component={Intelectual}
-      />
-      <Screen
-        name="saude"
-        component={Relacionamento}
-      />
-      <Screen
-        name="emocional"
-        component={Relacionamento}
-      />
-
-
-      <Screen
-        name="relacionamento"
-        component={Relacionamento}
-      />
-      <Screen
-        name="rAmoroso"
-        component={RAmoroso}
-      />
-      <Screen
-        name="familia"
-        component={Familia}
-      />
-      <Screen
-        name="vidaSocial"
-        component={VidaSocial}
-      />
-
-
-      <Screen
-        name="objetivoDefinido"
-        component={ObjetivoDefinido}
-      />
-      <Screen
-        name="emocoes"
-        component={Emocoes}
-      />
-      <Screen
-        name="metas"
-        component={Metas}
-      />
-      <Screen
-        name="objetivoFim"
-        component={ObjetivoFim}
-      />
-      <Screen
-        name="meCuidar"
-        component={MeCuidar}
-      />
-
-      <Screen
-        name="perfil"
-        component={Perfil}
-      />
-      <Screen
-        name="wallet"
-        component={Wallet}
-      />
-      <Screen
-        name="mapaMental"
-        component={MapaMental}
-      />
-      <Screen
-        name="home"
-        component={Home}
-      />
-      <Screen
-        name="rodaDaVida"
-        component={RodaDaVida}
-      />
-      <Screen
-        name="conquistas"
-        component={Conquistas}
-      />
-      <Screen
-        name="personalizar"
-        component={Personalizar}
-      />
-
-
-
-    </Navigator>
-  );
+    </Tab.Navigator>
+  )
 }

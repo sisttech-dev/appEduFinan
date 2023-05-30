@@ -1,29 +1,8 @@
 import styled from "styled-components/native";
 
-export const Container = styled.View`
+export const Container = styled.SafeAreaView`
   flex: 1;
   background-color: ${({ theme }) => theme.COLORS.WHITE};
-  align-items: center;
-  justify-content: center;
-`;
-
-export const ContainerBody = styled.View`
-  flex: 1;
-  background-color: ${({ theme }) => theme.COLORS.WHITE};
-  align-items: center;
-  justify-content: baseline;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  margin-top: 10%;
-`;
-
-export const Carousel = styled.ScrollView`
-  background-color: ${({ theme }) => theme.COLORS.WHITE};
-  display: flex;
-  scroll-behavior: smooth;
-  width:100%;
-  height: 10%;
 `;
 
 export const Header = styled.View`
@@ -32,28 +11,64 @@ export const Header = styled.View`
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 170px;
+  height: 170;
   background-color: ${({ theme }) => theme.COLORS.RED};
   justify-content: space-between;
   align-items: center;
 `;
 
-export const Img = styled.Image`
+export const ContainerBody = styled.View`
+  flex: 1;
+  background-color: ${({ theme }) => theme.COLORS.WHITE};
   align-items: center;
   justify-content: center;
-  width: 50%;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const viewHeader = styled.View`
+  background-color: ${({ theme }) => theme.COLORS.RED};
+  display: flex;
+  flex-direction: row;
+  width: 40%;
+`;
+
+export const viewDados = styled.View`
+  background-color: ${({ theme }) => theme.COLORS.RED};
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+`;
+
+export const txtNome = styled.Text`
+    color: ${({ theme }) => theme.COLORS.WHITE};
+    font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
+    font-size: ${({ theme }) => theme.FONT_SIZE.XL};
+    position: relative;
+    
+`;
+  
+export const txtIdade = styled.Text`
+    color: ${({ theme }) => theme.COLORS.WHITE};
+    font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
+    font-size: ${({ theme }) => theme.FONT_SIZE.SM};
+    position: relative;
+    text-align: left;
 `;
 
 export const imgPerfil = styled.Image`
   width: 100px;
   height: 100px;
-  margin: 10px;
-  border-radius: 49px;
-  border-width: 2px;
-  border-color: ${({ theme }) => theme.COLORS.RED};
-  position: fixed;
-  margin-right: 50px;
+  margin: 5px;
+  border-radius: 50px;
+`;
+
+export const imgPet = styled.Image`
+  width: 50px;
+  height: 50px;
+  margin-top: 45%;
+  border-radius: 50px;
+  right: 40;
 
 `;
 
@@ -64,12 +79,11 @@ export const imgDetail = styled.Image`
 export const Text = styled.Text`
   color: ${({ theme }) => theme.COLORS.WHITE};
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  font-size: ${({ theme }) => theme.FONT_SIZE.LG};
+  font-size: ${({ theme }) => theme.FONT_SIZE.XL};
   text-align: center;
   justify-content: center;
   align-items: center;
   position: relative;
-  width: 150px;
 `;
 
 export const textBody = styled.Text`
@@ -78,7 +92,6 @@ export const textBody = styled.Text`
   font-size: ${({ theme }) => theme.FONT_SIZE.XL};
   justify-content: center;
   align-content: center;
-  text-align: center;
   position: relative;
   margin:10px;
 `;
@@ -91,31 +104,12 @@ export const btnBody = styled.TouchableOpacity`
   align-items: center;
   position: relative;
   width: 90%;
-  height: 13%;
+  height: 15%;
   border-radius: 10px;
   margin: 3.5%;
   display: flex;
   flex-direction: row;
   
-`;
-
-export const secTextHeader = styled.Text`
-  color: ${({ theme }) => theme.COLORS.WHITE};
-  font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
-  font-size: ${({ theme }) => theme.FONT_SIZE.SM};
-  margin: 1%;
-  position: relative;
-  left: -6%;
-`;
-
-export const TextHeader = styled.Text`
-  color: ${({ theme }) => theme.COLORS.WHITE};
-  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  font-size: ${({ theme }) => theme.FONT_SIZE.XL};
-  margin: 1%;
-  position: absolute;
-  top: 20%;
-  left: 40%;
 `;
 
 
@@ -125,26 +119,15 @@ export const BtnWallet = styled.TouchableOpacity`
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
   font-size: ${({ theme }) => theme.FONT_SIZE.LG};
   position: relative;
-  justify-content: center;
-  align-items: start;
-  border-top-left-radius: 10;
-  border-bottom-left-radius: 10;
-  width: 100%;
-  height: 15%;
-  padding-left: 10px;
-`;
-
-export const BtnWheel = styled.TouchableOpacity`
-  color: ${({ theme }) => theme.COLORS.RED};
-  background-color: ${({ theme }) => theme.COLORS.BLACK};
-  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  font-size: ${({ theme }) => theme.FONT_SIZE.MD};
-  position: absolute;
-  top: 17%;
-  left: 45%;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  border-radius: 10px;
-  width: 150px;
-  height: 40px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  width: 100%;
+  height: 25%;
+  
+
 `;

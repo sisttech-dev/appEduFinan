@@ -5,6 +5,13 @@ import { useNavigation } from '@react-navigation/native';
 import { VictoryBar, VictoryChart, VictoryPolarAxis, VictoryTheme } from 'victory-native'
 
 export function RodaDaVida() {
+    const data = [
+        { x: "Profissional", y: 9, color: "#FF4673" },
+        { x: "Pessoal", y: 8, color: "#7FDBFF" },
+        { x: "Relacionamento", y: 5, color: "#2ECC40" },
+        { x: "Qualidade de vida", y: 10, color: "#FF851B" },
+      ];
+
     const navigation = useNavigation();
 
     function handleSec() {
@@ -34,26 +41,25 @@ export function RodaDaVida() {
             <S.RodaVida onPress={handleSec} >
                 <VictoryChart polar
                     theme={VictoryTheme.material}>
-                    {["Profissional", "Pessoal", "Relacionamento", "Qualidade de vida"].map((d, i) => {
-                        return (
-                            <VictoryPolarAxis
-                                key={i}
-                                label={d}
-                                labelPlacement="perpendicular"
-                                style={{ tickLabels: { fontSize: 10 } }}
-                                axisValue={d}
-                            />
-                        );
-                    })
-                    }
+                    {data.map((d, i) => (
+                        <VictoryPolarAxis
+                            key={i}
+                            label={d.x}
+                            labelPlacement="perpendicular"
+                            style={{ ticks: { fontSize: 10 } }}
+                            axisValue={d.x}
+                        />
+                    ))}
+
                     <VictoryBar
-                        style={{ data: { fill: "#FF4673", width: 100 } }}
-                        data={[
-                            { x: "Profissional", y: 9 },
-                            { x: "Pessoal", y: 8 },
-                            { x: "Relacionamento", y: 5 },
-                            { x: "Qualidade de vida", y: 10 },
-                        ]}
+                        style={{
+                            data: {
+                                fill: ({ datum }) => datum.color,
+                                width: 100,
+                            },
+                        }}
+                        data= { data }
+                        
                         animate={{
                             onLoad: { duration: 500 },
                             easing: "bounce"
