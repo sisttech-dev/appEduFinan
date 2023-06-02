@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
 
-export const Container = styled.SafeAreaView`
+export const Container = styled.View`
   flex: 1;
   background-color: ${({ theme }) => theme.COLORS.WHITE};
   align-items: center;
@@ -11,6 +11,7 @@ export const Header = styled.View`
   align-items: center;
   justify-content: center;
   width: 100%;
+  height: 10%;
 `;
 
 export const RodaVida = styled.TouchableOpacity`
@@ -18,7 +19,7 @@ export const RodaVida = styled.TouchableOpacity`
   height: 50%;
   align-items: center;
   justify-content: center;
-  margin: 30px;
+  margin: 10px;
 `;
 
 export const Img = styled.Image`
@@ -46,8 +47,8 @@ export const Btn = styled.TouchableOpacity`
   position: relative;
   align-items: center;
   justify-content: center;
-  width: 50%;
+  width: 60%;
   height: 5%;
   border-radius: 50px;
-  margin: 30px;
+  margin: 40px;
 `;

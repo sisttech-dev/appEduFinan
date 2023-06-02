@@ -9,7 +9,7 @@ import { useNavigation } from '@react-navigation/native'
 import { mapaMental } from '@assets/mapaMental.png';
 import { StatusBar } from 'react-native';
 
-export function Home(props) {
+export function Home() {
 
   const navigation = useNavigation();
 

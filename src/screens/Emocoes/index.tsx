@@ -2,6 +2,8 @@
 import { useNavigation } from '@react-navigation/native';
 import * as S from './styles';
 import emocoes from '@assets/Emocoes.png'
+import  { BtnEmocoes }  from '@components/btnEmocoes';
+import React from 'react';
 
 export function Emocoes() {
     const navigation = useNavigation();
@@ -10,6 +12,7 @@ export function Emocoes() {
         navigation.navigate('metas');
     }
 
+    
     return (
 
         <S.Container>
@@ -24,102 +27,18 @@ export function Emocoes() {
 
             {/* Emoçoes */}
             <S.Emocao>
-                <S.btnBody>
-                    <S.btnAdd>
-                        <S.Text>
-                            Empolgado
-                        </S.Text>
-                    </S.btnAdd>
-                </S.btnBody>
-
-                <S.btnBody>
-                    <S.btnAdd>
-                        <S.Text>
-                            Encorajado
-                        </S.Text>
-                    </S.btnAdd>
-                </S.btnBody>
-
-                <S.btnBody>
-                    <S.btnAdd>
-                        <S.Text>
-                            Confiante
-                        </S.Text>
-                    </S.btnAdd>
-                </S.btnBody>
-
-                <S.btnBody>
-                    <S.btnAdd>
-                        <S.Text>
-                            Consciente
-                        </S.Text>
-                    </S.btnAdd>
-                </S.btnBody>
-
-                <S.btnBody>
-                    <S.btnAdd>
-                        <S.Text>
-                            Criativo
-                        </S.Text>
-                    </S.btnAdd>
-                </S.btnBody>
-
-                <S.btnBody>
-                    <S.btnAdd>
-                        <S.Text>
-                            Animado
-                        </S.Text>
-                    </S.btnAdd>
-                </S.btnBody>
-
-                <S.btnBody>
-                    <S.btnAdd>
-                        <S.Text>
-                            Otimista
-                        </S.Text>
-                    </S.btnAdd>
-                </S.btnBody>
-
-                <S.btnBody>
-                    <S.btnAdd>
-                        <S.Text>
-                            Concentrado
-                        </S.Text>
-                    </S.btnAdd>
-                </S.btnBody>
-
-                <S.btnBody>
-                    <S.btnAdd>
-                        <S.Text>
-                            Orgulhoso
-                        </S.Text>
-                    </S.btnAdd>
-                </S.btnBody>
-
-                <S.btnBody>
-                    <S.btnAdd>
-                        <S.Text>
-                            Motivado
-                        </S.Text>
-                    </S.btnAdd>
-                </S.btnBody>
-
-                <S.btnBody>
-                    <S.btnAdd>
-                        <S.Text>
-                            Esperançoso
-                        </S.Text>
-                    </S.btnAdd>
-                </S.btnBody>
-
-                <S.btnBody>
-                    <S.btnAdd>
-                        <S.Text>
-                            Alegre
-                        </S.Text>
-                    </S.btnAdd>
-                </S.btnBody>
-
+              <BtnEmocoes text="Empolgado"/>
+              <BtnEmocoes text="Encorajado"/>
+              <BtnEmocoes text="Confiante"/>
+              <BtnEmocoes text="Consciente"/>
+              <BtnEmocoes text="Criativo"/>
+              <BtnEmocoes text="Animado"/>
+              <BtnEmocoes text="Otimista"/>
+              <BtnEmocoes text="Concentrado"/>
+              <BtnEmocoes text="Orgulhoso"/>
+              <BtnEmocoes text="Motivado"/>
+              <BtnEmocoes text="Esperançoso"/>
+              <BtnEmocoes text="Alegre"/>
             </S.Emocao>
 
             <S.btnProx onPress={handleBtnProx}>

@@ -137,6 +137,9 @@ function RodaStack() {
       <Stack.Screen
         name="objetivoDefinido"
         component={ObjetivoDefinido}
+        options={{
+          title:'valor'
+        }}
       />
       <Stack.Screen
         name="emocoes"
@@ -173,9 +176,10 @@ export function AppRoutes() {
         headerShown: false,
         tabBarStyle: {
           backgroundColor: '#FF4673',
+          borderTopWidth:0,
         }
       }}>
-      <Tab.Screen name="home" component={HomeStack}
+      <Tab.Screen name="homeScreen" component={HomeStack}
         options={{
           tabBarIcon: ({ color, size, focused }) => {
             if (focused) {

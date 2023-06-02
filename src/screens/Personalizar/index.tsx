@@ -26,15 +26,14 @@ export function Personalizar() {
 
             {/* Mudar cores app */}
             <S.ContainerHead>
-
                 <S.btnHead>
-                    <S.Img5 source={coresApp}>
-                    </S.Img5>
+                    <S.Img5 source={coresApp} />
 
                     <S.Text>
                         Mude as cores do seu App aqui!
                     </S.Text>
                 </S.btnHead>
+
             </S.ContainerHead>
 
             <S.Container2>
@@ -42,18 +41,14 @@ export function Personalizar() {
                 <S.ContainerBody>
 
                     <S.btnBody>
-                        <S.Img source={rodaVida}>
-                        </S.Img>
-
+                        <S.Img source={rodaVida} />
                         <S.Text>
                             Personalizar Roda da vida
                         </S.Text>
                     </S.btnBody>
 
                     <S.btnBody2>
-                        <S.Img3 source={Pet}>
-                        </S.Img3>
-
+                        <S.Img3 source={Pet} />
                         <S.Text>
                             Escolha seu Pet
                         </S.Text>
@@ -64,8 +59,8 @@ export function Personalizar() {
                 {/* botoes direita */}
                 <S.ContainerBody>
                     <S.btnBody2>
-                        <S.Img4 source={Avatar}>
-                        </S.Img4>
+                        <S.Img4 source={Avatar} />
+
 
                         <S.Text>
                             Mudar meu avatar
@@ -73,9 +68,7 @@ export function Personalizar() {
                     </S.btnBody2>
 
                     <S.btnBody>
-                        <S.Img2 source={mapaMental}>
-                        </S.Img2 >
-
+                        <S.Img2 source={mapaMental} />
                         <S.Text>
                             Personalizar Mapa mental
                         </S.Text>

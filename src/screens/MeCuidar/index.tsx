@@ -85,8 +85,7 @@ export function MeCuidar() {
                     />
 
                 </S.ContainerBody>
-            
-         <NavBar/>
+       
         </S.Container>
     )
 }

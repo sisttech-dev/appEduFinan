@@ -140,6 +140,8 @@ export const btnHead = styled.TouchableOpacity`
   border-radius: 10px;
   display: flex;
   flex-direction: row;
+  margin-bottom:3
+  0px;
 `;
 
 export const BtnBack = styled.TouchableOpacity`

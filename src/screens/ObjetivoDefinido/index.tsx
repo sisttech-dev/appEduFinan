@@ -1,15 +1,16 @@
 
-import { ScrollView } from 'react-native';
 import * as S from './styles';
-import objDefinido from '@assets/objDefinido.png'
-
 import React from 'react';
-import { useNavigation } from '@react-navigation/native';
-import { Objetivo } from './../Metas/styles';
+import objDefinido from '@assets/objDefinido.png'
+import { useNavigation, useRoute } from '@react-navigation/native';
 
-export function ObjetivoDefinido() {
+
+
+export function ObjetivoDefinido({route}) {
 
     const navigation = useNavigation();
+
+    const { valor } = route.params;
 
     {/* Aqui quando dar continuidade, voltar pra tela da sessao */ }
     function handleProx() {
@@ -36,19 +37,19 @@ export function ObjetivoDefinido() {
                 <S.Objetivo>
                     <S.objetivoBody>
                         <S.Text>
-                            Objetivo:
+                            Objetivo: {route.params?.objetivo}
                         </S.Text>
                     </S.objetivoBody>
 
                     <S.objetivoBody>
                         <S.Text>
-                            Valor:
+                            Valor: R$ {route.params?.valor}
                         </S.Text>
                     </S.objetivoBody>
 
                     <S.objetivoBody>
                         <S.Text>
-                            Prazo:
+                            Prazo:{route.params?.prazo}
                         </S.Text>
                     </S.objetivoBody>
                 </S.Objetivo>

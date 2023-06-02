@@ -1,15 +1,29 @@
 
-import { useNavigation } from '@react-navigation/native';
 import * as S from './styles';
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigation, useRoute  } from '@react-navigation/native';
 import DetalhesObj from '@assets/DetalhesObj.png'
+import CheckBox from 'react-native-check-box'
 
 export function Metas() {
-
+    const [data, setData] = useState('');
+    const [objetivo, setObjetivo] = useState('');
+    const [valor, setValor] = useState('');
     const navigation = useNavigation();
+    const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
+
 
     function handleDefinir() {
-        navigation.navigate('objetivoDefinido');
+        navigation.navigate('objetivoDefinido', {objetivo:objetivo, valor:valor, data:data});
+    }
+
+    function handleCheckboxChange() {
+        setIsCheckboxChecked(!isCheckboxChecked);
+        if (!isCheckboxChecked) {
+            setValor('Não envolve dinheiro');
+        } else {
+            setValor('');
+        }
     }
 
     return (
@@ -24,13 +38,37 @@ export function Metas() {
             {/* Criaçao do objetivo */}
             <S.Objetivo>
                 <S.Img source={DetalhesObj} />
-                <S.Input placeholder='Objetivo: ' />
-                <S.Input placeholder='Valor: ' keyboardType='numeric' />
-                <S.Input placeholder='Prazo : ' keyboardType='numbers-and-punctuation' />  
+
+                <S.Input placeholder='Objetivo:'
+                    value={objetivo}
+                    onChangeText={setObjetivo} />
+
+                <S.Input placeholder='Valor:'
+                    keyboardType='numeric'
+                    editable={!isCheckboxChecked}
+                    value={valor}
+                    onChangeText={setValor} />
+
+                <S.MaskedInput
+                    value={data}
+                    placeholder='Prazo :'
+                    type={'datetime'}
+                    options={{
+                        format: 'DD/MM/YYYY',
+                    }}
+                    keyboardType='numbers-and-punctuation'
+                    />
+
             </S.Objetivo>
 
-                {/* um CheckBox aqui, validando se o objetivo não envolve dinheiro */}
-            <S.Text>Objetivo não envolve dinheiro</S.Text>
+            {/* Checkbox */}
+            <S.TextCheck>
+                <CheckBox
+                    isChecked={isCheckboxChecked}
+                    onClick={handleCheckboxChange}
+                />
+                Esse objetivo não envolve dinheiro
+            </S.TextCheck>
 
             {/* btn concluir criaçao do objetivo */}
             <S.btnBody>

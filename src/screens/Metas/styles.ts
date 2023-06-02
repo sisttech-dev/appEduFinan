@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
-import { TouchableOpacity } from "react-native";
-import { Center } from 'native-base';
+import { TextInputMask } from 'react-native-masked-text';
+
 
 
 export const Container = styled.View`
@@ -9,6 +9,7 @@ export const Container = styled.View`
   justify-content: baseline;
   align-items: center;
 `;
+
 
 export const btnBody = styled.View`
 position:absolute;
@@ -34,6 +35,13 @@ export const Text = styled.Text`
   color: ${({ theme }) => theme.COLORS.WHITE};
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
   font-size: ${({ theme }) => theme.FONT_SIZE.LG};
+  text-align: center;
+`;
+
+export const TextCheck = styled.Text`
+  color: ${({ theme }) => theme.COLORS.BLACK};
+  font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
+  font-size: ${({ theme }) => theme.FONT_SIZE.MD};
   text-align: center;
 `;
 
@@ -64,9 +72,24 @@ export const Input = styled.TextInput`
   margin: 15px;
   width: 100%;
   height: 50px;
- border: 1px solid #fff;
- border-bottom-color: #000;
- margin-bottom: 5px;
+  border: 1px solid #fff;
+  border-bottom-color: #000;
+  margin-bottom: 5px;
+`;
+
+export const MaskedInput = styled(TextInputMask)`
+  color: ${({ theme }) => theme.COLORS.BLACK};
+  font-size: ${({ theme }) => theme.FONT_SIZE.LG};
+  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  margin: 15px;
+  width: 100%;
+  height: 50px;
+  border: 1px solid #fff;
+  border-bottom-color: #000;
+  margin-bottom: 5px;
 `;
 
 export const Img = styled.Image`

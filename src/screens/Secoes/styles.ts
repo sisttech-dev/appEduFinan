@@ -22,7 +22,7 @@ export const Header = styled.View`
 `;
 
 export const Text = styled.Text`
-  color: ${({ theme }) => theme.COLORS.BLACK};
+  color: ${({ theme }) => theme.COLORS.WHITE};
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
   font-size: ${({ theme }) => theme.FONT_SIZE.MD};
   text-align: center;

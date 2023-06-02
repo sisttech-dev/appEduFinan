@@ -1,16 +1,9 @@
 import styled from "styled-components/native";
-import { TouchableOpacity } from "react-native";
-import { Center } from 'native-base';
-
 
 export const Container = styled.View`
   flex: 1;
   background-color: ${({ theme }) => theme.COLORS.WHITE};
   align-items: center;
-`;
-
-export const btnBody = styled.View`
-  position:relative;
 `;
 
 export const Emocao = styled.View`
@@ -67,25 +60,12 @@ export const proxText = styled.Text`
   margin: 10px;
 `;
 
-export const btnAdd = styled.TouchableOpacity`
-  background-color: ${({ theme }) => theme.COLORS.BLACK};
-  width: 100px;
-  height: 35px;
-  border-radius: 10px;
-  align-items: center;
-  justify-content: center;
-  margin: 10px;
-  position: relative;
-`;
-
 export const btnProx = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.COLORS.RED};
   width: 100%;
-  height: 65px;
-  border-radius: 2px;
+  height: 45px;
   align-items: center;
   justify-content: center;
   position: absolute;
   bottom: 0%;
-
 `;
