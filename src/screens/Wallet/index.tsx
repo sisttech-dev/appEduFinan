@@ -2,10 +2,15 @@
 import * as S from './styles';
 import FotoPerfil from '@assets/FotoPerfil.png'
 import Detalhe1 from '@assets/Detail1.png'
-
+import { VictoryBar, VictoryChart, VictoryPolarAxis, VictoryTheme } from 'victory-native'
 
 export function Wallet() {
-
+    const data = [
+        { x: "Profissional", y: 9, color: "#FF4673" },
+        { x: "Pessoal", y: 8, color: "#7FDBFF" },
+        { x: "Relacionamento", y: 5, color: "#2ECC40" },
+        { x: "Qualidade de vida", y: 10, color: "#FF851B" },
+      ];
     return (
 
         <S.Container>
@@ -67,9 +72,15 @@ export function Wallet() {
                     </S.Secao>
                 </S.Secoes>
 
-                <S.TextSecoes>
-                    grafico
-                </S.TextSecoes>
+                <VictoryChart
+                    theme={VictoryTheme.material}
+                    domainPadding={10}
+                >
+                    <VictoryBar
+                        style={{ data: { fill: "#c43a31" } }}
+                        data={data}
+                    />
+                </VictoryChart>
                 {/* valor dos objetivos atuais da roda da vida */}
 
                 <S.BtnWallet>

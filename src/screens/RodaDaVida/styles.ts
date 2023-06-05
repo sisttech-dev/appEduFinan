@@ -15,8 +15,7 @@ export const Header = styled.View`
 `;
 
 export const RodaVida = styled.TouchableOpacity`
-  width: 100%;
-  height: 50%;
+  width: 80%;
   align-items: center;
   justify-content: center;
   margin: 10px;
