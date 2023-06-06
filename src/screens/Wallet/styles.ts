@@ -1,10 +1,8 @@
 import styled from "styled-components/native";
 
-export const Container = styled.View`
-flex: 1;
-background-color: ${({ theme }) => theme.COLORS.WHITE};
-align-items: center;
-justify-content: center;
+export const Container = styled.ScrollView`
+ background-color: ${({ theme }) => theme.COLORS.WHITE};
+
 `;
 
 export const ContainerBody = styled.View`
@@ -39,8 +37,8 @@ position: relative;
 justify-content: space-evenly;
 align-items: center;
 border-radius: 20px;  
-width: 90%;
-height: 20%;
+width: 100%;
+height: 15%;
 `;
 
 export const Secao = styled.TouchableOpacity`
@@ -51,7 +49,7 @@ position: relative;
 justify-content: space-evenly;
 align-items: start;
 border-radius: 20px;  
-width: 23%;
+width: 19%;
 height: 80%;
 `;
 
@@ -63,8 +61,8 @@ height: 100%;
 `;
 
 export const imgPerfil = styled.Image`
-width: 100px;
-height: 100px;
+  width: 100px;
+  height: 100px;
   margin: 10px;
   border-radius: 49px;
   border-width: 2px;
@@ -122,13 +120,13 @@ export const TextHeader = styled.Text`
 `;
 
 export const secTextHeader = styled.Text`
-color: ${({ theme }) => theme.COLORS.WHITE};
-font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
-font-size: ${({ theme }) => theme.FONT_SIZE.SM};
-margin: 1%;
-position: absolute;
-top: 50%;
-left: 40%;
+  color: ${({ theme }) => theme.COLORS.WHITE};
+  font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
+  font-size: ${({ theme }) => theme.FONT_SIZE.SM};
+  margin: 1%;
+  position: absolute;
+  top: 50%;
+  left: 40%;
 `;
 
 export const BtnWallet = styled.TouchableOpacity`

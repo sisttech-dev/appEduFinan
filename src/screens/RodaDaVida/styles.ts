@@ -49,5 +49,5 @@ export const Btn = styled.TouchableOpacity`
   width: 60%;
   height: 5%;
   border-radius: 50px;
-  margin: 40px;
+  margin: 20px;
 `;
