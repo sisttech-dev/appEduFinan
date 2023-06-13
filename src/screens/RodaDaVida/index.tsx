@@ -155,7 +155,7 @@ export function RodaDaVida() {
                     <TouchableOpacity key={i} style={[styles.sessao, { backgroundColor: d.color, marginRight: 10 }]} onPress={() => handleSessionClick(i + 2)}>
                         <Text style={styles.sessaoLabel}>{d.x}</Text>
                         <Text style={styles.sessaoValor}>{d.y}</Text>
-                    </TouchableOpacity>
+                    </TouchableOpacity> 
                 ))}
             </View>
 

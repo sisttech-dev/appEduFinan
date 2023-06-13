@@ -1,6 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Ionicons, FontAwesome } from '@expo/vector-icons'
 import { Login } from '@screens/Login';
 import { Home } from '@screens/Home';
 import { Perfil } from '@screens/Perfil';
@@ -24,7 +25,9 @@ import { Familia } from '@screens/Familia';
 import { VidaSocial } from '@screens/VidaSocial';
 import { Intelectual } from '@screens/Intelectual';
 import { ConSocial } from '@screens/ConSocial';
-import { Ionicons, FontAwesome } from '@expo/vector-icons'
+import { PersoAvatar } from '@screens/PersoAvatar';
+import { PersoPet } from '@screens/PersoPet';
+import { PersoCor } from '@screens/PersoCor';
 
 
 const Stack = createNativeStackNavigator();
@@ -66,6 +69,18 @@ function PerfilStack() {
       <Stack.Screen
         name="personalizar"
         component={Personalizar}
+      />
+      <Stack.Screen
+        name="persoAvatar"
+        component={PersoAvatar}
+      />
+      <Stack.Screen
+        name="persoPet"
+        component={PersoPet}
+      />
+      <Stack.Screen
+        name="persoCor"
+        component={PersoCor}
       />
     </Stack.Navigator>
   )

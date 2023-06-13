@@ -6,9 +6,20 @@ import rodaVida from '@assets/rodaVida.png'
 import mapaMental from '@assets/mapaMental.png'
 import coresApp from '@assets/coresApp.png'
 import { Ionicons } from '@expo/vector-icons'
+import { useNavigation } from '@react-navigation/native';
 
 export function Personalizar() {
+    const navigation = useNavigation();
 
+    function handleAvatar() {
+        navigation.navigate('persoAvatar');
+      }
+    function handlePet() {
+        navigation.navigate('persoPet');
+      }
+    function handleCor() {
+        navigation.navigate('persoCor');
+      }
     return (
 
         <S.Container>
@@ -26,7 +37,7 @@ export function Personalizar() {
 
             {/* Mudar cores app */}
             <S.ContainerHead>
-                <S.btnHead>
+                <S.btnHead onPress={handleCor}>
                     <S.Img5 source={coresApp} />
 
                     <S.Text>
@@ -47,7 +58,7 @@ export function Personalizar() {
                         </S.Text>
                     </S.btnBody>
 
-                    <S.btnBody2>
+                    <S.btnBody2 onPress={handlePet}>
                         <S.Img3 source={Pet} />
                         <S.Text>
                             Escolha seu Pet
@@ -58,7 +69,7 @@ export function Personalizar() {
 
                 {/* botoes direita */}
                 <S.ContainerBody>
-                    <S.btnBody2>
+                    <S.btnBody2 onPress={handleAvatar}>
                         <S.Img4 source={Avatar} />
 
 

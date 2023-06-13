@@ -32,7 +32,6 @@ export const ContainerHead = styled.View`
   flex: 1;
   background-color: ${({ theme }) => theme.COLORS.WHITE};
   align-items: center;
-  justify-content: center;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -62,7 +61,7 @@ export const Img3 = styled.Image`
   justify-content: center;
   width: 140px;
   height: 120px;
-  margin: 16px;
+  margin: 10px;
 `;
 
 export const Img4 = styled.Image`
@@ -79,7 +78,7 @@ export const Img5 = styled.Image`
   width: 125px;
   height: 100px;
   margin: 27px;
-  margin-top: 10px;
+  margin-top: 5px;
 
 `;
 
@@ -96,15 +95,14 @@ export const Text = styled.Text`
 `;
 
 export const TextBack = styled.Text`
-      color: ${({ theme }) => theme.COLORS.WHITE};
-      font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-      font-size: ${({ theme }) => theme.FONT_SIZE.SM};
-      margin-right: 38%;
-      margin-top:4%;
-    `;
+  color: ${({ theme }) => theme.COLORS.WHITE};
+  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
+  font-size: ${({ theme }) => theme.FONT_SIZE.SM};
+  margin-right: 38%;
+  margin-top:4%;
+`;
 
 export const btnBody = styled.TouchableOpacity`
-
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
   background-color: ${({ theme }) => theme.COLORS.RED};
   justify-content: center;
@@ -115,7 +113,6 @@ export const btnBody = styled.TouchableOpacity`
   height: 150px;
   border-radius: 20px;
   display: flex;
-  
 `;
 
 export const btnBody2 = styled.TouchableOpacity`
@@ -140,8 +137,7 @@ export const btnHead = styled.TouchableOpacity`
   border-radius: 10px;
   display: flex;
   flex-direction: row;
-  margin-bottom:3
-  0px;
+  margin-top: 50px;
 `;
 
 export const BtnBack = styled.TouchableOpacity`
@@ -151,7 +147,7 @@ export const BtnBack = styled.TouchableOpacity`
   justify-content: space-between;
   flex-direction: row;
   position: relative;
-  margin-top: 15%;
+  margin-top: 10%;
   border-radius: 10px;
   width: 60%;
   height: 5%;

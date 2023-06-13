@@ -31,6 +31,9 @@ export declare global {
         hobbies: undefined;
         felicidade: undefined;
         espiritualidade: undefined;
+        persoAvatar: undefined;
+        persoPet: undefined;
+        persoCor: undefined;
       }
     }
   }
