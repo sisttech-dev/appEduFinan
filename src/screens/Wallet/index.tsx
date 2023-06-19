@@ -2,10 +2,12 @@
 import * as S from './styles';
 import FotoPerfil from '@assets/FotoPerfil.png'
 import Detalhe1 from '@assets/Detail1.png'
-import { VictoryBar, VictoryChart, VictoryLabel, VictoryPie, VictoryTheme } from 'victory-native'
+import { VictoryBar, VictoryChart, VictoryLabel, VictoryPie, VictoryPolarAxis, VictoryTheme, VictoryTooltip } from 'victory-native'
 import React, { useState } from 'react';
+import { TouchableOpacity, Text, View } from 'react-native';
 
 export function Wallet() {
+    const [selectedSession, setSelectedSession] = useState(null);
     const [subData, setSubData] = useState([]);
     const data = [
         {
@@ -42,111 +44,174 @@ export function Wallet() {
         },
     ];
 
+    function renderBars() {
+        if (selectedSession === "geral" || selectedSession === null) {
+            return data.map((d, i) => (
+                <VictoryBar
+                    key={i}
+                    style={{
+                        data: {
+                            fill: d.color,
+                            width: 32,
+                            stroke: "black",
+                            strokeWidth: 2,
+                        },
+                    }}
+                    data={d.subData.map((subD) => ({ x: subD.label, y: subD.value }))}
+                    animate={{
+                        onLoad: { duration: 500 },
+                        easing: "bounce",
+                    }}
+                    labels={({ datum }) => `${datum.x}\n${datum.y}`}
+                    labelComponent={<VictoryTooltip />}
+                />
+            ));
+        } else {
+            const sessionData = data.find((d) => d.x === selectedSession);
+            if (sessionData && sessionData.subData) {
+                return sessionData.subData.map((subD, i) => (
+                    <VictoryBar
+                        key={i}
+                        style={{
+                            data: {
+                                fill: sessionData.color,
+                                width: 32,
+                                stroke: "black",
+                                strokeWidth: 2,
+                            },
+                        }}
+                        data={[{ x: subD.label, y: subD.value }]}
+                        animate={{
+                            onLoad: { duration: 500 },
+                            easing: "bounce",
+                        }}
+                        labels={({ datum }) => `${datum.x}\n${datum.y}`}
+                        labelComponent={<VictoryTooltip />}
+                    />
+                ));
+            }
+        }
+    }
 
-
-
-    const handleSectionClick = (sectionData) => {
-        setSubData(sectionData.subData);
-    };
-
+    function handleSessionClick(session) {
+        setSelectedSession(session);
+    }
 
     return (
 
         <S.Container>
-            {/* Falta apresentar na tela */}
-            {/*   <S.imgDetail source={Detalhe1} /> */}
 
             {/* Header */}
             <S.Header>
                 <S.imgPerfil source={FotoPerfil} />
 
-                <S.TextHeader >
-                    Nome Aluno
-                </S.TextHeader>
-                <S.secTextHeader>
-                    16 anos
-                </S.secTextHeader>
+                <S.TextContainer>
+                    <S.TextHeader>Nome Aluno</S.TextHeader>
+                    <S.secTextHeader>16 anos</S.secTextHeader>
+                </S.TextContainer>
             </S.Header>
 
-
-            {/* valor atual da carteira */}
             <S.ContainerBody>
-
-                <S.BtnWallet>
-                    <S.Text>
-                        Carteira Virtual
-                    </S.Text>
-                    <S.Text>
-                        R$ 50,00
-                    </S.Text>
-                </S.BtnWallet>
+                {/* valor atual da carteira */}
+                <S.WalletContainer>
+                    <S.BtnWallet>
+                        <S.Text>Carteira Virtual</S.Text>
+                        <S.Text>R$ 50,00</S.Text>
+                    </S.BtnWallet>
+                </S.WalletContainer>
 
                 <S.TextSecoes>
                     Seções da Roda da Vida
                 </S.TextSecoes>
 
-                <S.Secoes>
-                    <S.Secao onPress={() => handleSectionClick(data[3])}
-                        style={{ backgroundColor: data[3].color }}>
-                        <S.TextSecao>
-                            Qualidade de vida
-                        </S.TextSecao>
-                    </S.Secao>
+                    {/* Sessões Gerais, falta concluir, a ideia é pra cada sessao ter um valor e o aluno pode atribuir esses valores na roda */}
+                <S.Row>
 
-                    <S.Secao onPress={() => handleSectionClick(data[2])}
-                     style={{ backgroundColor: data[2].color }}>
-                        <S.TextSecao>
-                            Relacionamento
-                        </S.TextSecao>
-                    </S.Secao>
+                    <S.Secoes >
+                        {data.slice(0, 2).map((d, i) => (
+                            <S.Secao key={i} style={{ backgroundColor: d.color, marginRight: 10 }} onPress={() => handleSessionClick(i)}>
+                                <S.Text >{d.x}</S.Text>
+                                <S.Text >{d.y}</S.Text>
+                            </S.Secao>
+                        ))}
+                    </S.Secoes>
 
-                    <S.Secao onPress={() => handleSectionClick(data[0])}
-                     style={{ backgroundColor: data[0].color }}>
-                        <S.TextSecao>
-                            Profissional
-                        </S.TextSecao>
-                    </S.Secao>
+                    <S.Secoes >
+                        {data.slice(2, 4).map((d, i) => (
+                            <S.Secao key={i} style={{ backgroundColor: d.color, marginRight: 10 }} onPress={() => handleSessionClick(i + 2)}>
+                                <S.Text >{d.x}</S.Text>
+                                <S.Text >{d.y}</S.Text>
+                            </S.Secao>
+                        ))}
+                    </S.Secoes>
 
-                    <S.Secao onPress={() => handleSectionClick(data[1])}
-                     style={{ backgroundColor: data[1].color }}>
-                        <S.TextSecao>
-                            Pessoal
-                        </S.TextSecao>
-                    </S.Secao>
-                </S.Secoes>
+                </S.Row>
 
                 <VictoryChart
+                    polar
                     theme={VictoryTheme.material}
-                    domainPadding={10}
-                    maxDomain={{y:10}} innerRadius={30}
-                >
-                    <VictoryPie
-                        data={subData}
-                        colorScale={subData.map((item) => item.color)}
+                    maxDomain={{ y: 10 }}
+                    innerRadius={30}>
+
+                    <VictoryPolarAxis
+                        dependentAxis
                         style={{
-                            data: {
-                                fill: ({ datum }) => datum.color // Define a cor de cada fatia com base na propriedade "color"
-                            },
-                            labels: {
-                                fill: 'black',
-                                fontSize: 12,
-                                fontWeight: 'bold',
-                                padding: 5,
-                                textAnchor: 'middle',
-                                verticalAnchor: 'middle'
-
-                            }
+                            axis: { stroke: "none" },
+                            grid: { display: "none" },
                         }}
-                        labelComponent={<VictoryLabel renderInPortal />}
-                        labelRadius={80} // Define a distância dos rótulos a partir do centro do gráfico
-                        domain={[0, 10]} // Define o valor máximo do gráfico como 10
-                        labels={({ datum }) => `${datum.label}: ${datum.value}`} // Exibe o rótulo com o valor
+                        tickValues={[]} // Remove as marcas de graduação
+                        tickFormat={() => ""}
                     />
+                    {data.map((d, i) => (
+                        <VictoryPolarAxis
+                            key={i}
+                            label={d.x}
+                            labelPlacement="perpendicular"
+                            style={{
+                                axis: { stroke: "none" },
+                                grid: { display: "none" },
+                                ticks: { size: 0 },
+                                tickLabels: { fontSize: 10, padding: 5 }
+                            }}
+                            axisValue={d.x}
+                            labelComponent={
+                                <VictoryTooltip
+                                    flyoutStyle={{ fill: d.color, stroke: 'none' }} // Define o fundo colorido com base na cor de cada seção
+                                    style={{ fill: 'white' }} // Define a cor do texto das labels como branco
+
+                                />
+                            }
+                        />
+                    ))}
+                    {data.map((d, i) => (
+
+                        <VictoryBar
+                            key={i}
+                            style={{
+                                data: {
+                                    fill: d.color,
+                                    width: 32,
+                                    stroke: "black",
+                                    strokeWidth: 2
+                                },
+                            }}
+                            data={selectedSession === i ? d.subData.map((subD) => ({ x: subD.label, y: subD.value })) : []}
+
+                            animate={{
+                                onLoad: { duration: 200 },
+                                easing: "bounce"
+                            }}
+                            labels={({ datum }) => `${datum.x}\n${datum.y}`}
+                            labelComponent={<VictoryTooltip />}
+                        />
+                    ))}
+
+                    {renderBars()}
+
                 </VictoryChart>
+
+
                 {/* valor dos objetivos atuais da roda da vida */}
-
-
-
 
                 <S.BtnWallet>
                     <S.Text>
@@ -156,7 +221,6 @@ export function Wallet() {
                         R$ 100,00
                     </S.Text>
                 </S.BtnWallet>
-
             </S.ContainerBody>
 
 

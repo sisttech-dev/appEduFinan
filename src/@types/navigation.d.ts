@@ -4,7 +4,7 @@ export declare global {
         login: undefined;
         home: undefined;
         perfil: undefined;
-        config: undefined;
+        configuracao: undefined;
         conquistas: undefined;
         personalizar: undefined;
         rodaDaVida: undefined;
@@ -13,6 +13,7 @@ export declare global {
         emocoes: undefined;
         meCuidar: undefined;
         objetivoFim: undefined;
+        infoObjetivo: undefined;
         metas: undefined;
         objetivoDefinido: undefined;
         relacionamento: undefined; 
@@ -34,6 +35,7 @@ export declare global {
         persoAvatar: undefined;
         persoPet: undefined;
         persoCor: undefined;
+        calendario: undefined;
       }
     }
   }

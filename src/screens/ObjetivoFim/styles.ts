@@ -37,15 +37,20 @@ height: 30%;
 margin:5px;
 `;
 
-export const Emocao = styled.ScrollView`
+export const Emocao = styled.View`
 background-color: ${({ theme }) => theme.COLORS.WHITE};
 width: 100%;
-height: 5%;
+height: 60%;
 display: flex;
-position: relative;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+position: absolute;
 border-top-right-radius: 80px;
 border-top-left-radius: 80px;
-padding-top:15px;
+padding-top:30px;
+top:47%
 
 `;
 

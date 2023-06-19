@@ -64,12 +64,12 @@ export const imgPerfil = styled.Image`
 `;
 
 export const imgPet = styled.Image`
+  background-color: ${({ theme }) => theme.COLORS.WHITE};
   width: 50px;
   height: 50px;
   margin-top: 45%;
   border-radius: 50px;
   right: 40;
-
 `;
 
 export const imgDetail = styled.Image`

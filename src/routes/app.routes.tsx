@@ -28,6 +28,10 @@ import { ConSocial } from '@screens/ConSocial';
 import { PersoAvatar } from '@screens/PersoAvatar';
 import { PersoPet } from '@screens/PersoPet';
 import { PersoCor } from '@screens/PersoCor';
+import { Calendario } from '@screens/Calendario';
+import { Configuracao } from '@screens/Configuracao';
+import { InfoObjetivo } from '@screens/InfoObjetivo';
+
 
 
 const Stack = createNativeStackNavigator();
@@ -69,6 +73,14 @@ function PerfilStack() {
       <Stack.Screen
         name="personalizar"
         component={Personalizar}
+      />
+      <Stack.Screen
+        name="calendario"
+        component={Calendario}
+      />
+      <Stack.Screen
+        name="config"
+        component={Configuracao}
       />
       <Stack.Screen
         name="persoAvatar"
@@ -159,6 +171,10 @@ function RodaStack() {
       <Stack.Screen
         name="emocoes"
         component={Emocoes}
+      />
+      <Stack.Screen
+        name="infoObjetivo"
+        component={InfoObjetivo}
       />
       <Stack.Screen
         name="metas"

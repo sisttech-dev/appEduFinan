@@ -12,7 +12,9 @@ export function VidaSocial() {
     function handleBtnAdd() {
         navigation.navigate('emocoes');
     }
-
+    function handleFinalizarobj() {
+        navigation.navigate('infoObjetivo');
+    }
     return (
 
         <S.Container>
@@ -24,6 +26,13 @@ export function VidaSocial() {
 
             <S.Items>
             {/* Atividades que o aluno adiciona */}
+            
+            <S.VidaSocial onPress={handleFinalizarobj}>
+                    <S.Text>
+                        Celular
+                    </S.Text>
+                </S.VidaSocial>
+
             </S.Items>
 
             {/*Botao para adicionar um novo objetivo */}

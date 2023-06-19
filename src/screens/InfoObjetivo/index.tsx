@@ -7,29 +7,30 @@ import { Alert } from 'react-native';
 
 
 
-export function ObjetivoDefinido({route}) {
+export function InfoObjetivo({route}) {
 
     const navigation = useNavigation();
 
 
-    {/* Aqui quando dar continuidade, voltar pra tela da sessao */ }
-    function handleProx() {
+    {/* Aqui quando dar continuidade, concluir o objetivo */ }
+    function handleFinalizar() {
         Alert.alert(
-            'Objetivo Definido',
-            '',
+            'Confirmação',
+            'Deseja finalizar o objetivo?',
             [
               {
-                text: 'Ok',
+                text: 'Não',
+                style: 'cancel' 
+              },
+              {
+                text: 'Sim',
                 onPress: () => {
-                  navigation.navigate('secoes');
+                  navigation.navigate('objetivoFim'); 
                 }
               }
             ]
           );
         }
-
-
-
 
     return (
 
@@ -38,7 +39,7 @@ export function ObjetivoDefinido({route}) {
             {/* Header */}
             <S.Header>
                 <S.TituloHeader>
-                    Objetivo Definido!
+                   Objetivo
                 </S.TituloHeader>
             </S.Header>
 
@@ -70,9 +71,9 @@ export function ObjetivoDefinido({route}) {
 
             </S.Emocao>
 
-            <S.btnProx onPress={handleProx}>
+            <S.btnProx onPress={handleFinalizar}>
                 <S.btnText>
-                    Continuar
+                    Finalizar objetivo
                 </S.btnText>
             </S.btnProx>
 

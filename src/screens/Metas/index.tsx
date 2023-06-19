@@ -1,20 +1,19 @@
 
 import * as S from './styles';
 import React, { useState } from 'react';
-import { useNavigation, useRoute  } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import DetalhesObj from '@assets/DetalhesObj.png'
 import CheckBox from 'react-native-check-box'
 
-export function Metas() {
-    const [data, setData] = useState('');
+export function Metas(this: any) {
+    const [date, setDate] = useState('');
     const [objetivo, setObjetivo] = useState('');
     const [valor, setValor] = useState('');
     const navigation = useNavigation();
     const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
 
-
     function handleDefinir() {
-        navigation.navigate('objetivoDefinido', {objetivo:objetivo, valor:valor, data:data});
+        navigation.navigate('objetivoDefinido', { objetivo: objetivo, valor: valor, prazo: date });
     }
 
     function handleCheckboxChange() {
@@ -49,16 +48,16 @@ export function Metas() {
                     value={valor}
                     onChangeText={setValor} />
 
-                <S.MaskedInput
-                    value={data}
-                    placeholder='Prazo :'
+                <S.MaskedInput placeholder='Data:'
                     type={'datetime'}
-                    options={{
-                        format: 'DD/MM/YYYY',
-                    }}
                     keyboardType='numbers-and-punctuation'
-                    />
-
+                    options={{
+                        format: 'DD/MM/YYYY'
+                    }}
+                    value={date}
+                    onChangeText={text => { setDate(text) }}
+                    ref={(ref) => this.datetimeField = ref}
+                />
             </S.Objetivo>
 
             {/* Checkbox */}

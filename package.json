@@ -24,6 +24,7 @@
     "react-loading": "^2.0.3",
     "react-native": "0.71.8",
     "react-native-btr": "^2.2.0",
+    "react-native-calendars": "^1.1298.0",
     "react-native-check-box": "^2.1.7",
     "react-native-mask-input": "^1.2.3",
     "react-native-masked-text": "^1.13.0",

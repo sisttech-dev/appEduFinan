@@ -8,24 +8,13 @@ export const Container = styled.View`
 `;
 
 export const ContainerBody = styled.View`
-flex: 1;
+  flex: 1;
   background-color: ${({ theme }) => theme.COLORS.WHITE};
   align-items: center;
   justify-content: center;
   width: 100%;
   display: flex;
   flex-direction: column;
-`;
-
-export const Img = styled.Image`
-  align-items: center;
-  justify-content: center;
-  width: 50%;
-  height: 100%;
-`;
-
-export const imgDetail = styled.Image`
-  position: absolute;
 `;
 
 export const Text = styled.Text`
@@ -40,7 +29,6 @@ export const Text = styled.Text`
 `;
 
 export const btnBody = styled.TouchableOpacity`
-
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
   font-size: ${({ theme }) => theme.FONT_SIZE.LG};
   background-color: ${({ theme }) => theme.COLORS.RED};

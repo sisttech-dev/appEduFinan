@@ -66,7 +66,7 @@ export const TituloHeader = styled.Text`
   text-align: center;
   position: relative;
   width: 100%;
-  margin-top: 50px;
+  margin-top: 30px;
 `;
 
 export const Text = styled.Text`

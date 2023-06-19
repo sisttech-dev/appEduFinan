@@ -1,9 +1,10 @@
 
-import { ScrollView } from 'react-native';
+import { Alert } from 'react-native';
 import * as S from './styles';
 import imgObjFim from '@assets/imgObjFim.png'
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
+import { BtnEmocoes } from '@components/btnEmocoes';
 
 export function ObjetivoFim() {
 
@@ -11,8 +12,19 @@ export function ObjetivoFim() {
 
     {/* Aqui quando dar continuidade, voltar pra tela da sessao */ }
     function handleProx() {
-        navigation.navigate('secoes');
-    }
+        Alert.alert(
+            'Objetivo finalizado ',
+            '',
+            [
+              {
+                text: 'Ok',
+                onPress: () => {
+                  navigation.navigate('secoes');
+                }
+              }
+            ]
+          );
+        }
 
     return (
 
@@ -44,114 +56,28 @@ export function ObjetivoFim() {
             </S.Header>
 
 
-            {/* Emoçoes antes de começar o objetivo */}
-            <S.Emocao centerContent={false}>
+            {/* Emoçoes depois de finalizar o objetivo */}
+            <S.Emocao >
                 <S.TextEmocoes>
-                    Dos sentimentos abaixo, você se identifica com algum após a conclusão do objetivo?
+                    Quais são os sentimentos após a conclusão do objetivo?
                 </S.TextEmocoes>
-                <S.Botoes>
-                    <S.btnBody>
-                        <S.btnAdd>
-                            <S.Text>
-                                Empolgado
-                            </S.Text>
-                        </S.btnAdd>
-                    </S.btnBody>
-
-                    <S.btnBody>
-                        <S.btnAdd>
-                            <S.Text>
-                                Encorajado
-                            </S.Text>
-                        </S.btnAdd>
-                    </S.btnBody>
-
-                    <S.btnBody>
-                        <S.btnAdd>
-                            <S.Text>
-                                Confiante
-                            </S.Text>
-                        </S.btnAdd>
-                    </S.btnBody>
-
-                    <S.btnBody>
-                        <S.btnAdd>
-                            <S.Text>
-                                Consciente
-                            </S.Text>
-                        </S.btnAdd>
-                    </S.btnBody>
-
-                    <S.btnBody>
-                        <S.btnAdd>
-                            <S.Text>
-                                Criativo
-                            </S.Text>
-                        </S.btnAdd>
-                    </S.btnBody>
-
-                    <S.btnBody>
-                        <S.btnAdd>
-                            <S.Text>
-                                Animado
-                            </S.Text>
-                        </S.btnAdd>
-                    </S.btnBody>
-
-                    <S.btnBody>
-                        <S.btnAdd>
-                            <S.Text>
-                                Otimista
-                            </S.Text>
-                        </S.btnAdd>
-                    </S.btnBody>
-
-                    <S.btnBody>
-                        <S.btnAdd>
-                            <S.Text>
-                                Concentrado
-                            </S.Text>
-                        </S.btnAdd>
-                    </S.btnBody>
-
-                    <S.btnBody>
-                        <S.btnAdd>
-                            <S.Text>
-                                Orgulhoso
-                            </S.Text>
-                        </S.btnAdd>
-                    </S.btnBody>
-
-                    <S.btnBody>
-                        <S.btnAdd>
-                            <S.Text>
-                                Motivado
-                            </S.Text>
-                        </S.btnAdd>
-                    </S.btnBody>
-
-                    <S.btnBody>
-                        <S.btnAdd>
-                            <S.Text>
-                                Esperançoso
-                            </S.Text>
-                        </S.btnAdd>
-                    </S.btnBody>
-
-                    <S.btnBody>
-                        <S.btnAdd>
-                            <S.Text>
-                                Alegre
-                            </S.Text>
-                        </S.btnAdd>
-                    </S.btnBody>
-
-                </S.Botoes>
+                <BtnEmocoes text="Empolgado" />
+                <BtnEmocoes text="Encorajado" />
+                <BtnEmocoes text="Confiante" />
+                <BtnEmocoes text="Consciente" />
+                <BtnEmocoes text="Criativo" />
+                <BtnEmocoes text="Animado" />
+                <BtnEmocoes text="Otimista" />
+                <BtnEmocoes text="Concentrado" />
+                <BtnEmocoes text="Orgulhoso" />
+                <BtnEmocoes text="Motivado" />
+                <BtnEmocoes text="Esperançoso" />
+                <BtnEmocoes text="Alegre" />
             </S.Emocao>
 
             <S.btnProx onPress={handleProx}>
                 <S.Text>
-                    Continuar
+                    Finalizar
                 </S.Text>
             </S.btnProx>
 

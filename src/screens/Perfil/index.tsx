@@ -1,8 +1,8 @@
 
 import * as S from './styles';
-import { NavBar } from '@components/NavBar';
 import { BtnHelp } from '@components/BtnHelp';
 import FotoPerfil from '@assets/FotoPerfil.png'
+import p6 from '@assets/p6.png'
 import Detalhe1 from '@assets/Detail1.png'
 import { SimpleLineIcons, Octicons, Fontisto } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native';
@@ -21,6 +21,12 @@ export function Perfil() {
   function handlePerso() {
     navigation.navigate('personalizar');
   }
+  function handleCalendario() {
+    navigation.navigate('calendario');
+  }
+  function handleConfig() {
+    navigation.navigate('config');
+  }
 
   return (
 
@@ -32,7 +38,7 @@ export function Perfil() {
       <S.Header>
         <S.viewHeader>
           <S.imgPerfil source={FotoPerfil} />
-          <S.imgPet source={FotoPerfil} />
+          <S.imgPet source={p6} />
         </S.viewHeader>
 
         <S.viewDados>
@@ -82,7 +88,7 @@ export function Perfil() {
           </S.textBody>
         </S.btnBody>
 
-        <S.btnBody>
+        <S.btnBody onPress={handleCalendario}>
           <Octicons
             name='calendar'
             color={"#ffff"}
@@ -93,7 +99,7 @@ export function Perfil() {
           </S.textBody>
         </S.btnBody>
 
-        <S.btnBody>
+        <S.btnBody onPress={handleConfig}>
           <Octicons
             name='gear'
             color={"#ffff"}

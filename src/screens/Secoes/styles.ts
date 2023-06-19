@@ -1,7 +1,4 @@
 import styled from "styled-components/native";
-import { TouchableOpacity } from "react-native";
-import { Center } from 'native-base';
-
 
 export const Container = styled.View`
   flex: 1;
@@ -45,7 +42,7 @@ export const Items = styled.View`
 // Esses componentes abaixo variam de tamanho 
 // de acordo com a quantidade de pontos definidos pelo aluno posteriomente
 export const Profissional = styled.TouchableOpacity`
-  background-color: ${({ theme }) => theme.COLORS.RED};
+  background-color: ${({ theme }) => theme.COLORS.GRAY_300};
   width: 100px;
   height: 100px;
   border-radius: 80px;
@@ -70,7 +67,7 @@ export const Pessoal = styled.TouchableOpacity`
 `;
 
 export const QDeVida = styled.TouchableOpacity`
-  background-color: ${({ theme }) => theme.COLORS.RED};
+  background-color: ${({ theme }) => theme.COLORS.BLUE};
   width: 110px;
   height: 110px;
   border-radius: 80px;
@@ -82,7 +79,7 @@ export const QDeVida = styled.TouchableOpacity`
 `;
 
 export const Relacionamento = styled.TouchableOpacity`
-  background-color: ${({ theme }) => theme.COLORS.RED};
+  background-color: ${({ theme }) => theme.COLORS.GREEN};
   width: 150px;
   height: 150px;
   border-radius: 80px;

@@ -49,7 +49,7 @@ export const btnAdd = styled.TouchableOpacity`
   margin: 40px;
 `;
 export const VidaSocial = styled.TouchableOpacity`
-  background-color: ${({ theme }) => theme.COLORS.WHITE};
+  background-color: ${({ theme }) => theme.COLORS.RED};
   width: 100px;
   height: 100px;
   border-radius: 80px;
