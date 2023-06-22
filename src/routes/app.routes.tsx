@@ -1,5 +1,4 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons, FontAwesome } from '@expo/vector-icons'
 import { Login } from '@screens/Login';
@@ -199,6 +198,7 @@ function RodaStack() {
 export function AppRoutes() {
 
   return (
+    
     <Tab.Navigator
       screenOptions={{
         tabBarActiveTintColor:'#fff',
@@ -207,7 +207,11 @@ export function AppRoutes() {
         headerShown: false,
         tabBarStyle: {
           backgroundColor: '#FF4673',
-          borderTopWidth:0,
+          borderTopWidth:1,
+          shadowColor: '#000',
+          shadowOpacity: 0.2,
+          shadowOffset: { width: 0, height: -2 },
+          elevation: 2,
         }
       }}>
       <Tab.Screen name="homeScreen" component={HomeStack}

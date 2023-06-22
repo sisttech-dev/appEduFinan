@@ -1,12 +1,7 @@
-import { Login } from '@screens/Login';
+
 import { Home } from '@screens/Home';
 import { Perfil } from '@screens/Perfil';
-import { Conquistas } from '@screens/Conquistas';
-import { Personalizar } from '@screens/Personalizar';
 import { RodaDaVida } from '@screens/RodaDaVida';
-import { Secoes } from '@screens/Secoes';
-import { MapaMental } from '@screens/MapaMental';
-import { Wallet } from '@screens/Wallet';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const Stack = createNativeStackNavigator()

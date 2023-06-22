@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+import { TouchableOpacity, View } from "react-native";
 
 export const Container = styled.View`
   flex: 1;
@@ -17,13 +18,15 @@ export const Header = styled.SafeAreaView`
   width: 100%;
   height: 10%;
   position: fixed;
+  border-bottom-width: 1px;
+  border-bottom-color: ${({ theme }) => theme.COLORS.WHITE};
+  
 `;
 
 export const RodaVida = styled.TouchableOpacity`
   width: 100%;
   align-items: center;
   justify-content: center;
-  margin: 10px;
 `;
 
 export const Img = styled.Image`
@@ -77,4 +80,13 @@ export const Secao = styled.TouchableOpacity`
   padding: 4px;
   margin: 5px;
   width: 150px;
+  transform: ${({ isSelected }) => (isSelected ? 'scale(0.9)' : 'scale(1)')};
+  elevation: 5; /* Adiciona sombra */
+  shadow-color: #000;
+  shadow-offset: {
+    width: 0,
+    height: 2,
+  };
+  shadow-opacity: 0.25;
+  shadow-radius: 3.70;
 `;

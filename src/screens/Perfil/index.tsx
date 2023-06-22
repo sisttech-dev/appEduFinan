@@ -4,7 +4,7 @@ import { BtnHelp } from '@components/BtnHelp';
 import FotoPerfil from '@assets/FotoPerfil.png'
 import p6 from '@assets/p6.png'
 import Detalhe1 from '@assets/Detail1.png'
-import { SimpleLineIcons, Octicons, Fontisto } from '@expo/vector-icons'
+import { SimpleLineIcons, Octicons, Fontisto, Feather } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native';
 
 
@@ -49,16 +49,16 @@ export function Perfil() {
             16 anos
           </S.txtIdade>
 
-        <S.BtnWallet onPress={handleWallet}>
-        <Fontisto
-            name='wallet'
-            color={"#ffff"}
-            size={25}
-          />
-          <S.Text>
-            R$ 50,00
-          </S.Text>
-        </S.BtnWallet>
+          <S.BtnWallet onPress={handleWallet}>
+            <Fontisto
+              name='wallet'
+              color={"#ffff"}
+              size={25}
+            />
+            <S.Text>
+              R$ 50,00
+            </S.Text>
+          </S.BtnWallet>
         </S.viewDados>
 
       </S.Header>
@@ -107,6 +107,17 @@ export function Perfil() {
           />
           <S.textBody>
             Configurações
+          </S.textBody>
+        </S.btnBody>
+
+        <S.btnBody onPress={handleConfig}>
+          <SimpleLineIcons
+            name='target'
+            color={"#ffff"}
+            size={35}
+          />
+          <S.textBody>
+            Meus Objetivos
           </S.textBody>
         </S.btnBody>
 

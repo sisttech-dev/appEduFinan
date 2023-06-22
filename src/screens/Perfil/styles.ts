@@ -15,15 +15,12 @@ export const Header = styled.View`
   background-color: ${({ theme }) => theme.COLORS.RED};
   justify-content: space-between;
   align-items: center;
+  
 `;
 
-export const ContainerBody = styled.View`
-  flex: 1;
+export const ContainerBody = styled.ScrollView`
   background-color: ${({ theme }) => theme.COLORS.WHITE};
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
+
 `;
 
 export const viewHeader = styled.View`
@@ -102,15 +99,25 @@ export const btnBody = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.COLORS.RED};
   justify-content: center;
   align-items: center;
-  position: relative;
-  width: 90%;
   height: 15%;
-  border-radius: 10px;
+  border-radius: 15px;
   margin: 3.5%;
   display: flex;
   flex-direction: row;
-  
+  flex: 1;
+  shadow-color: #000;
+  shadow-offset: 0px 2px;
+  shadow-opacity: 0.25;
+  shadow-radius: 3.84px;
+  elevation: 5;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
 `;
+
+
+
+
+
+
 
 
 export const BtnWallet = styled.TouchableOpacity`

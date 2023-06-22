@@ -4,9 +4,7 @@ import Header from '@assets/Header.jpg'
 import Home01 from '@assets/HomeLivro.png'
 import Home02 from '@assets/RodaVidaPig.png'
 import Home03 from '@assets/MMental.png'
-import { MapaMental } from '@screens/MapaMental';
 import { useNavigation } from '@react-navigation/native'
-import { mapaMental } from '@assets/mapaMental.png';
 import { StatusBar } from 'react-native';
 
 export function Home() {
@@ -29,8 +27,7 @@ export function Home() {
       {/* Header */}
       <S.Header>
         <S.TextHeader>
-          Vamos
-          Aprender!
+          Vamos Aprender!
         </S.TextHeader>
 
         <S.Img source={Header} />
@@ -38,9 +35,9 @@ export function Home() {
 
 
       {/* Body */}
-      <S.Body>
-        <S.Text>Atividades e curiosidades</S.Text>
 
+
+      <S.Text>Atividades e curiosidades</S.Text>
         <S.FlatList
           data={[
             { image: Home01, path:'mapaMental', key: 0 },
@@ -54,7 +51,7 @@ export function Home() {
           )}
           horizontal={true}
         />
-      </S.Body>
+   
 
       
     </S.Container>

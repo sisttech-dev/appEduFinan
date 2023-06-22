@@ -1,9 +1,9 @@
 import styled from "styled-components/native";
-import { TouchableOpacity } from "react-native";
 
 
 export const Container = styled.View`
   flex: 1;
+  background-color: ${({ theme }) => theme.COLORS.WHITE};
 `;
 
 export const Header = styled.View`
@@ -14,13 +14,8 @@ export const Header = styled.View`
   width: 100%;
   height: 170px;
   background-color: ${({ theme }) => theme.COLORS.RED};
-  `;
-
-export const Body = styled.View`
- flex: 1;
- background-color: ${({ theme }) => theme.COLORS.WHITE};
-    
-  `;
+  
+`;
 
 export const Img = styled.Image`
   width: 50%;
@@ -63,5 +58,11 @@ export const btnHome = styled.TouchableOpacity`
   height: 260px;
   margin: 10px;
   border-radius: 50px;
+  shadow-color: #000;
+  shadow-offset: 0px 2px;
+  shadow-opacity: 0.25;
+  shadow-radius: 3.84px;
+  elevation: 5;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
 `;
 

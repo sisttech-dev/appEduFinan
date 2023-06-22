@@ -1,14 +1,42 @@
 
 import * as S from './styles';
 import { useNavigation } from '@react-navigation/native';
-import { useState } from 'react';
+import theme from '@theme/index';
+import { useState, useRef } from 'react';
 import { VictoryBar, VictoryChart, VictoryPolarAxis, VictoryTheme, VictoryTooltip } from 'victory-native'
+import { Animated, Easing } from "react-native";
 
 export function RodaDaVida() {
+    const buttonScale = useRef(new Animated.Value(1)).current;
+    const [selectedButton, setSelectedButton] = useState(null);
+
+    function handleButtonPressIn(index) {
+        setSelectedButton(index);
+
+        Animated.timing(buttonScale, {
+            toValue: 0.9,
+            duration: 200,
+            useNativeDriver: true,
+            easing: Easing.bezier(0.25, 0.1, 0.25, 1), // Usando Easing.bezier para uma interpolação mais suave
+          
+        }).start();
+    }
+
+    function handleButtonPressOut() {
+        setSelectedButton(null);
+
+        Animated.timing(buttonScale, {
+            toValue: 1,
+            duration: 200,
+            useNativeDriver: true,
+            easing: Easing.bezier(0.25, 0.1, 0.25, 1),
+        }).start();
+    }
+
     const [selectedSession, setSelectedSession] = useState(null);
     const data = [
         {
-            x: "Profissional", y: 10, color: "#858585",
+            x: "Profissional", y: 10, color: theme.COLORS.GRAY_300,
             subData: [
                 { label: "Contribuição", value: 3 },
                 { label: "Financeiro", value: 3 },
@@ -17,7 +45,7 @@ export function RodaDaVida() {
         },
 
         {
-            x: "Pessoal", y: 10, color: "#FF4673",
+            x: "Pessoal", y: 10, color: theme.COLORS.RED,
             subData: [
                 { label: "Saúde", value: 2 },
                 { label: "Intelectual", value: 5 },
@@ -26,7 +54,7 @@ export function RodaDaVida() {
         },
 
         {
-            x: "Relacionamento", y: 10, color: "#B3D236",
+            x: "Relacionamento", y: 10, color: theme.COLORS.GREEN,
             subData: [
                 { label: "Família", value: 5 },
                 { label: "Amoroso", value: 2 },
@@ -35,7 +63,7 @@ export function RodaDaVida() {
         },
 
         {
-            x: "Qualidade de vida", y: 10, color: "#0097DC",
+            x: "Qualidade de vida", y: 10, color: theme.COLORS.BLUE,
             subData: [
                 { label: "Hobbies", value: 5 },
                 { label: "Plenitude", value: 4 },
@@ -111,48 +139,17 @@ export function RodaDaVida() {
     return (
 
         <S.Container>
-                {/* Header */}
-                <S.Header>
-                    <S.TextHeader>
-                        Roda da Vida
-                    </S.TextHeader>
-                </S.Header>
+            {/* Header */}
+            <S.Header>
+                <S.TextHeader>
+                    Roda da Vida
+                </S.TextHeader>
+            </S.Header>
+
             <S.ContainerScroll>
 
 
-                <S.Btn >
-                    <S.Text>
-                        Editar Roda da vida
-                    </S.Text>
-                </S.Btn>
 
-
-                {/* Sessões Gerais, falta concluir, a ideia é pra cada sessao ter um valor e o aluno pode atribuir esses valores na roda */}
-                <S.Secoes>
-                    <S.Secao
-                        style={{ backgroundColor: "#000000", marginBottom: 10 }}
-                        onPress={() => handleSessionClick("geral")}>
-                        <S.Text>Geral</S.Text>
-                    </S.Secao>
-                </S.Secoes>
-
-                <S.Secoes >
-                    {data.slice(0, 2).map((d, i) => (
-                        <S.Secao key={i} style={{ backgroundColor: d.color, marginRight: 10 }} onPress={() => handleSessionClick(i)}>
-                            <S.Text >{d.x}</S.Text>
-                            <S.Text >{d.y}</S.Text>
-                        </S.Secao>
-                    ))}
-                </S.Secoes>
-
-                <S.Secoes >
-                    {data.slice(2, 4).map((d, i) => (
-                        <S.Secao key={i} style={{ backgroundColor: d.color, marginRight: 10 }} onPress={() => handleSessionClick(i + 2)}>
-                            <S.Text >{d.x}</S.Text>
-                            <S.Text >{d.y}</S.Text>
-                        </S.Secao>
-                    ))}
-                </S.Secoes>
 
 
 
@@ -164,13 +161,13 @@ export function RodaDaVida() {
                         polar
                         theme={VictoryTheme.material}
                         maxDomain={{ y: 10 }}
-                        innerRadius={30}>
+                        innerRadius={20}>
 
                         <VictoryPolarAxis
                             dependentAxis
                             style={{
-                                axis: { stroke: "none" },
-                                grid: { display: "none" },
+                                axis: { stroke: "" },
+                                grid: { display: "" },
                             }}
                             tickValues={[]} // Remove as marcas de graduação
                             tickFormat={() => ""}
@@ -223,6 +220,52 @@ export function RodaDaVida() {
 
                     </VictoryChart>
                 </S.RodaVida>
+                {/* Sessões Gerais, falta concluir, a ideia é pra cada sessao ter um valor e o aluno pode atribuir esses valores na roda */}
+                <S.Secoes >
+                    <S.Secao
+                        style={{ backgroundColor: theme.COLORS.BLACK, marginBottom: 10 }}
+                        isSelected={selectedButton === "geral"}
+                        onPressIn={() => handleButtonPressIn("geral")}
+                        onPressOut={handleButtonPressOut}
+                        onPress={() => handleSessionClick("geral")}
+                        >
+                        <S.Text>Geral</S.Text>
+                    </S.Secao>
+                </S.Secoes>
+
+                <S.Secoes >
+                    {data.slice(0, 2).map((d, i) => (
+                        <S.Secao key={i} style={{ backgroundColor: d.color, marginRight: 10 }}
+                            isSelected={selectedButton === i}
+                            onPressIn={() => handleButtonPressIn(i)}
+                            onPressOut={handleButtonPressOut}
+                            onPress={() => handleSessionClick(i)}
+                            >
+                            <S.Text >{d.x}</S.Text>
+                            <S.Text >{d.y}</S.Text>
+                        </S.Secao>
+                    ))}
+                </S.Secoes>
+
+                <S.Secoes >
+                    {data.slice(2, 4).map((d, i) => (
+                        <S.Secao key={i} style={{ backgroundColor: d.color, marginRight: 10 }}
+                            isSelected={selectedButton === i + 2}
+                            onPressIn={() => handleButtonPressIn(i + 2)}
+                            onPressOut={handleButtonPressOut}
+                            onPress={() => handleSessionClick(i + 2)}
+                        >
+                            <S.Text >{d.x}</S.Text>
+                            <S.Text >{d.y}</S.Text>
+                        </S.Secao>
+                    ))}
+                </S.Secoes>
+
+                <S.Btn >
+                    <S.Text>
+                        Editar Roda da vida
+                    </S.Text>
+                </S.Btn>
 
                 <S.Btn onPress={handleMeCuidar} >
                     <S.Text>
