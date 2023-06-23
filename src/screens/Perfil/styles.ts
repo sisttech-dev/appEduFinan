@@ -1,37 +1,35 @@
 import styled from "styled-components/native";
 
 export const Container = styled.View`
-  flex: 1;
   background-color: ${({ theme }) => theme.COLORS.WHITE};
+  flex: 1;
 `;
 
 export const Header = styled.View`
+  background-color: ${({ theme }) => theme.COLORS.RED};
   position: fixed;
   width: 100%;
   display: flex;
   flex-direction: row;
   width: 100%;
   height: 170;
-  background-color: ${({ theme }) => theme.COLORS.RED};
   justify-content: space-between;
   align-items: center;
+  border-bottom-left-radius:50px;
   
 `;
 
 export const ContainerBody = styled.ScrollView`
   background-color: ${({ theme }) => theme.COLORS.WHITE};
-
 `;
 
 export const viewHeader = styled.View`
-  background-color: ${({ theme }) => theme.COLORS.RED};
   display: flex;
   flex-direction: row;
   width: 40%;
 `;
 
 export const viewDados = styled.View`
-  background-color: ${({ theme }) => theme.COLORS.RED};
   display: flex;
   flex-direction: column;
   width: 60%;
@@ -40,7 +38,7 @@ export const viewDados = styled.View`
 export const txtNome = styled.Text`
     color: ${({ theme }) => theme.COLORS.WHITE};
     font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-    font-size: ${({ theme }) => theme.FONT_SIZE.XL};
+    font-size: ${({ theme }) => theme.FONT_SIZE.XL}px;
     position: relative;
     
 `;
@@ -48,7 +46,7 @@ export const txtNome = styled.Text`
 export const txtIdade = styled.Text`
     color: ${({ theme }) => theme.COLORS.WHITE};
     font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
-    font-size: ${({ theme }) => theme.FONT_SIZE.SM};
+    font-size: ${({ theme }) => theme.FONT_SIZE.SM}px;
     position: relative;
     text-align: left;
 `;
@@ -56,7 +54,8 @@ export const txtIdade = styled.Text`
 export const imgPerfil = styled.Image`
   width: 100px;
   height: 100px;
-  margin: 5px;
+  margin-top: 15px;
+  margin-left: 15px;
   border-radius: 50px;
 `;
 
@@ -76,7 +75,7 @@ export const imgDetail = styled.Image`
 export const Text = styled.Text`
   color: ${({ theme }) => theme.COLORS.WHITE};
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  font-size: ${({ theme }) => theme.FONT_SIZE.XL};
+  font-size: ${({ theme }) => theme.FONT_SIZE.XL}px;
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -86,7 +85,7 @@ export const Text = styled.Text`
 export const textBody = styled.Text`
   color: ${({ theme }) => theme.COLORS.WHITE};
   font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
-  font-size: ${({ theme }) => theme.FONT_SIZE.XL};
+  font-size: ${({ theme }) => theme.FONT_SIZE.XL}px;
   justify-content: center;
   align-content: center;
   position: relative;
@@ -94,9 +93,9 @@ export const textBody = styled.Text`
 `;
 
 export const btnBody = styled.TouchableOpacity`
-  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  font-size: ${({ theme }) => theme.FONT_SIZE.LG};
   background-color: ${({ theme }) => theme.COLORS.RED};
+  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
+  font-size: ${({ theme }) => theme.FONT_SIZE.LG}px;
   justify-content: center;
   align-items: center;
   height: 15%;
@@ -113,28 +112,18 @@ export const btnBody = styled.TouchableOpacity`
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
 `;
 
-
-
-
-
-
-
-
 export const BtnWallet = styled.TouchableOpacity`
   color: ${({ theme }) => theme.COLORS.WHITE};
   background-color: ${({ theme }) => theme.COLORS.BLACK};
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  font-size: ${({ theme }) => theme.FONT_SIZE.LG};
-  position: relative;
-  justify-content: space-around;
+  font-size: ${({ theme }) => theme.FONT_SIZE.LG}px;
+  justify-content: space-evenly;
   align-items: center;
-  display: flex;
   flex-direction: row;
   margin-top: 10px;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  width: 100%;
-  height: 25%;
+  border-radius: 10px;
+  width: 90%;
+  height: 35%;
   
 
 `;

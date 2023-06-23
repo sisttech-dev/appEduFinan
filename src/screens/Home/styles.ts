@@ -7,13 +7,13 @@ export const Container = styled.View`
 `;
 
 export const Header = styled.View`
+  background-color: ${({ theme }) => theme.COLORS.RED};
   align-items: center;
   justify-content: space-evenly;
   flex-direction: row;
   display: flex;
   width: 100%;
   height: 170px;
-  background-color: ${({ theme }) => theme.COLORS.RED};
   
 `;
 
@@ -31,7 +31,7 @@ export const imgBody = styled.Image`
 export const TextHeader = styled.Text`
   color: ${({ theme }) => theme.COLORS.WHITE};
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  font-size: ${({ theme }) => theme.FONT_SIZE.XXL};
+  font-size: ${({ theme }) => theme.FONT_SIZE.XXL}px;
   width: 50%;
   text-align:left;
   padding-left: 5%;
@@ -40,7 +40,7 @@ export const TextHeader = styled.Text`
 export const Text = styled.Text`
   color: ${({ theme }) => theme.COLORS.BLACK};
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  font-size: ${({ theme }) => theme.FONT_SIZE.XL};
+  font-size: ${({ theme }) => theme.FONT_SIZE.XL}px;
   text-align: center;
   margin-top: 5%;
   margin-bottom: 10%;

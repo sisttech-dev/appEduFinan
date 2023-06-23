@@ -6,11 +6,10 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import { Alert } from 'react-native';
 
 
-
-export function ObjetivoDefinido({route}) {
+export function ObjetivoDefinido() {
 
     const navigation = useNavigation();
-
+    const route = useRoute();
 
     {/* Aqui quando dar continuidade, voltar pra tela da sessao */ }
     function handleProx() {
@@ -51,7 +50,7 @@ export function ObjetivoDefinido({route}) {
                 <S.Objetivo>
                     <S.objetivoBody>
                         <S.Text>
-                            Objetivo: {route.params?.objetivo}
+                            Objetivo: {route.params?.nomeObjetivo}
                         </S.Text>
                     </S.objetivoBody>
 

@@ -4,7 +4,7 @@ import React from 'react';
 import objDefinido from '@assets/objDefinido.png'
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { Alert } from 'react-native';
-
+import { groupRemoveByName } from '@storage/objetivo/objetivoRemoveByName';
 
 
 export function InfoObjetivo({route}) {

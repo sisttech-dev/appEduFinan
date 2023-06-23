@@ -39,14 +39,14 @@ export const Img = styled.Image`
 export const Text = styled.Text`
   color: ${({ theme }) => theme.COLORS.WHITE};
   font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
-  font-size: ${({ theme }) => theme.FONT_SIZE.MD};
+  font-size: ${({ theme }) => theme.FONT_SIZE.MD}px;
   text-align: center;
 `;
 
 export const TextHeader = styled.Text`
   color: ${({ theme }) => theme.COLORS.WHITE};
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  font-size: ${({ theme }) => theme.FONT_SIZE.XXL};
+  font-size: ${({ theme }) => theme.FONT_SIZE.XXL}px;
 `;
 
 export const Btn = styled.TouchableOpacity`
@@ -62,7 +62,7 @@ export const Btn = styled.TouchableOpacity`
 
 export const Secoes = styled.View`
   font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
-  font-size: ${({ theme }) => theme.FONT_SIZE.LG};
+  font-size: ${({ theme }) => theme.FONT_SIZE.LG}px;
   justify-content: space-evenly;
   flex-Direction: row;    
   border-radius: 20px;  
@@ -72,7 +72,7 @@ export const Secoes = styled.View`
 export const Secao = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.COLORS.RED};
   font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
-  font-size: ${({ theme }) => theme.FONT_SIZE.LG};
+  font-size: ${({ theme }) => theme.FONT_SIZE.LG}px;
   position: relative;
   justify-content: space-evenly;
   align-items: center;
@@ -83,10 +83,8 @@ export const Secao = styled.TouchableOpacity`
   transform: ${({ isSelected }) => (isSelected ? 'scale(0.9)' : 'scale(1)')};
   elevation: 5; /* Adiciona sombra */
   shadow-color: #000;
-  shadow-offset: {
-    width: 0,
-    height: 2,
-  };
+  shadow-offset: 0px 2px;
   shadow-opacity: 0.25;
-  shadow-radius: 3.70;
+  shadow-radius: 3.84px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
 `;
