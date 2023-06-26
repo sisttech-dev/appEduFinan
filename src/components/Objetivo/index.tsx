@@ -18,6 +18,4 @@ export function Objetivo({ nomeObjetivo, valor, date, emocoesInicio, emocoesFim,
         </Container>
 
     );
-
-
 }

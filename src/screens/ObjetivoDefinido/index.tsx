@@ -4,10 +4,15 @@ import React from 'react';
 import objDefinido from '@assets/objDefinido.png'
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { Alert } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 export function ObjetivoDefinido() {
+    const [newObjetivo, setNewObjetivo] = React.useState(null);
 
+    React.useEffect(() => {
+        loadData();
+    }, []);
     const navigation = useNavigation();
     const route = useRoute();
 
@@ -17,17 +22,27 @@ export function ObjetivoDefinido() {
             'Objetivo Definido',
             '',
             [
-              {
-                text: 'Ok',
-                onPress: () => {
-                  navigation.navigate('secoes');
+                {
+                    text: 'Ok',
+                    onPress: () => {
+                        navigation.navigate('secoes');
+                    }
                 }
-              }
             ]
-          );
+        );
+    }
+
+    const loadData = async () => {
+        try {
+          const storedData = await AsyncStorage.getItem('newObjetivo');
+          if (storedData) {
+            const parsedData = JSON.parse(storedData);
+            setNewObjetivo(parsedData);
+          }
+        } catch (error) {
+          console.log('Erro ao carregar os dados do AsyncStorage:', error);
         }
-
-
+      };
 
 
     return (
@@ -50,19 +65,19 @@ export function ObjetivoDefinido() {
                 <S.Objetivo>
                     <S.objetivoBody>
                         <S.Text>
-                            Objetivo: {route.params?.nomeObjetivo}
+                            Objetivo: {newObjetivo.nomeObjetivo}
                         </S.Text>
                     </S.objetivoBody>
 
                     <S.objetivoBody>
                         <S.Text>
-                            Valor: R$ {route.params?.valor}
+                            Valor: R$ {newObjetivo.valor}
                         </S.Text>
                     </S.objetivoBody>
 
                     <S.objetivoBody>
                         <S.Text>
-                            Data: {route.params?.prazo}
+                            Data: {newObjetivo.prazo}
                         </S.Text>
                     </S.objetivoBody>
                 </S.Objetivo>

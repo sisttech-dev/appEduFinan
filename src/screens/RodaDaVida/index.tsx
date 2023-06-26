@@ -148,12 +148,6 @@ export function RodaDaVida() {
 
             <S.ContainerScroll>
 
-
-
-
-
-
-
                 {/* Roda da vida */}
                 <S.RodaVida onPress={handleSec} >
 

@@ -4,9 +4,9 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { useNavigation, useRoute, useFocusEffect } from '@react-navigation/native';
 import DetalhesObj from '@assets/DetalhesObj.png'
 import CheckBox from 'react-native-check-box'
-import { groupCreate } from "@storage/objetivo/objetivoCreate";
+import { objetivoCreate } from "@storage/objetivo/objetivoCreate";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { groupsGetAll } from '@storage/objetivo/objetivoGetAll';
+import { objetivoGetAll } from '@storage/objetivo/objetivoGetAll';
 import { InputObjetivo } from '@components/InputObjetivo';
 import { Alert } from 'react-native';
 import { AppError } from '@utils/AppError';
@@ -14,13 +14,10 @@ import { AppError } from '@utils/AppError';
 export function Metas(this: any) {
     const [date, setDate] = useState('');
     const [nomeObjetivo, setNomeObjetivo] = useState('');
-    const [Objetivo, setObjetivo] = useState('');
     const [valor, setValor] = useState('');
+    const [Objetivo, setObjetivo] = useState('');
     const navigation = useNavigation();
     const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
-    const [groups, setGroups] = useState<string[]>([]);
-
-
 
     function handleCheckboxChange() {
         setIsCheckboxChecked(!isCheckboxChecked);
@@ -31,21 +28,6 @@ export function Metas(this: any) {
         }
         saveData();
     }
-
-    const loadData = async () => {
-        try {
-            const storedData = await AsyncStorage.getItem('metasData');
-            if (storedData !== null) {
-                const parsedData = JSON.parse(storedData);
-                setDate(parsedData.date);
-                setNomeObjetivo(parsedData.NomeObjetivo);
-                setValor(parsedData.valor);
-                setIsCheckboxChecked(parsedData.isCheckboxChecked);
-            }
-        } catch (error) {
-            console.log('Erro ao carregar os dados do AsyncStorage:', error);
-        }
-    };
 
     const saveData = async () => {
         try {
@@ -63,22 +45,24 @@ export function Metas(this: any) {
 
     async function handleDefinir() {
         try {
-
-            if (nomeObjetivo.trim().length === 0) {
-                return Alert.alert('Novo Grupo', 'Informe o nome da turma.');
+            if (nomeObjetivo.trim().length === 0 || valor.trim().length === 0 || date.trim().length === 0 ) {
+                return Alert.alert('', 'Informe o objetivo.');
             }
 
-            await groupCreate(Objetivo)
-            navigation.navigate('objetivoDefinido', { nomeObjetivo: nomeObjetivo, valor: valor, prazo: date });
+            await objetivoCreate(Objetivo);
+            navigation.navigate('objetivoDefinido', { Objetivo });
         } catch (error) {
-            if (error instanceof AppError) {
-                Alert.alert('Novo Grupo', error.message);
-            } else {
-                Alert.alert('Novo Grupo', 'Não foi possível criar um novo grupo.');
+            if (error instanceof AppError){
+                Alert.alert('', error.message);
+            }else{
+                Alert.alert('', 'Não foi possível criar o objetivo');
                 console.log(error);
             }
         }
     }
+
+    
+
 
     return (
 

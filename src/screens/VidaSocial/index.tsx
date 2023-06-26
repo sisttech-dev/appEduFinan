@@ -1,7 +1,7 @@
 
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import * as S from './styles';
-import { groupsGetAll } from '@storage/objetivo/objetivoGetAll';
+import { objetivoGetAll } from '@storage/objetivo/objetivoGetAll';
 import React, { useCallback, useState } from 'react';
 import { Objetivo } from '@components/Objetivo';
 import { Alert, FlatList } from 'react-native';
@@ -15,26 +15,23 @@ export function VidaSocial() {
     function handleBtnAdd() {
         navigation.navigate('emocoes');
     }
-    function handleFinalizarobj() {
-        navigation.navigate('infoObjetivo');
-    }
+
     function handleOpenObjetivo(objetivos: string) {
         navigation.navigate('infoObjetivo', { objetivos })
     }
 
 
-    async function fetchGroups() {
+    async function fetchObjetivos() {
         try {
-            const data = await groupsGetAll();
+            const data = await objetivoGetAll();
             setObjetivos(data)
         } catch (error) {
-            Alert.alert('Turmas', 'Não foi possível carregar as turmas');
             console.log(error);
         }
     }
 
     useFocusEffect(useCallback(() => {
-        fetchGroups()
+        fetchObjetivos()
     }, []))
 
 
