@@ -1,4 +1,3 @@
-const OBJETIVO_COLLECTION = '@edu-finan:objetivos';
-const DADOS_COLLECTION = '@edu-finan:dados';
+const OBJVIDASOCIAL_COLLECTION = '@edu-finan:vidaSocial';
 
-export { OBJETIVO_COLLECTION, DADOS_COLLECTION }
+export { OBJVIDASOCIAL_COLLECTION}

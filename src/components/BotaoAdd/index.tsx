@@ -10,6 +10,7 @@ type Props = TouchableOpacityProps & {
 export function BotaoAdd({ title, type = 'PRIMARY', ...rest }: Props) {
     return (
         <Container type={type} {...rest}>
+            <Title>{title}</Title>
             <Ionicons
                 name='add'
                 color={"#ffff"}

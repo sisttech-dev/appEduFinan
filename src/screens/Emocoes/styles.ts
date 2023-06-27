@@ -69,3 +69,18 @@ export const btnProx = styled.TouchableOpacity`
   position: absolute;
   bottom: 0%;
 `;
+
+export const btnAdd = styled.TouchableOpacity`
+  background-color: ${({ theme }) => theme.COLORS.BLACK};
+  width: 100px;
+  height: 35px;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  position: relative;
+`;
+
+export const btnBody = styled.View`
+  position:relative;
+`;

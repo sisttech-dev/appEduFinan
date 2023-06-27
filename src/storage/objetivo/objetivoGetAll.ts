@@ -1,14 +1,15 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import { OBJETIVO_COLLECTION } from '@storage/storageConfig';
+import { OBJVIDASOCIAL_COLLECTION } from '@storage/storageConfig';
 
 export async function objetivoGetAll() {
     try {
-        const storage = await AsyncStorage.getItem(OBJETIVO_COLLECTION);
+        const storage = await AsyncStorage.getItem(OBJVIDASOCIAL_COLLECTION);
 
-        const objetivo: string[] = storage ? JSON.parse(storage) : [];
+        const objetivos: string[] = storage ? JSON.parse(storage) : [];
+        
 
-        return objetivo;
+        return objetivos;
     } catch (error) {
         throw error;
     }

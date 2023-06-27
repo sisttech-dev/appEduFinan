@@ -11,13 +11,17 @@ import { InputObjetivo } from '@components/InputObjetivo';
 import { Alert } from 'react-native';
 import { AppError } from '@utils/AppError';
 
-export function Metas(this: any) {
+
+export function Metas() {
     const [date, setDate] = useState('');
     const [nomeObjetivo, setNomeObjetivo] = useState('');
     const [valor, setValor] = useState('');
-    const [Objetivo, setObjetivo] = useState('');
+    const [objetivo, setObjetivo] = useState('');
     const navigation = useNavigation();
     const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
+
+    const route = useRoute();
+    const activeEmocoes = route.params;
 
     function handleCheckboxChange() {
         setIsCheckboxChecked(!isCheckboxChecked);
@@ -45,23 +49,26 @@ export function Metas(this: any) {
 
     async function handleDefinir() {
         try {
-            if (nomeObjetivo.trim().length === 0 || valor.trim().length === 0 || date.trim().length === 0 ) {
+            if (nomeObjetivo.trim().length === 0 || valor.trim().length === 0 || date.trim().length === 0) {
                 return Alert.alert('', 'Informe o objetivo.');
             }
 
-            await objetivoCreate(Objetivo);
-            navigation.navigate('objetivoDefinido', { Objetivo });
+            await objetivoCreate({ objetivo: nomeObjetivo, date, valor });
+            navigation.navigate('objetivoDefinido', { objetivo: nomeObjetivo, date, valor });
+
         } catch (error) {
-            if (error instanceof AppError){
+            if (error instanceof AppError) {
                 Alert.alert('', error.message);
-            }else{
+            } else {
                 Alert.alert('', 'Não foi possível criar o objetivo');
                 console.log(error);
             }
         }
     }
 
-    
+    useEffect(() => {
+        console.log(activeEmocoes)
+    },[])
 
 
     return (

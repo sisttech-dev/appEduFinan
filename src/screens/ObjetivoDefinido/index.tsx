@@ -1,6 +1,6 @@
 
 import * as S from './styles';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import objDefinido from '@assets/objDefinido.png'
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { Alert } from 'react-native';
@@ -8,13 +8,11 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 export function ObjetivoDefinido() {
-    const [newObjetivo, setNewObjetivo] = React.useState(null);
+    //const [newObjetivo, setNewObjetivo] = React.useState(null);
 
-    React.useEffect(() => {
-        loadData();
-    }, []);
     const navigation = useNavigation();
     const route = useRoute();
+    const newObjetivo = route.params;
 
     {/* Aqui quando dar continuidade, voltar pra tela da sessao */ }
     function handleProx() {
@@ -32,17 +30,11 @@ export function ObjetivoDefinido() {
         );
     }
 
-    const loadData = async () => {
-        try {
-          const storedData = await AsyncStorage.getItem('newObjetivo');
-          if (storedData) {
-            const parsedData = JSON.parse(storedData);
-            setNewObjetivo(parsedData);
-          }
-        } catch (error) {
-          console.log('Erro ao carregar os dados do AsyncStorage:', error);
-        }
-      };
+    useEffect(() => {  
+        console.log();
+    }, [
+
+    ])
 
 
     return (
@@ -61,11 +53,10 @@ export function ObjetivoDefinido() {
             <S.Emocao >
                 <S.Img source={objDefinido} />
 
-
-                <S.Objetivo>
+                 <S.Objetivo>
                     <S.objetivoBody>
                         <S.Text>
-                            Objetivo: {newObjetivo.nomeObjetivo}
+                            Objetivo: {newObjetivo.objetivo}
                         </S.Text>
                     </S.objetivoBody>
 
@@ -77,10 +68,10 @@ export function ObjetivoDefinido() {
 
                     <S.objetivoBody>
                         <S.Text>
-                            Data: {newObjetivo.prazo}
+                            Data: {newObjetivo.date}
                         </S.Text>
                     </S.objetivoBody>
-                </S.Objetivo>
+                </S.Objetivo> 
 
             </S.Emocao>
 
