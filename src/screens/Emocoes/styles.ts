@@ -37,7 +37,7 @@ export const Img = styled.Image`
 export const TextHeader = styled.Text`
   color: ${({ theme }) => theme.COLORS.WHITE};
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  font-size: ${({ theme }) => theme.FONT_SIZE.XL};
+  font-size: ${({ theme }) => theme.FONT_SIZE.XL}px;
   text-align: center;
   position: absolute;
   top: 20%;
@@ -47,7 +47,7 @@ export const TextHeader = styled.Text`
 export const Text = styled.Text`
   color: ${({ theme }) => theme.COLORS.WHITE};
   font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
-  font-size: ${({ theme }) => theme.FONT_SIZE.SM};
+  font-size: ${({ theme }) => theme.FONT_SIZE.SM}px;
   text-align: center;
   margin: 10px;
 `;
@@ -55,7 +55,7 @@ export const Text = styled.Text`
 export const proxText = styled.Text`
   color: ${({ theme }) => theme.COLORS.WHITE};
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  font-size: ${({ theme }) => theme.FONT_SIZE.LG};
+  font-size: ${({ theme }) => theme.FONT_SIZE.LG}px;
   text-align: center;
   margin: 10px;
 `;

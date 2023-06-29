@@ -13,7 +13,7 @@ export function InputObjetivo({ inputRef, ...rest }: Props) {
   return (
     <Container
       ref={inputRef}
-      placeholderTextColor={COLORS.GRAY_300}
+      placeholderTextColor={COLORS.GRAY_200}
       {...rest} 
     />
   )

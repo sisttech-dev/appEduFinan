@@ -7,7 +7,7 @@ export const Objetivo = styled.View`
   position: relative;
   justify-content: center;
   background-color: ${({ theme }) => theme.COLORS.RED};
-  width: 100%;
+  width: auto;
   height: 45px;
   margin: 5px;
   border-radius: 10px;

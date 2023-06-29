@@ -16,12 +16,13 @@ export function Metas() {
     const [date, setDate] = useState('');
     const [nomeObjetivo, setNomeObjetivo] = useState('');
     const [valor, setValor] = useState('');
-    const [objetivo, setObjetivo] = useState('');
+
     const navigation = useNavigation();
     const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
 
     const route = useRoute();
     const activeEmocoes = route.params;
+    const stringObj = JSON.stringify(activeEmocoes);
 
     function handleCheckboxChange() {
         setIsCheckboxChecked(!isCheckboxChecked);
@@ -48,13 +49,14 @@ export function Metas() {
     };
 
     async function handleDefinir() {
+        
         try {
             if (nomeObjetivo.trim().length === 0 || valor.trim().length === 0 || date.trim().length === 0) {
                 return Alert.alert('', 'Informe o objetivo.');
             }
 
-            await objetivoCreate({ objetivo: nomeObjetivo, date, valor });
-            navigation.navigate('objetivoDefinido', { objetivo: nomeObjetivo, date, valor });
+            await objetivoCreate({ objetivo: nomeObjetivo, date, valor, stringObj });
+            navigation.navigate('objetivoDefinido', { objetivo: nomeObjetivo, date, valor, stringObj});
 
         } catch (error) {
             if (error instanceof AppError) {

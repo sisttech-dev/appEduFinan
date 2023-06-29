@@ -8,34 +8,59 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 export function ObjetivoDefinido() {
-    //const [newObjetivo, setNewObjetivo] = React.useState(null);
 
     const navigation = useNavigation();
     const route = useRoute();
     const newObjetivo = route.params;
 
-    {/* Aqui quando dar continuidade, voltar pra tela da sessao */ }
+    async function viewLocalStorage() {
+        try {
+            const keys = await AsyncStorage.getAllKeys();
+
+            const values = await AsyncStorage.multiGet(keys);
+
+            values.forEach(([key, value]) => {
+                console.log(`Chave: ${key}, Valor: ${value}`);
+
+                // Parse o valor (que está em formato de string) para obter o objeto correspondente
+                const parsedValue = JSON.parse(value);
+
+                // Acesse as propriedades do objeto
+                const objetivo = parsedValue[0].objetivo;
+                const date = parsedValue[0].date;
+                const valor = parsedValue[0].valor;
+                const activeEmocoes = parsedValue[0].activeEmocoes;
+
+                console.log(`Objetivo: ${objetivo}`);
+                console.log(`Data: ${date}`);
+                console.log(`Valor: ${valor}`);
+                console.log(`Valor: ${activeEmocoes}`);
+            });
+        } catch (error) {
+            console.log('Erro ao visualizar o conteúdo do Local Storage:', error);
+        }
+    }
+
+
+    {/* quando dar continuidade, voltar pra tela da sessao */ }
     function handleProx() {
         Alert.alert(
             'Objetivo Definido',
             '',
-            [
-                {
-                    text: 'Ok',
-                    onPress: () => {
-                        navigation.navigate('secoes');
-                    }
+            [{
+                text: 'Ok',
+                onPress: () => {
+                    navigation.navigate('secoes');
                 }
-            ]
-        );
+            }]);
     }
 
-    useEffect(() => {  
+    useEffect(() => {
         console.log();
+        console.log(newObjetivo)
+        viewLocalStorage();
     }, [
-
     ])
-
 
     return (
 
@@ -53,16 +78,16 @@ export function ObjetivoDefinido() {
             <S.Emocao >
                 <S.Img source={objDefinido} />
 
-                 <S.Objetivo>
+                <S.Objetivo>
                     <S.objetivoBody>
                         <S.Text>
-                            Objetivo: {newObjetivo.objetivo}
+                            {newObjetivo.objetivo}
                         </S.Text>
                     </S.objetivoBody>
 
                     <S.objetivoBody>
                         <S.Text>
-                            Valor: R$ {newObjetivo.valor}
+                            Valor: R${newObjetivo.valor}
                         </S.Text>
                     </S.objetivoBody>
 
@@ -71,7 +96,13 @@ export function ObjetivoDefinido() {
                             Data: {newObjetivo.date}
                         </S.Text>
                     </S.objetivoBody>
-                </S.Objetivo> 
+
+                    <S.objetivoBody>
+                        <S.Text>
+                            Emoções: {newObjetivo.stringObj}
+                        </S.Text>
+                    </S.objetivoBody>
+                </S.Objetivo>
 
             </S.Emocao>
 

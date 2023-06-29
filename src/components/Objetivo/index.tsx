@@ -3,9 +3,13 @@ import { TouchableOpacityProps } from 'react-native';
 
 type Props = TouchableOpacityProps & {
     nomeObjetivo: string;
+    valor: string;
+    date: string;
+    emocoesInicio: string;
+    emocoesFim: string;
 }
 
-export function Objetivo({ nomeObjetivo, ...rest }: Props) {
+export function Objetivo({ nomeObjetivo, valor, date, emocoesInicio, emocoesFim, ...rest }: Props) {
     return (
         <Container {...rest}>
             <Text>

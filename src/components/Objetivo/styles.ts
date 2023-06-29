@@ -8,13 +8,14 @@ export const Container = styled(TouchableOpacity)`
   height: 100px;
   border-radius: 80px;
   align-items: center;
-  flex-direction: row;
+  justify-content: center;
   margin-bottom: 15px;
+  
 `;
 
 export const Text = styled.Text`
   color: ${({ theme }) => theme.COLORS.BLACK};
-  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  font-size: ${({ theme }) => theme.FONT_SIZE.MD}px;
+  font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
+  font-size: ${({ theme }) => theme.FONT_SIZE.LG}px;
   text-align: center;
 `;

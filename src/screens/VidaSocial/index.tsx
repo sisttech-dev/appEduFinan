@@ -1,5 +1,5 @@
 
-import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import { useFocusEffect, useNavigation, useRoute } from '@react-navigation/native';
 import * as S from './styles';
 import { objetivoGetAll } from '@storage/objetivo/objetivoGetAll';
 import React, { useCallback, useState, useEffect } from 'react';
@@ -18,10 +18,11 @@ export function VidaSocial() {
         navigation.navigate('emocoes');
     }
 
-    function handleOpenObjetivo(objetivo: string) {
-        navigation.navigate('infoObjetivo', { objetivo })
+    function handleOpenObjetivo(item) {
+        const { objetivo, date, valor, stringObj } = item;
+        navigation.navigate('objetivoDefinido', { objetivo, date, valor, stringObj });
     }
-    
+
     async function clearLocalStorage() {
         try {
             await AsyncStorage.removeItem('@edu-finan:vidaSocial');
@@ -34,17 +35,30 @@ export function VidaSocial() {
 
     async function viewLocalStorage() {
         try {
-          const keys = await AsyncStorage.getAllKeys();
-          const items = await AsyncStorage.multiGet(keys);
-      
-          items.forEach(([key, value]) => {
-            console.log(`Chave: ${key}, Valor: ${value}`);
-          });
+            const keys = await AsyncStorage.getAllKeys();
+
+            const values = await AsyncStorage.multiGet(keys);
+
+            values.forEach(([key, value]) => {
+                console.log(`Chave: ${key}, Valor: ${value}`);
+
+                // Parse o valor (que está em formato de string) para obter o objeto correspondente
+                const parsedValue = JSON.parse(value);
+
+                // Acesse as propriedades do objeto
+                const objetivo = parsedValue[0].objetivo;
+                const date = parsedValue[0].date;
+                const valor = parsedValue[0].valor;
+
+                console.log(`Objetivo: ${objetivo}`);
+                console.log(`Data: ${date}`);
+                console.log(`Valor: ${valor}`);
+            });
         } catch (error) {
-          console.log('Erro ao visualizar o conteúdo do Local Storage:', error);
+            console.log('Erro ao visualizar o conteúdo do Local Storage:', error);
         }
-      }
-      
+    }
+
 
     async function fetchObjetivos() {
         try {
@@ -60,13 +74,11 @@ export function VidaSocial() {
         fetchObjetivos()
     }, []))
 
-    
-    useEffect(() => {  
+
+    useEffect(() => {
         console.log();
         viewLocalStorage();
-    }, [
-
-    ])
+    }, [])
 
 
     return (
@@ -83,12 +95,12 @@ export function VidaSocial() {
                 data={objetivos}
                 keyExtractor={(item) => item.objetivo.toString()}
                 renderItem={({ item }) => (
-                    <Objetivo
+                    <Objetivo 
                         onPress={() => handleOpenObjetivo(item)}
                         nomeObjetivo={item.objetivo}
                         valor={item.valor}
                         date={item.date}
-                        emocoesInicio={item.emocoesInicio}
+                        emocoesInicio={item.stringObj}
                         emocoesFim={item.emocoesFim}
                     >
                     </Objetivo>
@@ -103,7 +115,7 @@ export function VidaSocial() {
             {/*Botao para adicionar um novo objetivo */}
             <S.btnBody>
                 <BotaoAdd title={''} onPress={handleBtnAdd} />
-                <BotaoAdd title={'testes'} onPress={clearLocalStorage} />
+                <BotaoAdd title={'reset'} onPress={clearLocalStorage} />
             </S.btnBody>
 
         </S.Container>

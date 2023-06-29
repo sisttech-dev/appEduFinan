@@ -31,75 +31,69 @@ import { Calendario } from '@screens/Calendario';
 import { Configuracao } from '@screens/Configuracao';
 import { InfoObjetivo } from '@screens/InfoObjetivo';
 
-
-
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator()
 
-export function HomeStack() {
-  return (
-    <Stack.Navigator screenOptions={{ headerShown: false,
-     }}>
-      <Stack.Screen
-        name="home"
-        component={Home}
-      />
-      <Stack.Screen
-        name="mapaMental"
-        component={MapaMental}
-      />
+export function AppRoutes() {
 
-    </Stack.Navigator>
-  );
-}
-
-function PerfilStack() {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen
-        name="perfil"
-        component={Perfil}
+
+    <Tab.Navigator
+      screenOptions={{
+        tabBarActiveTintColor: '#fff',
+        tabBarInactiveTintColor: '#fff',
+        tabBarShowLabel: false,
+        headerShown: false,
+        tabBarStyle: {
+          backgroundColor: '#FF4673',
+          borderTopWidth: 1,
+          shadowColor: '#000',
+          shadowOpacity: 0.2,
+          shadowOffset: { width: 0, height: -2 },
+          elevation: 2,
+        }
+      }}>
+        <Tab.Screen name="rodaDaVida" component={RodaStack}
+          options={{
+            tabBarIcon: ({ color, size, focused }) => {
+              if (focused) {
+                return <Ionicons name="pie-chart-sharp" color={color} size={size} />
+              }
+              return <Ionicons name="pie-chart-outline" color={color} size={size} />
+            }
+          }}
+        />
+      <Tab.Screen name="homeScreen" component={HomeStack}
+        options={{
+          tabBarIcon: ({ color, size, focused }) => {
+            if (focused) {
+              return <Ionicons name="home-sharp" color={color} size={size} />
+            }
+            return <Ionicons name="home-outline" color={color} size={size} />
+          }
+        }}
       />
-      <Stack.Screen
-        name="wallet"
-        component={Wallet}
-        options={{ navigationBarHidden: true }}
+      <Tab.Screen name="perfil" component={PerfilStack}
+        options={{
+          tabBarIcon: ({ color, size, focused }) => {
+            if (focused) {
+              return <FontAwesome name="user" color={color} size={size} />
+            }
+            return <FontAwesome name="user-o" color={color} size={size} />
+          }
+        }}
       />
-      <Stack.Screen
-        name="conquistas"
-        component={Conquistas}
-      />
-      <Stack.Screen
-        name="personalizar"
-        component={Personalizar}
-      />
-      <Stack.Screen
-        name="calendario"
-        component={Calendario}
-      />
-      <Stack.Screen
-        name="config"
-        component={Configuracao}
-      />
-      <Stack.Screen
-        name="persoAvatar"
-        component={PersoAvatar}
-      />
-      <Stack.Screen
-        name="persoPet"
-        component={PersoPet}
-      />
-      <Stack.Screen
-        name="persoCor"
-        component={PersoCor}
-      />
-    </Stack.Navigator>
+    </Tab.Navigator>
   )
 }
 
 function RodaStack() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen
+        name="vidaSocial"
+        component={VidaSocial}
+      />
       <Stack.Screen
         name="rodaDaVida"
         component={RodaDaVida}
@@ -157,15 +151,9 @@ function RodaStack() {
         component={Familia}
       />
       <Stack.Screen
-        name="vidaSocial"
-        component={VidaSocial}
-      />
-      <Stack.Screen
         name="objetivoDefinido"
         component={ObjetivoDefinido}
-        options={{
-          title:'valor'
-        }}
+        
       />
       <Stack.Screen
         name="emocoes"
@@ -195,55 +183,68 @@ function RodaStack() {
   )
 }
 
-export function AppRoutes() {
+export function HomeStack() {
 
   return (
-    
-    <Tab.Navigator
-      screenOptions={{
-        tabBarActiveTintColor:'#fff',
-        tabBarInactiveTintColor:'#fff',
-        tabBarShowLabel:false,
-        headerShown: false,
-        tabBarStyle: {
-          backgroundColor: '#FF4673',
-          borderTopWidth:1,
-          shadowColor: '#000',
-          shadowOpacity: 0.2,
-          shadowOffset: { width: 0, height: -2 },
-          elevation: 2,
-        }
-      }}>
-      <Tab.Screen name="homeScreen" component={HomeStack}
-        options={{
-          tabBarIcon: ({ color, size, focused }) => {
-            if (focused) {
-              return <Ionicons name="home-sharp" color={color} size={35} />
-            }
-            return <Ionicons name="home-outline" color={color} size={size} />
-          }
-        }}
+    <Stack.Navigator screenOptions={{
+      headerShown: false,
+    }}>
+      <Stack.Screen
+        name="home"
+        component={Home}
       />
-      <Tab.Screen name="rodaDaVida" component={RodaStack}
-        options={{
-          tabBarIcon: ({ color, size, focused }) => {
-            if (focused) {
-              return <Ionicons name="pie-chart-sharp" color={color} size={35} />
-            }
-            return <Ionicons name="pie-chart-outline" color={color} size={size} />
-          }
-        }}
+      <Stack.Screen
+        name="mapaMental"
+        component={MapaMental}
       />
-      <Tab.Screen name="perfil" component={PerfilStack}
-        options={{
-          tabBarIcon: ({ color, size, focused }) => {
-            if (focused) {
-              return <FontAwesome name="user" color={color} size={35} />
-            }
-            return <FontAwesome name="user-o" color={color} size={size} />
-          }
-        }}
+
+    </Stack.Navigator>
+  );
+}
+
+function PerfilStack() {
+
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen
+        name="perfil"
+        component={Perfil}
       />
-    </Tab.Navigator>
+      <Stack.Screen
+        name="wallet"
+        component={Wallet}
+        options={{ navigationBarHidden: true }}
+      />
+      <Stack.Screen
+        name="conquistas"
+        component={Conquistas}
+      />
+      <Stack.Screen
+        name="personalizar"
+        component={Personalizar}
+      />
+      <Stack.Screen
+        name="calendario"
+        component={Calendario}
+      />
+      <Stack.Screen
+        name="config"
+        component={Configuracao}
+      />
+      <Stack.Screen
+        name="persoAvatar"
+        component={PersoAvatar}
+      />
+      <Stack.Screen
+        name="persoPet"
+        component={PersoPet}
+      />
+      <Stack.Screen
+        name="persoCor"
+        component={PersoCor}
+      />
+    </Stack.Navigator>
   )
 }
+
+

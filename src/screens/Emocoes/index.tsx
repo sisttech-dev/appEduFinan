@@ -1,15 +1,14 @@
 
 import { useNavigation } from '@react-navigation/native';
 import * as S from './styles';
-import emocoes from '@assets/Emocoes.png'
-import { BtnEmocoes } from '@components/btnEmocoes';
+import imgEmocoes from '@assets/Emocoes.png'
 import React, { useState } from 'react';
-import { Emocao } from './../ObjetivoFim/styles';
+import { Alert } from 'react-native';
 
 export function Emocoes() {
     const navigation = useNavigation();
-    const [emocoes, setEmocoes] = useState([
 
+    const [emocoes, setEmocoes] = useState([
         { name: "Empolgado", active: false },
         { name: "Encorajado", active: false },
         { name: "Confiante", active: false },
@@ -22,16 +21,13 @@ export function Emocoes() {
         { name: "Motivado", active: false },
         { name: "Esperançoso", active: false },
         { name: "Alegre", active: false },
-
     ]);
 
     function handleBtnProx() {
-        const activeEmocoes = emocoes.filter((emocao) => emocao.active == true)
-        navigation.navigate('metas', activeEmocoes);
+        const activeEmocoes = emocoes.filter((emocao) => emocao.active == true).map((emocao) => emocao.name).join(", ");
+        navigation.navigate('metas',  activeEmocoes );
 
     }
-
-    const [buttonColor, setButtonColor] = useState('black');
 
     const handleButtonPress = (item) => {
         let emocoesCopy = [...emocoes];
@@ -40,8 +36,14 @@ export function Emocoes() {
             return emocao.name == item.name;
         })
 
-        let emocao = {...emocoesCopy[index]};
-        emocao.active = true;
+        let emocao = { ...emocoesCopy[index] };
+
+        if (emocao.active) {
+            emocao.active = false;
+        } else {
+            emocao.active = true;
+        }
+
         emocoesCopy[index] = emocao;
         setEmocoes(emocoesCopy);
     };
@@ -56,28 +58,21 @@ export function Emocoes() {
                 <S.TextHeader>
                     Como estão suas emoções antes de começar o objetivo?
                 </S.TextHeader>
-                <S.Img source={emocoes} />
+                <S.Img source={imgEmocoes} />
             </S.Header>
 
             {/* Emoçoes */}
             <S.Emocao>
-                <S.btnBody>
-                    <S.btnAdd style={{ backgroundColor: buttonColor }} >
-                        <S.Text>{emocoes.length}</S.Text>
-                    </S.btnAdd>
-                </S.btnBody>
                 {
-
                     emocoes.map((item, index) =>
-                        <S.btnBody>
-                            <S.btnAdd onPress={()=>handleButtonPress(item)} style={{ backgroundColor: item.active ? '#FF4673' : buttonColor }} >
+                        <S.btnBody key={index}>
+                            <S.btnAdd onPress={() => handleButtonPress(item)} 
+                            style={{ backgroundColor: item.active ? '#FF4673' : 'black' }} >
                                 <S.Text>{item.name}</S.Text>
                             </S.btnAdd>
                         </S.btnBody>
-
                     )
                 }
-
             </S.Emocao>
 
             <S.btnProx onPress={handleBtnProx}>
