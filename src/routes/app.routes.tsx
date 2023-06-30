@@ -31,8 +31,10 @@ import { Calendario } from '@screens/Calendario';
 import { Configuracao } from '@screens/Configuracao';
 import { InfoObjetivo } from '@screens/InfoObjetivo';
 
+
 const Stack = createNativeStackNavigator();
-const Tab = createBottomTabNavigator()
+const Tab = createBottomTabNavigator();
+
 
 export function AppRoutes() {
 
@@ -53,16 +55,16 @@ export function AppRoutes() {
           elevation: 2,
         }
       }}>
-        <Tab.Screen name="rodaDaVida" component={RodaStack}
-          options={{
-            tabBarIcon: ({ color, size, focused }) => {
-              if (focused) {
-                return <Ionicons name="pie-chart-sharp" color={color} size={size} />
-              }
-              return <Ionicons name="pie-chart-outline" color={color} size={size} />
+      <Tab.Screen name="rodaDaVida" component={RodaStack}
+        options={{
+          tabBarIcon: ({ color, size, focused }) => {
+            if (focused) {
+              return <Ionicons name="pie-chart-sharp" color={color} size={size} />
             }
-          }}
-        />
+            return <Ionicons name="pie-chart-outline" color={color} size={size} />
+          }
+        }}
+      />
       <Tab.Screen name="homeScreen" component={HomeStack}
         options={{
           tabBarIcon: ({ color, size, focused }) => {
@@ -93,6 +95,11 @@ function RodaStack() {
       <Stack.Screen
         name="vidaSocial"
         component={VidaSocial}
+      />
+      <Stack.Screen
+        name="objetivoDefinido"
+        component={ObjetivoDefinido}
+
       />
       <Stack.Screen
         name="rodaDaVida"
@@ -149,11 +156,6 @@ function RodaStack() {
       <Stack.Screen
         name="familia"
         component={Familia}
-      />
-      <Stack.Screen
-        name="objetivoDefinido"
-        component={ObjetivoDefinido}
-        
       />
       <Stack.Screen
         name="emocoes"

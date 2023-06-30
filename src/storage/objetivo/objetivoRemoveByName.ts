@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import { OBJETIVO_COLLECTION } from '@storage/storageConfig';
+import { OBJVIDASOCIAL_COLLECTION } from '@storage/storageConfig';
 
 import { objetivoGetAll } from './objetivoGetAll';
 
@@ -10,7 +10,7 @@ export async function objetivoRemoveByName(objetivoDeleted: string) {
 
     const objetivo = storedObjetivo.filter(objetivo => objetivo !== objetivoDeleted);
 
-    await AsyncStorage.setItem(OBJETIVO_COLLECTION, JSON.stringify(objetivo));
+    await AsyncStorage.setItem(OBJVIDASOCIAL_COLLECTION, JSON.stringify(objetivo));
 
   } catch (error) {
     throw error;

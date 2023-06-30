@@ -29,18 +29,17 @@ export function ObjetivoDefinido() {
                 const objetivo = parsedValue[0].objetivo;
                 const date = parsedValue[0].date;
                 const valor = parsedValue[0].valor;
-                const activeEmocoes = parsedValue[0].activeEmocoes;
+                const stringObj = parsedValue[0].stringObj;
 
                 console.log(`Objetivo: ${objetivo}`);
                 console.log(`Data: ${date}`);
                 console.log(`Valor: ${valor}`);
-                console.log(`Valor: ${activeEmocoes}`);
+                console.log(`Emocoes: ${stringObj}`);
             });
         } catch (error) {
             console.log('Erro ao visualizar o conteúdo do Local Storage:', error);
         }
     }
-
 
     {/* quando dar continuidade, voltar pra tela da sessao */ }
     function handleProx() {
@@ -56,7 +55,6 @@ export function ObjetivoDefinido() {
     }
 
     useEffect(() => {
-        console.log();
         console.log(newObjetivo)
         viewLocalStorage();
     }, [
@@ -81,36 +79,50 @@ export function ObjetivoDefinido() {
                 <S.Objetivo>
                     <S.objetivoBody>
                         <S.Text>
+                            Seu Objetivo
+                        </S.Text>
+                        <S.Text style={{ color: 'black' }}>
                             {newObjetivo.objetivo}
                         </S.Text>
                     </S.objetivoBody>
 
-                    <S.objetivoBody>
-                        <S.Text>
-                            Valor: R${newObjetivo.valor}
-                        </S.Text>
-                    </S.objetivoBody>
+                    <S.Objetivo2>
+                        <S.objetivoBody2>
+                            <S.Text>
+                                Valor
+                            </S.Text>
+                            <S.Text style={{ color: 'black' }}>
+                                {newObjetivo.valor}
+                            </S.Text>
+                        </S.objetivoBody2>
+
+                        <S.objetivoBody2>
+                            <S.Text>
+                                Data esperada
+                            </S.Text>
+                            <S.Text style={{ color: 'black' }}>
+                                {newObjetivo.date}
+                            </S.Text>
+                        </S.objetivoBody2>
+                    </S.Objetivo2>
 
                     <S.objetivoBody>
                         <S.Text>
-                            Data: {newObjetivo.date}
+                            Suas Emoções
                         </S.Text>
-                    </S.objetivoBody>
-
-                    <S.objetivoBody>
-                        <S.Text>
-                            Emoções: {newObjetivo.stringObj}
+                        <S.Text style={{ color: 'black' }}>
+                            {newObjetivo.stringObj}
                         </S.Text>
                     </S.objetivoBody>
                 </S.Objetivo>
 
+                <S.btnProx onPress={handleProx}>
+                    <S.btnText>
+                        Finalizar
+                    </S.btnText>
+                </S.btnProx>
             </S.Emocao>
 
-            <S.btnProx onPress={handleProx}>
-                <S.btnText>
-                    Continuar
-                </S.btnText>
-            </S.btnProx>
 
         </S.Container>
     )

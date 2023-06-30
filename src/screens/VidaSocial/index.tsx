@@ -20,14 +20,14 @@ export function VidaSocial() {
 
     function handleOpenObjetivo(item) {
         const { objetivo, date, valor, stringObj } = item;
-        navigation.navigate('objetivoDefinido', { objetivo, date, valor, stringObj });
+        navigation.navigate('infoObjetivo', { objetivo, date, valor, stringObj });
     }
 
     async function clearLocalStorage() {
         try {
             await AsyncStorage.removeItem('@edu-finan:vidaSocial');
             console.log('Conteúdo do Local Storage removido com sucesso.');
-            setObjetivos([]); // Limpar a lista de objetivos no estado
+            setObjetivos([]); // Limpa a lista de objetivos no estado
         } catch (error) {
             console.log('Erro ao remover conteúdo do Local Storage:', error);
         }
@@ -41,9 +41,9 @@ export function VidaSocial() {
 
             values.forEach(([key, value]) => {
                 console.log(`Chave: ${key}, Valor: ${value}`);
-
-                // Parse o valor (que está em formato de string) para obter o objeto correspondente
                 const parsedValue = JSON.parse(value);
+                if (parsedValue && parsedValue.length > 0 && parsedValue[0].objetivo) {
+                // Parse o valor (que está em formato de string) para obter o objeto correspondente
 
                 // Acesse as propriedades do objeto
                 const objetivo = parsedValue[0].objetivo;
@@ -53,6 +53,9 @@ export function VidaSocial() {
                 console.log(`Objetivo: ${objetivo}`);
                 console.log(`Data: ${date}`);
                 console.log(`Valor: ${valor}`);
+            } else {
+                console.log('Objetivo não encontrado no valor do AsyncStorage.');
+              }
             });
         } catch (error) {
             console.log('Erro ao visualizar o conteúdo do Local Storage:', error);
@@ -63,7 +66,7 @@ export function VidaSocial() {
     async function fetchObjetivos() {
         try {
             const data = await objetivoGetAll();
-            console.log(data[0].objetivo);
+            console.log(data)
             setObjetivos(data)
         } catch (error) {
             console.log(error);
@@ -76,10 +79,9 @@ export function VidaSocial() {
 
 
     useEffect(() => {
-        console.log();
+
         viewLocalStorage();
     }, [])
-
 
     return (
 

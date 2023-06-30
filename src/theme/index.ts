@@ -5,6 +5,7 @@ export default {
   
       BLUE: '#0097DC',
       GREEN: '#B3D236',
+      GREENBTN: '#a6e236',
       RED: '#FF4673',
       RED_DARK: '#AA2834',
   

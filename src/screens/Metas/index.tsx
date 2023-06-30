@@ -56,7 +56,7 @@ export function Metas() {
             }
 
             await objetivoCreate({ objetivo: nomeObjetivo, date, valor, stringObj });
-            navigation.navigate('objetivoDefinido', { objetivo: nomeObjetivo, date, valor, stringObj});
+            navigation.navigate('objetivoDefinido', { objetivo: nomeObjetivo, date, valor, stringObj} );
 
         } catch (error) {
             if (error instanceof AppError) {
