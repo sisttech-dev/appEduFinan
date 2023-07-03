@@ -11,7 +11,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export function VidaSocial() {
     const [objetivos, setObjetivos] = useState<string[]>([]);
-
     const navigation = useNavigation();
 
     function handleBtnAdd() {
@@ -77,11 +76,9 @@ export function VidaSocial() {
         fetchObjetivos()
     }, []))
 
-
     useEffect(() => {
-
         viewLocalStorage();
-    }, [])
+    }, []) 
 
     return (
 

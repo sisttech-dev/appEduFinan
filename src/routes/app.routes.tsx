@@ -93,6 +93,10 @@ function RodaStack() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen
+        name="rodaDaVida"
+        component={RodaDaVida}
+      />
+      <Stack.Screen
         name="vidaSocial"
         component={VidaSocial}
       />
@@ -100,10 +104,6 @@ function RodaStack() {
         name="objetivoDefinido"
         component={ObjetivoDefinido}
 
-      />
-      <Stack.Screen
-        name="rodaDaVida"
-        component={RodaDaVida}
       />
       <Stack.Screen
         name="secoes"

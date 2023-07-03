@@ -8,7 +8,6 @@ export async function objetivoGetAll() {
 
         const objetivos: string[] = storage ? JSON.parse(storage) : [];
         
-
         return objetivos;
     } catch (error) {
         throw error;

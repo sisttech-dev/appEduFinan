@@ -27,14 +27,14 @@ export const Items = styled.View`
 export const Text = styled.Text`
   color: ${({ theme }) => theme.COLORS.BLACK};
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  font-size: ${({ theme }) => theme.FONT_SIZE.LG};
+  font-size: ${({ theme }) => theme.FONT_SIZE.LG}px;
   text-align: center;
 `;
 
 export const TextHeader = styled.Text`
   color: ${({ theme }) => theme.COLORS.BLACK};
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  font-size: ${({ theme }) => theme.FONT_SIZE.XL};
+  font-size: ${({ theme }) => theme.FONT_SIZE.XL}px;
   margin: 10%;
   text-align: center;
 

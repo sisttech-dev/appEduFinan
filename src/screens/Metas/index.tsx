@@ -31,22 +31,9 @@ export function Metas() {
         } else {
             setValor('');
         }
-        saveData();
+        
     }
 
-    const saveData = async () => {
-        try {
-            const dataToStore = JSON.stringify({
-                date,
-                nomeObjetivo,
-                valor,
-                isCheckboxChecked
-            });
-            await AsyncStorage.setItem('metasData', dataToStore);
-        } catch (error) {
-            console.log('Erro ao salvar os dados no AsyncStorage:', error);
-        }
-    };
 
     async function handleDefinir() {
         
