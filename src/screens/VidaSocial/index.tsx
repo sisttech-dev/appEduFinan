@@ -24,7 +24,7 @@ export function VidaSocial() {
 
     async function clearLocalStorage() {
         try {
-            await AsyncStorage.removeItem('@edu-finan:vidaSocial');
+            await AsyncStorage.removeItem('@VidaSocial');
             console.log('Conteúdo do Local Storage removido com sucesso.');
             setObjetivos([]); // Limpa a lista de objetivos no estado
         } catch (error) {
@@ -41,6 +41,7 @@ export function VidaSocial() {
             values.forEach(([key, value]) => {
                 console.log(`Chave: ${key}, Valor: ${value}`);
                 const parsedValue = JSON.parse(value);
+                console.log(parsedValue[1].objetivo);
                 if (parsedValue && parsedValue.length > 0 && parsedValue[0].objetivo) {
                 // Parse o valor (que está em formato de string) para obter o objeto correspondente
 
@@ -49,9 +50,9 @@ export function VidaSocial() {
                 const date = parsedValue[0].date;
                 const valor = parsedValue[0].valor;
 
-                console.log(`Objetivo: ${objetivo}`);
-                console.log(`Data: ${date}`);
-                console.log(`Valor: ${valor}`);
+                // console.log(`Objetivo: ${objetivo}`);
+                // console.log(`Data: ${date}`);
+                // console.log(`Valor: ${valor}`);
             } else {
                 console.log('Objetivo não encontrado no valor do AsyncStorage.');
               }

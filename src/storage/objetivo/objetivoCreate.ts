@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { objetivoGetAll } from './objetivoGetAll';
-import { OBJVIDASOCIAL_COLLECTION } from '@storage/storageConfig';
+import { VIDASOCIAL_COLLECTION } from '@storage/storageConfig';
 import { AppError } from '@utils/AppError';
 
 export async function objetivoCreate(newObjetivo: object) {
@@ -14,7 +14,7 @@ export async function objetivoCreate(newObjetivo: object) {
         }
 
         const storage = JSON.stringify([...storedObjetivos, newObjetivo])
-        await AsyncStorage.setItem(OBJVIDASOCIAL_COLLECTION, storage);
+        await AsyncStorage.setItem(VIDASOCIAL_COLLECTION, storage);
     } catch (error) {
         throw error;
     }

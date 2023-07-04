@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import { OBJVIDASOCIAL_COLLECTION } from '@storage/storageConfig';
+import { VIDASOCIAL_COLLECTION } from '@storage/storageConfig';
 
 import { objetivoGetAll } from './objetivoGetAll';
 
@@ -10,7 +10,9 @@ export async function objetivoRemoveByName(objetivoDeleted: string) {
 
     const objetivosAtuais = storedObjetivo.filter(objetivo => objetivo !== objetivoDeleted);
 
-    await AsyncStorage.setItem(OBJVIDASOCIAL_COLLECTION, JSON.stringify(objetivosAtuais));
+    await AsyncStorage.setItem(VIDASOCIAL_COLLECTION, JSON.stringify(objetivosAtuais));
+    await AsyncStorage.removeItem(`${VIDASOCIAL_COLLECTION}-${objetivoDeleted}`);
+    
     // Obter os objetivos atualizados
     const objetivosAtualizados = await objetivoGetAll();
 

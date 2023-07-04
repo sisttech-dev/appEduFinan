@@ -68,21 +68,19 @@ export function InfoObjetivo() {
     }
 
     function handleExcluir() {
+        const teste = JSON.stringify(newObjetivo);
+        console.log(teste)
         Alert.alert(
-          'Confirmação',
-          'Deseja excluir este objetivo?',
-          [
-            {
-              text: 'Cancelar',
-              style: 'cancel',
-            },
-            {
-              text: 'Confirmar',
-              onPress: async () => {
-                try {
-                    await objetivoRemoveByName(newObjetivo.objetivo);
-                    navigation.navigate('vidaSocial');
-                } catch (error) {
+            'Confirmação',
+            'Deseja excluir este objetivo?',
+            [
+                {text: 'Cancelar', style: 'cancel',},
+                {text: 'Confirmar',
+                    onPress: async () => {
+                        try {
+                            await objetivoRemoveByName(teste);
+                            navigation.navigate('vidaSocial');
+                        } catch (error) {
                   console.log('Erro ao excluir o objetivo:', error);
                 }
               },
@@ -158,7 +156,7 @@ export function InfoObjetivo() {
                             Atingi o Objetivo
                         </S.btnText>
                     </S.btnProx>
-                    <Button title="Excluir" onPress={clearLocalStorage} color="red" />
+                    <Button title="Excluir" onPress={handleExcluir} color="red" />
                 </S.ContainerBtn>
 
             </S.Emocao>
