@@ -30,6 +30,13 @@ import { PersoCor } from '@screens/PersoCor';
 import { Calendario } from '@screens/Calendario';
 import { Configuracao } from '@screens/Configuracao';
 import { InfoObjetivo } from '@screens/InfoObjetivo';
+import { Financeiro } from '@screens/Financeiro';
+import { Realizacao } from '@screens/Realizacao';
+import { Emocional } from '@screens/Emocional';
+import { Saude } from '@screens/Saude';
+import { Espiritualidade } from '@screens/Espiritualidade';
+import { Hobbies } from '@screens/Hobbies';
+import { Felicidade } from '@screens/Felicidade';
 
 
 const Stack = createNativeStackNavigator();
@@ -123,11 +130,11 @@ function RodaStack() {
       />
       <Stack.Screen
         name="financeiro"
-        component={Profissional}
+        component={Financeiro}
       />
       <Stack.Screen
         name="realizacao"
-        component={Profissional}
+        component={Realizacao}
       />
       <Stack.Screen
         name="pessoal"
@@ -139,11 +146,15 @@ function RodaStack() {
       />
       <Stack.Screen
         name="saude"
-        component={Relacionamento}
+        component={Saude}
       />
       <Stack.Screen
         name="emocional"
-        component={Relacionamento}
+        component={Emocional}
+      />
+      <Stack.Screen
+        name="espiritualidade"
+        component={Espiritualidade}
       />
       <Stack.Screen
         name="relacionamento"
@@ -176,6 +187,14 @@ function RodaStack() {
       <Stack.Screen
         name="meCuidar"
         component={MeCuidar}
+      />
+      <Stack.Screen
+        name="hobbies"
+        component={Hobbies}
+      />
+      <Stack.Screen
+        name="felicidade"
+        component={Felicidade}
       />
       <Stack.Screen
         name="login"

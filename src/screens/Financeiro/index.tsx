@@ -19,7 +19,7 @@ export function Financeiro() {
 
             {/* Header */}
             <S.TextHeader>
-                Contribuição Social
+               Recursos Financeiros
             </S.TextHeader>
 
             <S.Items>

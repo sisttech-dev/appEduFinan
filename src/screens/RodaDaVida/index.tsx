@@ -2,14 +2,16 @@
 import * as S from './styles';
 import { useNavigation } from '@react-navigation/native';
 import theme from '@theme/index';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { VictoryBar, VictoryChart, VictoryPolarAxis, VictoryTheme, VictoryContainer, VictoryTooltip } from 'victory-native'
 import { Animated, Easing } from "react-native";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export function RodaDaVida() {
     const buttonScale = useRef(new Animated.Value(1)).current;
     const [selectedButton, setSelectedButton] = useState(null);
     const [selectedSession, setSelectedSession] = useState(null);
+    const navigation = useNavigation();
     const data = [
         {
             x: "Profissional", y: 10, color: theme.COLORS.GRAY_300,
@@ -19,7 +21,7 @@ export function RodaDaVida() {
                 { label: "Realização", value: 4 }
             ]
         },
-
+        
         {
             x: "Pessoal", y: 10, color: theme.COLORS.RED,
             subData: [
@@ -28,7 +30,7 @@ export function RodaDaVida() {
                 { label: "Emocional", value: 3 }
             ]
         },
-
+        
         {
             x: "Relacionamento", y: 10, color: theme.COLORS.GREEN,
             subData: [
@@ -47,8 +49,53 @@ export function RodaDaVida() {
             ]
         },
     ];
+    const [chartData, setChartData] = useState(data); // Estado inicial igual aos dados iniciais
+    
+    async function updateSubDataValue(count) {
+        const newData = [...data]; // Cria uma cópia do array de dados
+        
+        const vidaSocialIndex = newData.findIndex((d) => d.x === 'Vida Social');
+        if (vidaSocialIndex !== -1) {
+            const vidaSocialData = newData[vidaSocialIndex];
+            const vidaSocialSubData = vidaSocialData.subData;
+            
+            // Atualiza o valor de 'Vida Social' no subData
+            vidaSocialSubData[2].value = count;
+            
+            // Atualiza o objeto 'Vida Social' no array de dados
+            newData[vidaSocialIndex] = { ...vidaSocialData, subData: vidaSocialSubData };
+        }
 
-    const navigation = useNavigation();
+        // Atualiza o estado com o novo array de dados
+        setData(newData);
+    }
+
+
+    function updateChartData(count) {
+        setChartData((prevData) => {
+            const newData = [...prevData]; // Cria uma cópia do array de dados
+            const vidaSocialIndex = newData.findIndex((d) => d.x === 'Vida Social');
+            if (vidaSocialIndex !== -1) {
+                const vidaSocialData = newData[vidaSocialIndex];
+                const vidaSocialSubData = vidaSocialData.subData;
+                vidaSocialSubData[2].value = count; // Atualiza o valor no subData
+                newData[vidaSocialIndex] = { ...vidaSocialData, subData: vidaSocialSubData }; // Atualiza o objeto no array de dados
+            }
+            return newData; // Retorna o novo array de dados atualizado
+        });
+    }
+
+
+    async function getItemCountInKey() {
+        try {
+            const value = await AsyncStorage.getItem('@VidaSocial');
+            const items = JSON.parse(value);
+            const itemCount = items ? items.length : 0;
+            console.log(`Quantidade de itens na chave ${'@VidaSocial'}: ${itemCount}`);
+        } catch (error) {
+            console.log(`Erro ao obter a quantidade de itens na chave "${'@VidaSocial'}":`, error);
+        }
+    }
 
     function handleButtonPressIn(index) {
         setSelectedButton(index);
@@ -134,6 +181,12 @@ export function RodaDaVida() {
             }
         }
     }
+
+
+    useEffect(() => {
+        console.log(getItemCountInKey())
+    }, [])
+
 
     return (
 

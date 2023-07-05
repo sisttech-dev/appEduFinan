@@ -6,14 +6,14 @@ import * as S from './styles';
 export function QDeVida() {
     const navigation = useNavigation();
 
-    function handleFamilia() {
-        navigation.navigate('familia');
+    function handleEspiritualidade() {
+        navigation.navigate('espiritualidade');
     }
-    function handleVidaSocial() {
-        navigation.navigate('vidaSocial');
+    function handleHobbies() {
+        navigation.navigate('hobbies');
     }
-    function handleIntelectual() {
-        navigation.navigate('intelectual');
+    function handleFelicidade() {
+        navigation.navigate('felicidade');
     }
     return (
 
@@ -27,19 +27,19 @@ export function QDeVida() {
                 {/* Seções da roda da vida */}
             <S.Items>
 
-                <S.Hobbies onPress={handleVidaSocial}>
+                <S.Hobbies onPress={handleHobbies}>
                     <S.Text>
                         Hobbies
                     </S.Text>
                 </S.Hobbies>
 
-                <S.Felicidade onPress={handleIntelectual}>
+                <S.Felicidade onPress={handleFelicidade}>
                     <S.Text>
                         Felicidade 
                     </S.Text>
                 </S.Felicidade>
 
-                <S.Espiritualidade onPress={handleFamilia}>
+                <S.Espiritualidade onPress={handleEspiritualidade}>
                     <S.Text>
                         Espiritualidade
                     </S.Text>

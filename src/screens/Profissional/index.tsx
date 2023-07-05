@@ -6,14 +6,14 @@ import * as S from './styles';
 export function Profissional() {
     const navigation = useNavigation();
 
-    function handleFamilia() {
-        navigation.navigate('familia');
+    function handleRealizacao() {
+        navigation.navigate('realizacao');
     }
-    function handleVidaSocial() {
-        navigation.navigate('vidaSocial');
+    function handleSocial() {
+        navigation.navigate('social');
     }
-    function handleIntelectual() {
-        navigation.navigate('intelectual');
+    function handleFinan() {
+        navigation.navigate('financeiro');
     }
     return (
 
@@ -27,19 +27,19 @@ export function Profissional() {
                 {/* Seções da roda da vida */}
             <S.Items>
 
-                <S.Hobbies onPress={handleVidaSocial}>
+                <S.Hobbies onPress={handleSocial}>
                     <S.Text>
                         Contribuição Social
                     </S.Text>
                 </S.Hobbies>
 
-                <S.Felicidade onPress={handleIntelectual}>
+                <S.Felicidade onPress={handleFinan}>
                     <S.Text>
                         Recursos Financeiros 
                     </S.Text>
                 </S.Felicidade>
 
-                <S.Espiritualidade onPress={handleFamilia}>
+                <S.Espiritualidade onPress={handleRealizacao}>
                     <S.Text>
                         Realização
                     </S.Text>

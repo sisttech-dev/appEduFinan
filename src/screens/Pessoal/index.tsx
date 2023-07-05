@@ -7,11 +7,11 @@ import { Ionicons } from '@expo/vector-icons'
 export function Pessoal() {
     const navigation = useNavigation();
 
-    function handleFamilia() {
-        navigation.navigate('familia');
+    function handleEmocional() {
+        navigation.navigate('emocional');
     }
-    function handleVidaSocial() {
-        navigation.navigate('vidaSocial');
+    function handleSaude() {
+        navigation.navigate('saude');
     }
     function handleIntelectual() {
         navigation.navigate('intelectual');
@@ -28,7 +28,7 @@ export function Pessoal() {
                 {/* Seções da roda da vida */}
             <S.Items>
 
-                <S.Saude onPress={handleVidaSocial}>
+                <S.Saude onPress={handleSaude}>
                     <S.Text>
                         Saúde
                     </S.Text>
@@ -40,7 +40,7 @@ export function Pessoal() {
                     </S.Text>
                 </S.Intelectual>
 
-                <S.Emocional onPress={handleFamilia}>
+                <S.Emocional onPress={handleEmocional}>
                     <S.Text>
                         Emocional
                     </S.Text>
