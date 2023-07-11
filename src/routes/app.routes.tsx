@@ -62,7 +62,7 @@ export function AppRoutes() {
           elevation: 2,
         }
       }}>
-      <Tab.Screen name="rodaDaVida" component={RodaStack}
+      <Tab.Screen name="rodaDaVidaTab" component={RodaStack}
         options={{
           tabBarIcon: ({ color, size, focused }) => {
             if (focused) {
@@ -72,7 +72,7 @@ export function AppRoutes() {
           }
         }}
       />
-      <Tab.Screen name="homeScreen" component={HomeStack}
+      <Tab.Screen name="homeTab" component={HomeStack}
         options={{
           tabBarIcon: ({ color, size, focused }) => {
             if (focused) {
@@ -82,7 +82,7 @@ export function AppRoutes() {
           }
         }}
       />
-      <Tab.Screen name="perfil" component={PerfilStack}
+      <Tab.Screen name="perfilTab" component={PerfilStack}
         options={{
           tabBarIcon: ({ color, size, focused }) => {
             if (focused) {

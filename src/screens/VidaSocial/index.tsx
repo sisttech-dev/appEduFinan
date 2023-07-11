@@ -18,8 +18,7 @@ export function VidaSocial() {
     }
 
     function handleOpenObjetivo(item) {
-        const { objetivo, date, valor, stringObj } = item;
-        navigation.navigate('infoObjetivo', { objetivo, date, valor, stringObj });
+        navigation.navigate('infoObjetivo', { newObjetivo: item });
     }
 
     async function clearLocalStorage() {

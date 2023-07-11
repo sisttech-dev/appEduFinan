@@ -1,38 +1,39 @@
-
 import * as S from './styles';
-import { useNavigation } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import theme from '@theme/index';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { VictoryBar, VictoryChart, VictoryPolarAxis, VictoryTheme, VictoryContainer, VictoryTooltip } from 'victory-native'
 import { Animated, Easing } from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 export function RodaDaVida() {
     const buttonScale = useRef(new Animated.Value(1)).current;
     const [selectedButton, setSelectedButton] = useState(null);
     const [selectedSession, setSelectedSession] = useState(null);
     const navigation = useNavigation();
-    const data = [
+
+    const [data, setData] = useState([
         {
-            x: "Profissional", y: 10, color: theme.COLORS.GRAY_300,
+            sessao: "Profissional", valor: 10, color: theme.COLORS.GRAY_300,
             subData: [
                 { label: "Contribuição", value: 3 },
                 { label: "Financeiro", value: 3 },
                 { label: "Realização", value: 4 }
             ]
         },
-        
+
         {
-            x: "Pessoal", y: 10, color: theme.COLORS.RED,
+            sessao: "Pessoal", valor: 10, color: theme.COLORS.RED,
             subData: [
                 { label: "Saúde", value: 2 },
                 { label: "Intelectual", value: 5 },
                 { label: "Emocional", value: 3 }
             ]
         },
-        
+
         {
-            x: "Relacionamento", y: 10, color: theme.COLORS.GREEN,
+            sessao: "Relacionamento", valor: 10, color: theme.COLORS.GREEN,
             subData: [
                 { label: "Família", value: 5 },
                 { label: "Amoroso", value: 2 },
@@ -41,61 +42,41 @@ export function RodaDaVida() {
         },
 
         {
-            x: "Qualidade de vida", y: 10, color: theme.COLORS.BLUE,
+            sessao: "Qualidade de vida", valor: 10, color: theme.COLORS.BLUE,
             subData: [
                 { label: "Hobbies", value: 5 },
                 { label: "Plenitude", value: 4 },
                 { label: "Espiritualidade", value: 1 }
             ]
         },
-    ];
-    const [chartData, setChartData] = useState(data); // Estado inicial igual aos dados iniciais
-    
-    async function updateSubDataValue(count) {
-        const newData = [...data]; // Cria uma cópia do array de dados
-        
-        const vidaSocialIndex = newData.findIndex((d) => d.x === 'Vida Social');
-        if (vidaSocialIndex !== -1) {
-            const vidaSocialData = newData[vidaSocialIndex];
-            const vidaSocialSubData = vidaSocialData.subData;
-            
-            // Atualiza o valor de 'Vida Social' no subData
-            vidaSocialSubData[2].value = count;
-            
-            // Atualiza o objeto 'Vida Social' no array de dados
-            newData[vidaSocialIndex] = { ...vidaSocialData, subData: vidaSocialSubData };
-        }
+    ]);
 
-        // Atualiza o estado com o novo array de dados
-        setData(newData);
-    }
-
-
-    function updateChartData(count) {
-        setChartData((prevData) => {
-            const newData = [...prevData]; // Cria uma cópia do array de dados
-            const vidaSocialIndex = newData.findIndex((d) => d.x === 'Vida Social');
-            if (vidaSocialIndex !== -1) {
-                const vidaSocialData = newData[vidaSocialIndex];
-                const vidaSocialSubData = vidaSocialData.subData;
-                vidaSocialSubData[2].value = count; // Atualiza o valor no subData
-                newData[vidaSocialIndex] = { ...vidaSocialData, subData: vidaSocialSubData }; // Atualiza o objeto no array de dados
-            }
-            return newData; // Retorna o novo array de dados atualizado
-        });
-    }
-
-
-    async function getItemCountInKey() {
+    const getData = async () => {
         try {
             const value = await AsyncStorage.getItem('@VidaSocial');
-            const items = JSON.parse(value);
-            const itemCount = items ? items.length : 0;
-            console.log(`Quantidade de itens na chave ${'@VidaSocial'}: ${itemCount}`);
+
+            if (value !== null) {
+                const parsedData = JSON.parse(value);
+                const tamanhoItens = parsedData.length;
+                const valorExistente = 10;
+                const resultado = tamanhoItens + valorExistente;
+
+                setData(prevData => {
+                    return prevData.map(section => {
+                        if (section.sessao === "Relacionamento") {
+                            return {
+                                ...section,
+                                valor: resultado
+                            };
+                        }
+                        return section;
+                    });
+                });
+            }
         } catch (error) {
             console.log(`Erro ao obter a quantidade de itens na chave "${'@VidaSocial'}":`, error);
         }
-    }
+    };
 
     function handleButtonPressIn(index) {
         setSelectedButton(index);
@@ -104,8 +85,7 @@ export function RodaDaVida() {
             toValue: 0.9,
             duration: 200,
             useNativeDriver: true,
-            easing: Easing.bezier(0.25, 0.1, 0.25, 1), // Usando Easing.bezier para uma interpolação mais suave
-
+            easing: Easing.bezier(0.25, 0.1, 0.25, 1),
         }).start();
     }
 
@@ -119,7 +99,6 @@ export function RodaDaVida() {
             easing: Easing.bezier(0.25, 0.1, 0.25, 1),
         }).start();
     }
-
 
     function handleSec() {
         navigation.navigate('secoes');
@@ -156,7 +135,7 @@ export function RodaDaVida() {
                 />
             ));
         } else {
-            const sessionData = data.find((d) => d.x === selectedSession);
+            const sessionData = data.find((d) => d.sessao === selectedSession);
             if (sessionData && sessionData.subData) {
                 return sessionData.subData.map((subD, i) => (
                     <VictoryBar
@@ -182,14 +161,12 @@ export function RodaDaVida() {
         }
     }
 
-
-    useEffect(() => {
-        console.log(getItemCountInKey())
-    }, [])
-
+    useFocusEffect(useCallback(() => {
+        getData()
+      },[]))
+      
 
     return (
-
         <S.Container>
             {/* Header */}
             <S.Header>
@@ -199,10 +176,8 @@ export function RodaDaVida() {
             </S.Header>
 
             <S.ContainerScroll>
-
                 {/* Roda da vida */}
                 <S.RodaVida onPress={handleSec} >
-
                     <VictoryChart
                         polar
                         theme={VictoryTheme.material}
@@ -222,7 +197,7 @@ export function RodaDaVida() {
                         {data.map((d, i) => (
                             <VictoryPolarAxis
                                 key={i}
-                                label={d.x}
+                                label={d.sessao}
                                 labelPlacement="perpendicular"
                                 style={{
                                     axis: { stroke: "none" },
@@ -230,19 +205,17 @@ export function RodaDaVida() {
                                     ticks: { size: 0 },
                                     tickLabels: { fontSize: 10, padding: 5 }
                                 }}
-                                axisValue={d.x}
+                                axisValue={d.sessao}
                                 labelComponent={
                                     <VictoryTooltip
                                         flyoutStyle={{ fill: d.color, stroke: 'none' }} // Define o fundo colorido com base na cor de cada seção
                                         style={{ fill: 'white' }} // Define a cor do texto das labels como branco
-
                                     />
                                 }
                             />
                         ))}
 
                         {data.map((d, i) => (
-
                             <VictoryBar
                                 key={i}
                                 style={{
@@ -254,7 +227,6 @@ export function RodaDaVida() {
                                     },
                                 }}
                                 data={selectedSession === i ? d.subData.map((subD) => ({ x: subD.label, y: subD.value })) : []}
-
                                 animate={{
                                     onLoad: { duration: 300 },
                                     easing: "bounce"
@@ -266,7 +238,6 @@ export function RodaDaVida() {
 
                         {renderBars()}
                     </VictoryChart>
-
                 </S.RodaVida>
 
                 {/*  Geral */}
@@ -284,13 +255,15 @@ export function RodaDaVida() {
                 {/* profissional e pessoal */}
                 <S.Secoes >
                     {data.slice(0, 2).map((d, i) => (
-                        <S.Secao key={i} style={{ backgroundColor: d.color, marginRight: 10 }}
+                        <S.Secao
+                            key={i}
+                            style={{ backgroundColor: d.color, marginRight: 10 }}
                             onPressIn={() => handleButtonPressIn(i)}
                             onPressOut={handleButtonPressOut}
-                            onPress={() => handleSessionClick(i)}
+                            onPress={() => handleSessionClick(d.sessao)}
                         >
-                            <S.Text >{d.x}</S.Text>
-                            <S.Text >{d.y}</S.Text>
+                            <S.Text>{d.sessao}</S.Text>
+                            <S.Text>{d.valor}</S.Text>
                         </S.Secao>
                     ))}
                 </S.Secoes>
@@ -298,13 +271,15 @@ export function RodaDaVida() {
                 {/* relacionamento e qua de vida */}
                 <S.Secoes >
                     {data.slice(2, 4).map((d, i) => (
-                        <S.Secao key={i} style={{ backgroundColor: d.color, marginRight: 10 }}
+                        <S.Secao
+                            key={i}
+                            style={{ backgroundColor: d.color, marginRight: 10 }}
                             onPressIn={() => handleButtonPressIn(i + 2)}
                             onPressOut={handleButtonPressOut}
-                            onPress={() => handleSessionClick(i + 2)}
+                            onPress={() => handleSessionClick(d.sessao)}
                         >
-                            <S.Text >{d.x}</S.Text>
-                            <S.Text >{d.y}</S.Text>
+                            <S.Text>{d.sessao}</S.Text>
+                            <S.Text>{d.valor}</S.Text>
                         </S.Secao>
                     ))}
                 </S.Secoes>
@@ -313,7 +288,7 @@ export function RodaDaVida() {
                     <S.Text>Editar Roda da vida</S.Text>
                 </S.Btn>
 
-                <S.Btn onPress={handleMeCuidar} >
+                <S.Btn onPress={handleMeCuidar}>
                     <S.Text>Me cuidar</S.Text>
                 </S.Btn>
 

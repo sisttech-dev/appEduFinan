@@ -12,7 +12,7 @@ export function InfoObjetivo() {
     const [objetivos, setObjetivos] = useState<string[]>([]);
     const navigation = useNavigation();
     const route = useRoute();
-    const newObjetivo = route.params;
+    const { newObjetivo } = route.params;
 
     async function clearLocalStorage() {
         try {
@@ -68,19 +68,24 @@ export function InfoObjetivo() {
     }
 
     function handleExcluir() {
-        const teste = JSON.stringify(newObjetivo);
-        console.log(teste)
         Alert.alert(
-            'Confirmação',
-            'Deseja excluir este objetivo?',
-            [
-                {text: 'Cancelar', style: 'cancel',},
-                {text: 'Confirmar',
-                    onPress: async () => {
-                        try {
-                            await objetivoRemoveByName(teste);
-                            navigation.navigate('vidaSocial');
-                        } catch (error) {
+          'Confirmação',
+          'Deseja excluir este objetivo?',
+          [
+            {
+              text: 'Cancelar',
+              style: 'cancel',
+            },
+            {
+              text: 'Confirmar',
+              onPress: async () => {
+                try {
+                  // Remover a informação do Local Storage
+                  await AsyncStorage.removeItem('@VidaSocial');
+      
+                  // Redirecionar para a tela 'vidaSocial'
+                  navigation.navigate('vidaSocial');
+                } catch (error) {
                   console.log('Erro ao excluir o objetivo:', error);
                 }
               },
@@ -89,6 +94,7 @@ export function InfoObjetivo() {
           { cancelable: false }
         );
       }
+      
       
     useEffect(() => {
         viewLocalStorage();
