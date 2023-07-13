@@ -36,6 +36,7 @@ export declare global {
         persoPet: undefined;
         persoCor: undefined;
         calendario: undefined;
+        editarRoda: undefined;
       }
     }
   }

@@ -51,6 +51,16 @@ export function RodaDaVida() {
         },
     ]);
 
+
+    const getValorAtual = (section) => {
+        if (section.sessao === "Relacionamento" || section.sessao === "Qualidade de vida") {
+            return section.valor;
+        }
+        return null; // ou algum valor padrão, caso não seja uma das seções desejadas
+    };
+
+    const [valorAnterior, setValorAnterior] = useState(null);
+
     const getData = async () => {
         try {
             const value = await AsyncStorage.getItem('@VidaSocial');
@@ -67,6 +77,21 @@ export function RodaDaVida() {
                             return {
                                 ...section,
                                 valor: resultado
+                            };
+                        }
+                        return section;
+                    });
+                });
+
+                setValorAnterior(resultado); // Armazena o valor atualizado
+            } else if (valorAnterior !== null) {
+                // Utiliza o valor anterior mesmo se o array estiver vazio
+                setData(prevData => {
+                    return prevData.map(section => {
+                        if (section.sessao === "Relacionamento") {
+                            return {
+                                ...section,
+                                valor: valorAnterior
                             };
                         }
                         return section;
@@ -89,6 +114,7 @@ export function RodaDaVida() {
         }).start();
     }
 
+
     function handleButtonPressOut() {
         setSelectedButton(null);
 
@@ -106,6 +132,9 @@ export function RodaDaVida() {
 
     function handleMeCuidar() {
         navigation.navigate('meCuidar');
+    }
+    function handleEditar() {
+        navigation.navigate('editarRoda');
     }
 
     function handleSessionClick(session) {
@@ -163,8 +192,7 @@ export function RodaDaVida() {
 
     useFocusEffect(useCallback(() => {
         getData()
-      },[]))
-      
+    }, []))
 
     return (
         <S.Container>
@@ -279,12 +307,12 @@ export function RodaDaVida() {
                             onPress={() => handleSessionClick(d.sessao)}
                         >
                             <S.Text>{d.sessao}</S.Text>
-                            <S.Text>{d.valor}</S.Text>
+                            <S.Text>{getValorAtual(d)}</S.Text>
                         </S.Secao>
                     ))}
                 </S.Secoes>
 
-                <S.Btn>
+                <S.Btn onPress={handleEditar}>
                     <S.Text>Editar Roda da vida</S.Text>
                 </S.Btn>
 

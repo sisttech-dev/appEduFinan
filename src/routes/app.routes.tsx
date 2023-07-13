@@ -37,6 +37,7 @@ import { Saude } from '@screens/Saude';
 import { Espiritualidade } from '@screens/Espiritualidade';
 import { Hobbies } from '@screens/Hobbies';
 import { Felicidade } from '@screens/Felicidade';
+import { EditarRoda } from '@screens/EditarRoda';
 
 
 const Stack = createNativeStackNavigator();
@@ -102,6 +103,10 @@ function RodaStack() {
       <Stack.Screen
         name="rodaDaVida"
         component={RodaDaVida}
+      />
+      <Stack.Screen
+        name="editarRoda"
+        component={EditarRoda}
       />
       <Stack.Screen
         name="vidaSocial"
